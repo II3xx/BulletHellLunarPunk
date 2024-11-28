@@ -8,7 +8,7 @@ using UnityEngine.InputSystem;
     typeof(CapsuleCollider2D))]
 public class PlatformMoverMovementScript : MonoBehaviour
 {
-    [SerializeField] [Range(0,10)] private float maxSpeed, jumpForce;
+    private Stats stats;
     [SerializeField] private Rigidbody2D rb;
     private CircleCollider2D circCol2D;
     private PlayerInput playInput;
@@ -23,6 +23,7 @@ public class PlatformMoverMovementScript : MonoBehaviour
 
     private void Awake()
     {
+        stats = gameObject.GetComponent<Stats>();
         circCol2D = this.gameObject.GetComponent<CircleCollider2D>();
         rb.gravityScale = 0;
         uniformScale = transform.localScale.x;
@@ -47,7 +48,7 @@ public class PlatformMoverMovementScript : MonoBehaviour
     Vector2 TranslateInputToVelocity(Vector2 input)
     {
         // Make the character move along the X-axis
-        return new Vector2(input.x * maxSpeed, input.y * maxSpeed);
+        return new Vector2(input.x * stats.Speed, input.y * stats.Speed);
     }
 
     private void FixedUpdate()
