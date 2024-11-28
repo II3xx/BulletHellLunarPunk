@@ -9,13 +9,14 @@ public class EnemyMovement : MonoBehaviour
 {
     private GameObject player;
     [SerializeField] [Range(0,8)] float minDistance = 0;
-    [SerializeField] [Range(0, 10)] float movementSpeed = 2;
+    private Stats stats;
     readonly float deadZone = 0.1f;
     Rigidbody2D rb2D;
 
     // Start is called before the first frame update
     void Start()
     {
+        stats = gameObject.GetComponent<Stats>();
         player = GameObject.FindGameObjectWithTag("Player");
         rb2D = gameObject.GetComponent<Rigidbody2D>();
     }
@@ -34,11 +35,11 @@ public class EnemyMovement : MonoBehaviour
 
         if (length + deadZone < minDistance)
         {
-            rb2D.velocity = new Vector2(movementSpeed * Mathf.Cos(angle), movementSpeed * Mathf.Sin(angle));
+            rb2D.velocity = new Vector2(stats.Speed * Mathf.Cos(angle), stats.Speed * Mathf.Sin(angle));
         }
         else if (length - deadZone > minDistance)
         {
-            rb2D.velocity = new Vector2(-movementSpeed * Mathf.Cos(angle), -movementSpeed * Mathf.Sin(angle));
+            rb2D.velocity = new Vector2(-stats.Speed * Mathf.Cos(angle), -stats.Speed * Mathf.Sin(angle));
         }
         else
         {
