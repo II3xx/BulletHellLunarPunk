@@ -404,7 +404,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 6
-  movementSpeed: 2
+  movementSpeed: 3.5
   allegiance: 0
 --- !u!114 &6722066282716005669
 MonoBehaviour:
