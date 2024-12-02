@@ -336,7 +336,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletSpeed: 2
   BulletAmount: 1
-  BulletSpread: 0
+  BulletSpread: 15
   currentRoF: 3
   bullet: {fileID: 5625652813693948211, guid: 774be4b4c5194c14b90984a6c5cb93d8, type: 3}
   rb2D: {fileID: 1495542904}
@@ -517,7 +517,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -1059,9 +1059,21 @@ Tilemap:
   m_TileAssetArray:
   - m_RefCount: 52
     m_Data: {fileID: 11400000, guid: 2579f18b9228f3641b3800915948a7c5, type: 2}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   m_TileSpriteArray:
   - m_RefCount: 52
     m_Data: {fileID: 7482667652216324306, guid: 3f8e6fad8713d954a8d5c245f6ae8161, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   m_TileMatrixArray:
   - m_RefCount: 52
     m_Data:
@@ -1084,6 +1096,10 @@ Tilemap:
   m_TileColorArray:
   - m_RefCount: 52
     m_Data: {r: 1, g: 1, b: 1, a: 1}
+  - m_RefCount: 0
+    m_Data: {r: 4.077e-41, g: 4.077e-41, b: 4.077e-41, a: 4.077e-41}
+  - m_RefCount: 0
+    m_Data: {r: 4.077e-41, g: 4.077e-41, b: 4.077e-41, a: 4.077e-41}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1214,8 +1230,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 1495542904}
   DashVelocity: 3
-  dashTime: 0.2
-  DashCooldown: 3
+  dashTime: 0.4
+  DashCooldown: 0.5
   animator: {fileID: 0}
   onJump:
     m_PersistentCalls:
@@ -1438,8 +1454,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: 6
-  movementSpeed: 2
+  movementSpeed: 5
   allegiance: 0
+  onDeath:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1495542908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1661,6 +1680,9 @@ MonoBehaviour:
   Health: 2
   movementSpeed: 4
   allegiance: 1
+  onDeath:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
