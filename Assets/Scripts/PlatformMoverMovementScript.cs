@@ -15,7 +15,15 @@ public class PlatformMoverMovementScript : MonoBehaviour
     private bool InputEnabled = true;
     private Vector2 moveInput;
     private Vector2 velocity;
+    [SerializeField] [Range(2f, 10f)] private float DashVelocity = 8;
+    [SerializeField] [Range(0.1f,1.5f)] private float dashTime = 1;
+    private float rotState;
     private float uniformScale;
+    private float runTime;
+    private bool dashAvailable = true;
+    private float dashRunTime;
+    [SerializeField] [Range(0.25f, 3f)] private float DashCooldown;
+    private bool isDashing = false;
     
     [SerializeField] private Animator animator;
 
@@ -36,13 +44,67 @@ public class PlatformMoverMovementScript : MonoBehaviour
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        moveInput = InputEnabled ? context.ReadValue<Vector2>().normalized : Vector2.zero;
+        Vector2 moveVector = context.ReadValue<Vector2>();
+        moveInput = InputEnabled ? moveVector.normalized : Vector2.zero;
     }
+
+    public void OnDash()
+    {
+        if (!dashAvailable || isDashing)
+            return;
+        InputEnabled = false;
+        isDashing = true;
+        if (moveInput != new Vector2(0, 0))
+        {
+            rb.velocity = moveInput * DashVelocity / dashTime;
+            return;
+        }
+        else
+        {
+            switch (rotState)
+            {
+                case 0f:
+                    rb.velocity = Vector2.left * DashVelocity / dashTime;
+                    break;
+                case 0.33f:
+                    rb.velocity = Vector2.down * DashVelocity / dashTime;
+                    break;
+                case 0.66f:
+                    rb.velocity = Vector2.right * DashVelocity / dashTime;
+                    break;
+                case 1f:
+                    rb.velocity = Vector2.up * DashVelocity / dashTime;
+                    break;
+            }
+        }
+    }
+
     
     // Update is called once per frame
     private void Update()
     {
         velocity = TranslateInputToVelocity(moveInput);
+        if (isDashing)
+        {
+            runTime += Time.deltaTime;
+            if(runTime >= dashTime)
+            {
+                dashAvailable = false;
+                runTime = 0;
+                isDashing = false;
+                InputEnabled = true;
+            }
+        }
+        else if (!dashAvailable)
+        {
+            dashRunTime += Time.deltaTime;
+            if (dashRunTime >= DashCooldown)
+            {
+                dashRunTime = 0;
+                dashAvailable = true;
+            }
+
+        }
     }
     
     Vector2 TranslateInputToVelocity(Vector2 input)
@@ -53,16 +115,33 @@ public class PlatformMoverMovementScript : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.velocity = velocity;
+        if(!isDashing)
+            rb.velocity = velocity;
         if (animator == null)
             return;
-        if(velocity.x != 0)
+        if(velocity != new Vector2(0, 0) && !isDashing)
         {
             animator.SetFloat("RunState", 0.5f);
         }
         else
         {
             animator.SetFloat("RunState", 0);
+        }
+        if(velocity.x < 0)
+        {
+            rotState = 0f;
+        }
+        else if (velocity.x > 0)
+        {
+            rotState = 0.66f;
+        }
+        else if (velocity.y > 0)
+        {
+            rotState = 1f;
+        }
+        else if (velocity.y < 0)
+        {
+            rotState = 0.33f;
         }
     }
 }

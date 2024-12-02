@@ -315,7 +315,6 @@ GameObject:
   - component: {fileID: 593022580}
   - component: {fileID: 593022579}
   - component: {fileID: 593022578}
-  - component: {fileID: 593022581}
   m_Layer: 0
   m_Name: Pistol
   m_TagString: Untagged
@@ -340,6 +339,7 @@ MonoBehaviour:
   BulletSpread: 0
   currentRoF: 3
   bullet: {fileID: 5625652813693948211, guid: 774be4b4c5194c14b90984a6c5cb93d8, type: 3}
+  rb2D: {fileID: 1495542904}
 --- !u!212 &593022579
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -407,33 +407,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1495542899}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &593022581
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 593022577}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!1 &608080117
 GameObject:
   m_ObjectHideFlags: 0
@@ -1240,6 +1213,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 1495542904}
+  DashVelocity: 3
+  dashTime: 0.2
+  DashCooldown: 3
   animator: {fileID: 0}
   onJump:
     m_PersistentCalls:
@@ -1293,7 +1269,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0.1
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -1407,6 +1383,22 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: a4f0d3a1-355f-4bb7-a974-d744b11059b2
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1495542901}
+        m_TargetAssemblyTypeName: PlatformMoverMovementScript, Assembly-CSharp
+        m_MethodName: OnDash
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: b6846481-32a8-4e01-a361-34e105d8f682
+    m_ActionName: Player/Dash[/Keyboard/q]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player
@@ -1460,6 +1452,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fe7d63d491b7b5478e3b3f6d8cafb6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Weapon: {fileID: 593022578}
 --- !u!1 &1667616386
 GameObject:
   m_ObjectHideFlags: 0
@@ -1647,8 +1640,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpeed: 4
-  BulletAmount: 4
-  BulletSpread: 45
+  BulletAmount: 1
+  BulletSpread: 0
   currentRoF: 0
   maxRof: 2
   minRof: 1
