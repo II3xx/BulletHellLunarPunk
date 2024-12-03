@@ -63,7 +63,7 @@ public class Bullet : MonoBehaviour
         {
             if (playerScript.Allegiance != allegiance)
             {
-                collision.GetComponent<Stats>().Damage = damage;
+                playerScript.Damage = damage;
                 Destroy(gameObject);
                 return;
             }

@@ -98,12 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83594fdc05c50e74292fa04dedef0cab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletSpeed: 2
-  BulletAmount: 1
-  BulletSpread: 0
-  currentRoF: 3
-  bullet: {fileID: 5625652813693948211, guid: 774be4b4c5194c14b90984a6c5cb93d8, type: 3}
-  rb2D: {fileID: 0}
+  weaponStats: {fileID: 0}
 --- !u!50 &101926801260514321
 Rigidbody2D:
   serializedVersion: 4
@@ -144,7 +139,6 @@ GameObject:
   - component: {fileID: 924560840922002379}
   - component: {fileID: 8366651747026274740}
   - component: {fileID: 6161910332171901852}
-  - component: {fileID: 5795003554540676119}
   - component: {fileID: 6722066282716005669}
   - component: {fileID: 5109134604551957325}
   - component: {fileID: 7835343691709368589}
@@ -391,21 +385,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 1}
   m_Direction: 0
---- !u!114 &5795003554540676119
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9046879934500203297}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98d94e27f0e13244eabc9f018d77c8f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Health: 6
-  movementSpeed: 3.5
-  allegiance: 0
 --- !u!114 &6722066282716005669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -418,9 +397,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 809b9eae94a34934fb7f84316149c003, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 8366651747026274740}
-  animator: {fileID: 0}
+  stats: {fileID: 0}
   onJump:
+    m_PersistentCalls:
+      m_Calls: []
+  onDeath:
     m_PersistentCalls:
       m_Calls: []
 --- !u!95 &5109134604551957325
@@ -456,4 +437,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fe7d63d491b7b5478e3b3f6d8cafb6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Weapon: {fileID: 7989880066394520185}
+  Weapon: {fileID: 0}

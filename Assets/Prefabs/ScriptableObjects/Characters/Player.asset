@@ -12,8 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2276a3e789a16a449b5f43e07b4d0095, type: 3}
   m_Name: Player
   m_EditorClassIdentifier: 
-  CharacterName: LeonardoDaVinci
+  Health: -2
   movementSpeed: 2
+  allegiance: 0
+  onDeath:
+    m_PersistentCalls:
+      m_Calls: []
+  CharacterName: LeonardoDaVinci
   dashCooldown: 0.5
   dashVelocity: 4
   dashTime: 0.2
