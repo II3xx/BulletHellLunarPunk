@@ -48,12 +48,26 @@ public class Bullet : MonoBehaviour
     {
         if (!ready)
             return;
-        if (collision.GetComponent<Stats>() != null)
-            if (collision.GetComponent<Stats>().Allegiance != allegiance)
+        EnemyMovement enemyMovement = collision.GetComponent<EnemyMovement>();
+        if (enemyMovement != null)
+        {
+            if (enemyMovement.Allegiance != allegiance)
+            {
+                enemyMovement.Damage = damage;
+                Destroy(gameObject);
+                return;
+            }
+        }
+        PlayerScript playerScript = collision.GetComponent<PlayerScript>();
+        if(playerScript != null)
+        {
+            if (playerScript.Allegiance != allegiance)
             {
                 collision.GetComponent<Stats>().Damage = damage;
                 Destroy(gameObject);
+                return;
             }
+        }
         if(IsWall(collision))
         {
             Destroy(gameObject);

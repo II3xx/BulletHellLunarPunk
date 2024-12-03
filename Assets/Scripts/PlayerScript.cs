@@ -34,6 +34,16 @@ public class PlayerScript : MonoBehaviour
         stats.onDeath.AddListener(OnDeath);
     }
 
+    public Faction Allegiance
+    {
+        get => stats.Allegiance;
+    }
+
+    public int Damage
+    {
+        set => stats.Damage = value;
+    }
+
     private void OnDeath()
     {
         onDeath.Invoke();

@@ -22,12 +22,22 @@ public class EnemyMovement : MonoBehaviour
         enemyStats.onDeath.AddListener(OnDeath);
     }
 
-    void OnDeath()
+    private void OnDeath()
     {
         onDeath.Invoke();
     }
 
-    float AngleMath(Vector2 Dest)
+    public Faction Allegiance
+    {
+        get => enemyStats.Allegiance;
+    }
+
+    public int Damage
+    {
+        set => enemyStats.Damage = value;
+    }
+
+    private float AngleMath(Vector2 Dest)
     {
         return Mathf.Atan2(rb2D.position.y - Dest.y, rb2D.position.x - Dest.x);
     }
