@@ -2,23 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(Rigidbody2D))]
 
 public class EnemyMovement : MonoBehaviour
 {
     private GameObject player;
-    [SerializeField] [Range(0,8)] float minDistance = 0;
-    private Stats stats;
+    [SerializeField] private EnemyStats enemyStats;
     readonly float deadZone = 0.1f;
     Rigidbody2D rb2D;
+    [SerializeField] private UnityEvent onDeath;
 
     // Start is called before the first frame update
     void Start()
     {
-        stats = gameObject.GetComponent<Stats>();
         player = GameObject.FindGameObjectWithTag("Player");
         rb2D = gameObject.GetComponent<Rigidbody2D>();
+        enemyStats.onDeath.AddListener(OnDeath);
+    }
+
+    void OnDeath()
+    {
+        onDeath.Invoke();
     }
 
     float AngleMath(Vector2 Dest)
@@ -33,13 +39,13 @@ public class EnemyMovement : MonoBehaviour
         float angle = AngleMath(Dest);
         float length = Mathf.Abs(Vector2.Distance(Dest, rb2D.position));
 
-        if (length + deadZone < minDistance)
+        if (length + deadZone < enemyStats.MinDistance)
         {
-            rb2D.velocity = new Vector2(stats.Speed * Mathf.Cos(angle), stats.Speed * Mathf.Sin(angle));
+            rb2D.velocity = new Vector2(enemyStats.Speed * Mathf.Cos(angle), enemyStats.Speed * Mathf.Sin(angle));
         }
-        else if (length - deadZone > minDistance)
+        else if (length - deadZone > enemyStats.MinDistance)
         {
-            rb2D.velocity = new Vector2(-stats.Speed * Mathf.Cos(angle), -stats.Speed * Mathf.Sin(angle));
+            rb2D.velocity = new Vector2(-enemyStats.Speed * Mathf.Cos(angle), -enemyStats.Speed * Mathf.Sin(angle));
         }
         else
         {

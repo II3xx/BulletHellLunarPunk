@@ -37,6 +37,13 @@ public class Bullet : MonoBehaviour
         }
     }
 
+    private bool IsWall(Collider2D collision)
+    {
+        if (collision is not BoxCollider2D && collision is not CircleCollider2D && collision is not CapsuleCollider2D)
+            return true;
+        return false;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!ready)
@@ -47,5 +54,9 @@ public class Bullet : MonoBehaviour
                 collision.GetComponent<Stats>().Damage = damage;
                 Destroy(gameObject);
             }
+        if(IsWall(collision))
+        {
+            Destroy(gameObject);
+        }
     }
 }

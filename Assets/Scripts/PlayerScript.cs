@@ -6,35 +6,37 @@ using UnityEngine.Events;
 using UnityEngine.InputSystem;
 [RequireComponent(typeof(Rigidbody2D),
     typeof(CapsuleCollider2D))]
-public class PlatformMoverMovementScript : MonoBehaviour
+public class PlayerScript : MonoBehaviour
 {
-    private Stats stats;
-    [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private CharacterStats stats;
+    [SerializeField] private UnityEvent onJump;
+    [SerializeField] private UnityEvent onDeath;
+    private Rigidbody2D rb;
     private CircleCollider2D circCol2D;
     private PlayerInput playInput;
     private bool InputEnabled = true;
     private Vector2 moveInput;
     private Vector2 velocity;
-    [SerializeField] [Range(2f, 10f)] private float DashVelocity = 8;
-    [SerializeField] [Range(0.1f,1.5f)] private float dashTime = 1;
     private float rotState;
-    private float uniformScale;
     private float runTime;
     private bool dashAvailable = true;
     private float dashRunTime;
-    [SerializeField] [Range(0.25f, 3f)] private float DashCooldown;
     private bool isDashing = false;
+    private Animator animator;
     
-    [SerializeField] private Animator animator;
-
-    [SerializeField] private UnityEvent onJump;
 
     private void Awake()
     {
-        stats = gameObject.GetComponent<Stats>();
-        circCol2D = this.gameObject.GetComponent<CircleCollider2D>();
+        rb = gameObject.GetComponent<Rigidbody2D>();
+        circCol2D = gameObject.GetComponent<CircleCollider2D>();
+        animator = gameObject.GetComponent<Animator>();
         rb.gravityScale = 0;
-        uniformScale = transform.localScale.x;
+        stats.onDeath.AddListener(OnDeath);
+    }
+
+    private void OnDeath()
+    {
+        onDeath.Invoke();
     }
 
     public void ToggleInput()
@@ -48,7 +50,7 @@ public class PlatformMoverMovementScript : MonoBehaviour
         moveInput = InputEnabled ? moveVector.normalized : Vector2.zero;
     }
 
-    public void OnDash()
+    public void OnDash(InputAction.CallbackContext context)
     {
         if (!dashAvailable || isDashing)
             return;
@@ -56,7 +58,7 @@ public class PlatformMoverMovementScript : MonoBehaviour
         isDashing = true;
         if (moveInput != new Vector2(0, 0))
         {
-            rb.velocity = moveInput * DashVelocity / dashTime;
+            rb.velocity = moveInput * stats.DashVelocity / stats.DashTime;
             return;
         }
         else
@@ -64,16 +66,16 @@ public class PlatformMoverMovementScript : MonoBehaviour
             switch (rotState)
             {
                 case 0f:
-                    rb.velocity = Vector2.left * DashVelocity / dashTime;
+                    rb.velocity = Vector2.left * stats.DashVelocity / stats.DashTime;
                     break;
                 case 0.33f:
-                    rb.velocity = Vector2.down * DashVelocity / dashTime;
+                    rb.velocity = Vector2.down * stats.DashVelocity / stats.DashTime;
                     break;
                 case 0.66f:
-                    rb.velocity = Vector2.right * DashVelocity / dashTime;
+                    rb.velocity = Vector2.right * stats.DashVelocity / stats.DashTime;
                     break;
                 case 1f:
-                    rb.velocity = Vector2.up * DashVelocity / dashTime;
+                    rb.velocity = Vector2.up * stats.DashVelocity / stats.DashTime;
                     break;
             }
         }
@@ -87,7 +89,7 @@ public class PlatformMoverMovementScript : MonoBehaviour
         if (isDashing)
         {
             runTime += Time.deltaTime;
-            if(runTime >= dashTime)
+            if(runTime >= stats.DashTime)
             {
                 dashAvailable = false;
                 runTime = 0;
@@ -98,7 +100,7 @@ public class PlatformMoverMovementScript : MonoBehaviour
         else if (!dashAvailable)
         {
             dashRunTime += Time.deltaTime;
-            if (dashRunTime >= DashCooldown)
+            if (dashRunTime >= stats.DashCooldown)
             {
                 dashRunTime = 0;
                 dashAvailable = true;

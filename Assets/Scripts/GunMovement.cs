@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class GunMovement : MonoBehaviour
 {
-    [SerializeField] private WeaponStats Weapon;
+    [SerializeField] private GameObject Weapon;
     private float maxDistance = 0.8f;
     private Rigidbody2D rb2D;
 

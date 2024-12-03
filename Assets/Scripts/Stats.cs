@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Stats : MonoBehaviour
+public class Stats : ScriptableObject
 {
-    [SerializeField] [Range(0, 200)] private int Health;
-    [SerializeField] [Range(0, 10)] private float movementSpeed;
-    [SerializeField] private Faction allegiance;
-    [SerializeField] private UnityEvent onDeath;
+    [SerializeField] [Range(0, 200)] protected int Health;
+    [SerializeField] [Range(0, 10)] protected float movementSpeed;
+    [SerializeField] protected Faction allegiance;
+    [HideInInspector] public UnityEvent onDeath;
 
     public int Damage
     {

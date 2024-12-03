@@ -2,43 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeaponStats : BulletShoot
+[CreateAssetMenu(fileName = "WeaponStats", menuName = "Player/WeaponStats", order = 1)]
+public class WeaponStats : ScriptableObject
 {
-    [SerializeField] private GameObject bullet;
-    [SerializeField] private Rigidbody2D rb2D;
-    private float runTime;
-
-    private void Awake()
-    {
-        runTime = currentRoF;
-    }
-
-    public float RateOfFire
-    {
-        get => currentRoF;
-    }
-
-    private void Update()
-    {
-        runTime += Time.deltaTime;
-    }
-
-    public void OnShoot()
-    {
-        if (runTime < RateOfFire)
-        {
-            return;
-        }
-        runTime = 0;
-        for (int i = 0; i < BulletAmount; i++)
-        {
-            float angle = Mathf.Deg2Rad * (transform.localRotation.eulerAngles.z + Random.Range(0, BulletSpread) - BulletSpread * 0.5f - 90);
-            Vector2 bulletVelocity = new(bulletSpeed * Mathf.Cos(angle), bulletSpeed * Mathf.Sin(angle));
-            GameObject Bullet = GameObject.Instantiate(bullet);
-            Bullet.AddComponent(typeof(Bullet));
-            Bullet.transform.position = transform.position;
-            Bullet.transform.rotation = Quaternion.Euler(0,0,Mathf.Rad2Deg * angle - 90);
-            Bullet.GetComponent<Bullet>().SetBulletStats(bulletVelocity, Faction.player);
-        }
-    }
+    [Range(0.1f, 8f)] public float bulletSpeed = 4;
+    [Range(1, 10)] public int BulletAmount = 1;
+    [Range(0, 180)] [Tooltip("The amount of conal spread in degrees")] public float BulletSpread = 5f;
+    [Range(0.25f, 8)] public float fireRate = 1f;
+    public GameObject bullet;
 }

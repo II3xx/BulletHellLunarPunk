@@ -5,26 +5,23 @@ using UnityEditor;
 
 [RequireComponent( typeof(Rigidbody2D))]
 
-public class EnemyBulletShoot : BulletShoot
+public class EnemyBulletShoot : MonoBehaviour
 {
     private GameObject player;
-
-    [SerializeField] [Range(0.5f,3f)] private float maxRof = 2f;
-    [SerializeField] [Range(0,2f)] private float minRof = 1f;
-    [SerializeField] GameObject BulletPrefab;
+    [SerializeField] EnemyStats enemyStats;
     private Rigidbody2D rb2D;
-    
+    private float currentRoF;
     private float runTime;
     
 
     void RandomizeRoF()
     {
-        currentRoF = Random.Range(minRof, maxRof);
+        currentRoF = Random.Range(enemyStats.MinRof, enemyStats.MaxRof);
     }
 
     float AngleMath(Vector2 Dest)
     {
-        return Mathf.Atan2(Dest.y - rb2D.position.y, Dest.x - rb2D.position.x) + Mathf.Deg2Rad * (Random.Range(0, BulletSpread) - BulletSpread * 0.5f);
+        return Mathf.Atan2(Dest.y - rb2D.position.y, Dest.x - rb2D.position.x) + Mathf.Deg2Rad * (Random.Range(0, enemyStats.BulletSpread) - enemyStats.BulletSpread * 0.5f);
     }
 
     void Awake()
@@ -42,11 +39,11 @@ public class EnemyBulletShoot : BulletShoot
         {
             RandomizeRoF();
             runTime = 0;
-            for(int i = 0; i < BulletAmount; i++)
+            for(int i = 0; i < enemyStats.BulletAmount; i++)
             {
                 float angle = AngleMath(player.GetComponent<Rigidbody2D>().position);
-                Vector2 bulletVelocity = new(bulletSpeed * Mathf.Cos(angle), bulletSpeed * Mathf.Sin(angle));
-                GameObject Bullet = GameObject.Instantiate(BulletPrefab);
+                Vector2 bulletVelocity = new(enemyStats.BulletSpeed * Mathf.Cos(angle), enemyStats.BulletSpeed * Mathf.Sin(angle));
+                GameObject Bullet = Instantiate(enemyStats.BulletPrefab);
                 Bullet.AddComponent(typeof(Bullet));
                 Bullet.transform.SetPositionAndRotation(transform.position, Quaternion.Euler(0, 0, Mathf.Rad2Deg * angle - 90));
                 Bullet.GetComponent<Bullet>().SetBulletStats(bulletVelocity, Faction.enemy);
