@@ -5,9 +5,40 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "WeaponStats", menuName = "Player/WeaponStats", order = 1)]
 public class WeaponStats : ScriptableObject
 {
-    [Range(0.1f, 8f)] public float bulletSpeed = 4;
-    [Range(1, 10)] public int BulletAmount = 1;
-    [Range(0, 180)] [Tooltip("The amount of conal spread in degrees")] public float BulletSpread = 5f;
-    [Range(0.25f, 8)] public float fireRate = 1f;
-    public GameObject bullet;
+    [Range(0.1f, 8f)] [SerializeField] private float bulletSpeed = 4;
+    [Range(1, 10)] [SerializeField] private int bulletAmount = 1;
+    [Range(0, 180)] [Tooltip("The amount of conal spread in degrees")] [SerializeField] private float bulletSpread = 5f;
+    [Range(0.25f, 8)] [SerializeField] private float fireRate = 1f;
+    [SerializeField] private GameObject bullet;
+    [SerializeField] private AudioClip gunSound;
+
+    public float BulletSpeed
+    {
+        get => bulletSpeed;
+    }
+
+    public float BulletAmount
+    {
+        get => bulletAmount;
+    }
+
+    public float BulletSpread
+    {
+        get => bulletSpread;
+    }
+
+    public float FireRate
+    {
+        get => fireRate;
+    }
+
+    public GameObject BulletPrefab
+    {
+        get => bullet;
+    }
+
+    public AudioClip GunSound
+    {
+        get => gunSound;
+    }
 }

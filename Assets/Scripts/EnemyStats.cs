@@ -12,6 +12,7 @@ public class EnemyStats : Stats
     [Range(0, 2f)] [SerializeField] protected float minRof = 1f;
     [SerializeField] protected GameObject bulletPrefab;
     [SerializeField] [Range(0, 8)] float minDistance = 0;
+    [SerializeField] AudioClip gunSound;
 
     public float BulletSpeed
     {
@@ -46,5 +47,10 @@ public class EnemyStats : Stats
     public GameObject BulletPrefab
     {
         get => bulletPrefab;
+    }
+
+    public AudioClip GunSound
+    {
+        get => gunSound;
     }
 }

@@ -8,10 +8,11 @@ using UnityEditor;
 public class EnemyBulletShoot : MonoBehaviour
 {
     private GameObject player;
-    [SerializeField] EnemyStats enemyStats;
+    [SerializeField] private EnemyStats enemyStats;
     private Rigidbody2D rb2D;
     private float currentRoF;
     private float runTime;
+    [SerializeField] private AudioSource audioSource;
     
 
     void RandomizeRoF()
@@ -39,7 +40,10 @@ public class EnemyBulletShoot : MonoBehaviour
         {
             RandomizeRoF();
             runTime = 0;
-            for(int i = 0; i < enemyStats.BulletAmount; i++)
+            audioSource.clip = enemyStats.GunSound;
+            audioSource.pitch = Random.Range(0.95f, 1.05f);
+            audioSource.Play();
+            for (int i = 0; i < enemyStats.BulletAmount; i++)
             {
                 float angle = AngleMath(player.GetComponent<Rigidbody2D>().position);
                 Vector2 bulletVelocity = new(enemyStats.BulletSpeed * Mathf.Cos(angle), enemyStats.BulletSpeed * Mathf.Sin(angle));
