@@ -37,4 +37,21 @@ public class CharacterStats : Stats
         get => dashCooldown;
     }
 
+    public CharacterStats CopyStats(CharacterStats copyFrom)
+    {
+        CharacterStats newStats = CreateInstance<CharacterStats>();
+        newStats.Health = copyFrom.Health;
+        newStats.dashSound = copyFrom.dashSound;
+        newStats.Health = copyFrom.Health;
+        newStats.movementSpeed = copyFrom.Health;
+        newStats.allegiance = copyFrom.allegiance;
+        newStats.IFrameOnHit = copyFrom.IFrameOnHit;
+        newStats.currentIFrame = copyFrom.currentIFrame;
+        newStats.IFrameBlinkTime = copyFrom.IFrameBlinkTime;
+        newStats.CharacterName = copyFrom.CharacterName;
+        newStats.dashCooldown = copyFrom.dashCooldown;
+        newStats.dashVelocity = copyFrom.dashVelocity;
+        newStats.dashTime = copyFrom.dashTime;
+        return newStats;
+    }
 }
