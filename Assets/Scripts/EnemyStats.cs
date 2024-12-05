@@ -53,4 +53,25 @@ public class EnemyStats : Stats
     {
         get => gunSound;
     }
+
+    public EnemyStats CopyStats(EnemyStats copyFrom)
+    {
+        EnemyStats newStats = CreateInstance<EnemyStats>();
+        newStats.Health = copyFrom.Health;
+        newStats.gunSound = copyFrom.gunSound;
+        newStats.bulletSpeed = copyFrom.bulletSpeed;
+        newStats.bulletAmount = copyFrom.bulletAmount;
+        newStats.bulletSpread = copyFrom.bulletSpread;
+        newStats.maxRof = copyFrom.maxRof;
+        newStats.minRof = copyFrom.minRof;
+        newStats.bulletPrefab = copyFrom.bulletPrefab;
+        newStats.minDistance = copyFrom.minDistance;
+        newStats.Health = copyFrom.Health;
+        newStats.movementSpeed = copyFrom.Health;
+        newStats.allegiance = copyFrom.allegiance;
+        newStats.IFrameOnHit = copyFrom.Health;
+        newStats.currentIFrame = copyFrom.Health;
+        newStats.IFrameBlinkTime = copyFrom.Health;
+        return newStats;
+}
 }

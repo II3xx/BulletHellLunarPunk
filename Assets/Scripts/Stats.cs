@@ -8,10 +8,10 @@ public class Stats : ScriptableObject
     [SerializeField] [Range(0, 200)] protected int Health;
     [SerializeField] [Range(0, 10)] protected float movementSpeed;
     [SerializeField] protected Faction allegiance;
-    [SerializeField] [Range(0,2)] private float IFrameOnHit;
-    private float currentIFrame;
-    private float IFrameBlinkTime = 0.125f;
-    private float IFrameBlinkRunTime = 0;
+    [SerializeField] [Range(0,2)] protected float IFrameOnHit;
+    protected float currentIFrame;
+    protected float IFrameBlinkTime = 0.125f;
+    protected float IFrameBlinkRunTime = 0;
     [HideInInspector] public UnityEvent onDeath;
 
     public int Damage
