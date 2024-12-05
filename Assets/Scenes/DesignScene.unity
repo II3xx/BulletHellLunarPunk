@@ -954,6 +954,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5655895968406131712, guid: ee1256afe6ce034499e0d45b98645a4f, type: 3}
+      propertyPath: enemyStats
+      value: 
+      objectReference: {fileID: 11400000, guid: cdfabb18aefbd5b4db0ca6eb355e2329, type: 2}
     - target: {fileID: 8997878228620036409, guid: ee1256afe6ce034499e0d45b98645a4f, type: 3}
       propertyPath: enemyStats
       value: 
