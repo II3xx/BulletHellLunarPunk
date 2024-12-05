@@ -15,6 +15,7 @@ MonoBehaviour:
   Health: 5
   movementSpeed: 3.5
   allegiance: 0
+  IFrameOnHit: 0
   onDeath:
     m_PersistentCalls:
       m_Calls: []
@@ -22,3 +23,4 @@ MonoBehaviour:
   dashCooldown: 1
   dashVelocity: 4
   dashTime: 0.3
+  dashSound: {fileID: 8300000, guid: 910faa9bfb22aec479512e1172519d2c, type: 3}
