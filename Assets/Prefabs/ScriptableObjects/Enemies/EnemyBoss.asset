@@ -15,10 +15,11 @@ MonoBehaviour:
   Health: 11
   movementSpeed: 6
   allegiance: 1
+  IFrameOnHit: 0
   onDeath:
     m_PersistentCalls:
       m_Calls: []
-  bulletSpeed: 4
+  bulletSpeed: 6
   bulletAmount: 3
   bulletSpread: 17.5
   maxRof: 2
