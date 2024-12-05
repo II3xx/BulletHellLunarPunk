@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: EnemyPistol
   m_EditorClassIdentifier: 
   health: 4
-  movementSpeed: 5
+  movementSpeed: 4.75
   allegiance: 1
   IFrameOnHit: 1
   onDeath:
     m_PersistentCalls:
       m_Calls: []
-  bulletSpeed: 5.5
+  bulletSpeed: 6
   bulletAmount: 1
   bulletSpread: 15
   maxRof: 2
