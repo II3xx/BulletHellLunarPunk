@@ -8,12 +8,13 @@ using UnityEngine.SceneManagement;
 public class ApplicationHandler : MonoBehaviour
 {
     [SerializeField] [Range(0,8)] private float timeToSceneChange = 0;
-    private bool toSceneChange = true;
+    private bool toSceneChange = false;
     private float timeToChange = 0;
     private string sceneToChangeTo;
 
     public void ChangeScene(string Scene)
     {
+        toSceneChange = true;
         sceneToChangeTo = Scene;
     }
 
