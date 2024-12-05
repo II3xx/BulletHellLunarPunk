@@ -9,10 +9,10 @@ using UnityEngine.InputSystem;
 public class PlayerScript : MonoBehaviour
 {
     [SerializeField] private CharacterStats stats;
-    [SerializeField] private UnityEvent onJump;
     [SerializeField] private UnityEvent onDeath;
+    [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private AudioSource DashAudioSource;
     private Rigidbody2D rb;
-    private CircleCollider2D circCol2D;
     private PlayerInput playInput;
     private bool InputEnabled = true;
     private Vector2 moveInput;
@@ -27,8 +27,8 @@ public class PlayerScript : MonoBehaviour
 
     private void Awake()
     {
+        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         rb = gameObject.GetComponent<Rigidbody2D>();
-        circCol2D = gameObject.GetComponent<CircleCollider2D>();
         animator = gameObject.GetComponent<Animator>();
         rb.gravityScale = 0;
         stats.onDeath.AddListener(OnDeath);
@@ -66,6 +66,9 @@ public class PlayerScript : MonoBehaviour
             return;
         InputEnabled = false;
         isDashing = true;
+        stats.setIFrameTime(stats.DashTime);
+        DashAudioSource.clip = stats.DashSound;
+        DashAudioSource.Play();
         if (moveInput != new Vector2(0, 0))
         {
             rb.velocity = moveInput * stats.DashVelocity / stats.DashTime;
@@ -95,6 +98,25 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        stats.UpdateIframe();
+        if(stats.IFrameActive())
+        {
+            if(stats.UpdateIFrameBlink())
+            {
+                if (spriteRenderer.color.a == 0.5f)
+                {
+                    spriteRenderer.color = new Color(1, 1, 1, 1);
+                }
+                else
+                {
+                    spriteRenderer.color = new Color(1, 1, 1, .5f);
+                }
+            }
+        }
+        else if (spriteRenderer.color.a == 0.5f)
+        {
+            spriteRenderer.color = new Color(1, 1, 1, 1);
+        }
         velocity = TranslateInputToVelocity(moveInput);
         if (isDashing)
         {
@@ -155,5 +177,6 @@ public class PlayerScript : MonoBehaviour
         {
             rotState = 0.33f;
         }
+        animator.SetFloat("RotState", rotState);
     }
 }

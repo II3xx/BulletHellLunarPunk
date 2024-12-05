@@ -10,6 +10,7 @@ public class EnemyMovement : MonoBehaviour
 {
     private GameObject player;
     [SerializeField] private EnemyStats enemyStats;
+    [SerializeField] private SpriteRenderer spriteRenderer;
     readonly float deadZone = 0.1f;
     Rigidbody2D rb2D;
     [SerializeField] private UnityEvent onDeath;
@@ -45,6 +46,25 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        enemyStats.UpdateIframe();
+        if (enemyStats.IFrameActive())
+        {
+            if (enemyStats.UpdateIFrameBlink())
+            {
+                if (spriteRenderer.color.a == 0.5f)
+                {
+                    spriteRenderer.color = new Color(1, 1, 1, 1);
+                }
+                else
+                {
+                    spriteRenderer.color = new Color(1, 1, 1, .5f);
+                }
+            }
+        }
+        else if (spriteRenderer.color.a == 0.5f)
+        {
+            spriteRenderer.color = new Color(1, 1, 1, 1);
+        }
         Vector2 Dest = player.GetComponent<Rigidbody2D>().position;
         float angle = AngleMath(Dest);
         float length = Mathf.Abs(Vector2.Distance(Dest, rb2D.position));
