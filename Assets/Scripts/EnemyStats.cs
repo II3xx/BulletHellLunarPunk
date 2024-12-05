@@ -66,12 +66,11 @@ public class EnemyStats : Stats
         newStats.minRof = copyFrom.minRof;
         newStats.bulletPrefab = copyFrom.bulletPrefab;
         newStats.minDistance = copyFrom.minDistance;
-        newStats.Health = copyFrom.Health;
-        newStats.movementSpeed = copyFrom.Health;
+        newStats.movementSpeed = copyFrom.movementSpeed;
         newStats.allegiance = copyFrom.allegiance;
-        newStats.IFrameOnHit = copyFrom.Health;
-        newStats.currentIFrame = copyFrom.Health;
-        newStats.IFrameBlinkTime = copyFrom.Health;
+        newStats.IFrameOnHit = copyFrom.IFrameOnHit;
+        newStats.currentIFrame = copyFrom.currentIFrame;
+        newStats.IFrameBlinkTime = copyFrom.IFrameBlinkTime;
         return newStats;
-}
+    }
 }
