@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 
 [CreateAssetMenu(fileName = "CharacterStats", menuName = "Player/CharacterStats", order = 1)]
@@ -42,8 +43,7 @@ public class CharacterStats : Stats
         CharacterStats newStats = CreateInstance<CharacterStats>();
         newStats.Health = copyFrom.Health;
         newStats.dashSound = copyFrom.dashSound;
-        newStats.Health = copyFrom.Health;
-        newStats.movementSpeed = copyFrom.Health;
+        newStats.movementSpeed = copyFrom.movementSpeed;
         newStats.allegiance = copyFrom.allegiance;
         newStats.IFrameOnHit = copyFrom.IFrameOnHit;
         newStats.currentIFrame = copyFrom.currentIFrame;
@@ -52,6 +52,7 @@ public class CharacterStats : Stats
         newStats.dashCooldown = copyFrom.dashCooldown;
         newStats.dashVelocity = copyFrom.dashVelocity;
         newStats.dashTime = copyFrom.dashTime;
+        newStats.onDeath = new UnityEvent();
         return newStats;
     }
 }

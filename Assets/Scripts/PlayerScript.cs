@@ -31,6 +31,7 @@ public class PlayerScript : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody2D>();
         animator = gameObject.GetComponent<Animator>();
         rb.gravityScale = 0;
+        stats = stats.CopyStats(stats);
         stats.onDeath.AddListener(OnDeath);
     }
 

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [CreateAssetMenu(fileName = "EnemyStats", menuName = "Enemies/EnemyStats", order = 1)]
 public class EnemyStats : Stats
@@ -71,6 +72,7 @@ public class EnemyStats : Stats
         newStats.IFrameOnHit = copyFrom.IFrameOnHit;
         newStats.currentIFrame = copyFrom.currentIFrame;
         newStats.IFrameBlinkTime = copyFrom.IFrameBlinkTime;
+        newStats.onDeath = new UnityEvent();
         return newStats;
     }
 }
