@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerWeapon : MonoBehaviour
 {
 
     [SerializeField] private WeaponStats weaponStats;
     [SerializeField] private AudioSource audioSource;
+    private Coroutine currentCoroutine;
+    private bool notActived = true;
     private float runTime;
 
     private void Awake()
@@ -22,9 +25,13 @@ public class PlayerWeapon : MonoBehaviour
     private void Update()
     {
         runTime += Time.deltaTime;
+        if(!notActived)
+        {
+            shootSystem();
+        }
     }
 
-    public void OnShoot()
+    private void shootSystem()
     {
         if (runTime < RateOfFire)
         {
@@ -32,9 +39,9 @@ public class PlayerWeapon : MonoBehaviour
         }
         runTime = 0;
         audioSource.clip = weaponStats.GunSound;
-        audioSource.pitch = Random.Range(0.95f,1.05f);
+        audioSource.pitch = Random.Range(0.95f, 1.05f);
         audioSource.Play();
-        
+
         for (int i = 0; i < weaponStats.BulletAmount; i++)
         {
             float angle = Mathf.Deg2Rad * (transform.localRotation.eulerAngles.z + Random.Range(0, weaponStats.BulletSpread) - weaponStats.BulletSpread * 0.5f - 90);
@@ -42,8 +49,21 @@ public class PlayerWeapon : MonoBehaviour
             GameObject Bullet = Instantiate(weaponStats.BulletPrefab);
             Bullet.AddComponent(typeof(Bullet));
             Bullet.transform.position = transform.position;
-            Bullet.transform.rotation = Quaternion.Euler(0,0,Mathf.Rad2Deg * angle - 90);
+            Bullet.transform.rotation = Quaternion.Euler(0, 0, Mathf.Rad2Deg * angle - 90);
             Bullet.GetComponent<Bullet>().SetBulletStats(bulletVelocity, Faction.player);
         }
+    }
+
+    public void OnShoot(InputAction.CallbackContext context)
+    {
+        if(context.started)
+        {
+            notActived = !notActived;
+        }
+        else if (context.canceled)
+        {
+            notActived = !notActived;
+        }
+        
     }
 }

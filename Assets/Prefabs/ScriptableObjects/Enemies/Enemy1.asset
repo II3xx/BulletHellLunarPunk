@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59c911424c8e77740ba62cdb2d9acf5d, type: 3}
   m_Name: Enemy1
   m_EditorClassIdentifier: 
-  Health: 5
+  Health: 0
   movementSpeed: 6
   allegiance: 1
+  IFrameOnHit: 1
   onDeath:
     m_PersistentCalls:
       m_Calls: []
@@ -25,3 +26,4 @@ MonoBehaviour:
   minRof: 1
   bulletPrefab: {fileID: 7793830625488646587, guid: 596cfe30c38394a4f8cf07718cf0cda1, type: 3}
   minDistance: 4
+  gunSound: {fileID: 8300000, guid: 45fc6a4795fd1d64999c03a358bc309e, type: 3}
