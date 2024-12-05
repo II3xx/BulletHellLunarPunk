@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59c911424c8e77740ba62cdb2d9acf5d, type: 3}
   m_Name: EnemyBoss
   m_EditorClassIdentifier: 
-  Health: 11
+  health: 11
   movementSpeed: 6
   allegiance: 1
-  IFrameOnHit: 0
+  IFrameOnHit: 2
   onDeath:
     m_PersistentCalls:
       m_Calls: []

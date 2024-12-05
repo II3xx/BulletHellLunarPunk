@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using TMPro;
+
 [RequireComponent(typeof(Rigidbody2D),
     typeof(CapsuleCollider2D))]
 public class PlayerScript : MonoBehaviour
@@ -12,6 +14,7 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private UnityEvent onDeath;
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private AudioSource DashAudioSource;
+    [SerializeField] private TextMeshProUGUI textMesh;
     private Rigidbody2D rb;
     private PlayerInput playInput;
     private bool InputEnabled = true;
@@ -32,6 +35,7 @@ public class PlayerScript : MonoBehaviour
         animator = gameObject.GetComponent<Animator>();
         rb.gravityScale = 0;
         stats = stats.CopyStats(stats);
+        textMesh.text = "Health: " + stats.Health;
         stats.onDeath.AddListener(OnDeath);
     }
 
@@ -42,7 +46,11 @@ public class PlayerScript : MonoBehaviour
 
     public int Damage
     {
-        set => stats.Damage = value;
+        set
+        {
+            stats.Damage = value;
+            textMesh.text = "Health: " + stats.Health;
+        }
     }
 
     private void OnDeath()

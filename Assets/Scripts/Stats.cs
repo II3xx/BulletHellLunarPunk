@@ -5,7 +5,8 @@ using UnityEngine.Events;
 
 public class Stats : ScriptableObject
 {
-    [SerializeField] [Range(0, 200)] protected int Health;
+    [SerializeField] [Range(0, 200)] protected int health;
+    private int maxHealth;
     [SerializeField] [Range(0, 10)] protected float movementSpeed;
     [SerializeField] protected Faction allegiance;
     [SerializeField] [Range(0,2)] protected float IFrameOnHit;
@@ -14,19 +15,29 @@ public class Stats : ScriptableObject
     protected float IFrameBlinkRunTime = 0;
     [HideInInspector] public UnityEvent onDeath;
 
+    private void Awake()
+    {
+        maxHealth = health;
+    }
+
     public int Damage
     {
         set
         {
             if (IFrameActive())
                 return;
-            Health -= value;
+            health -= value;
             setIFrameTime(IFrameOnHit);
-            if (Health <= 0)
+            if (health <= 0)
             {
                 onDeath.Invoke();
             }
         }
+    }
+
+    public int Health
+    {
+        get => health;
     }
 
     public bool UpdateIFrameBlink()
@@ -61,7 +72,7 @@ public class Stats : ScriptableObject
 
     public int Healing
     {
-        set => Health += value;
+        set => health += value;
     }
 
     public float Speed

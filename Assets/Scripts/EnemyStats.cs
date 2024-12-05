@@ -58,7 +58,7 @@ public class EnemyStats : Stats
     public EnemyStats CopyStats(EnemyStats copyFrom)
     {
         EnemyStats newStats = CreateInstance<EnemyStats>();
-        newStats.Health = copyFrom.Health;
+        newStats.health = copyFrom.health;
         newStats.gunSound = copyFrom.gunSound;
         newStats.bulletSpeed = copyFrom.bulletSpeed;
         newStats.bulletAmount = copyFrom.bulletAmount;

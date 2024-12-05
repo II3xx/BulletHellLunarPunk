@@ -41,7 +41,7 @@ public class CharacterStats : Stats
     public CharacterStats CopyStats(CharacterStats copyFrom)
     {
         CharacterStats newStats = CreateInstance<CharacterStats>();
-        newStats.Health = copyFrom.Health;
+        newStats.health = copyFrom.health;
         newStats.dashSound = copyFrom.dashSound;
         newStats.movementSpeed = copyFrom.movementSpeed;
         newStats.allegiance = copyFrom.allegiance;
