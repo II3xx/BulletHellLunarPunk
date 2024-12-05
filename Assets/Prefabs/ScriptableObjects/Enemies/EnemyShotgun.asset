@@ -15,12 +15,13 @@ MonoBehaviour:
   Health: 7
   movementSpeed: 6
   allegiance: 1
+  IFrameOnHit: 0
   onDeath:
     m_PersistentCalls:
       m_Calls: []
-  bulletSpeed: 4
+  bulletSpeed: 5
   bulletAmount: 4
-  bulletSpread: 20
+  bulletSpread: 25
   maxRof: 2
   minRof: 1
   bulletPrefab: {fileID: 7793830625488646587, guid: 596cfe30c38394a4f8cf07718cf0cda1, type: 3}
