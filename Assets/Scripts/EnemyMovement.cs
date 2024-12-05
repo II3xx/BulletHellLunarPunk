@@ -20,6 +20,8 @@ public class EnemyMovement : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         rb2D = gameObject.GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        enemyStats = enemyStats.CopyStats(enemyStats);
         enemyStats.onDeath.AddListener(OnDeath);
     }
 
