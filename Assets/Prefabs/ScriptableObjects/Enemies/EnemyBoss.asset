@@ -15,7 +15,7 @@ MonoBehaviour:
   health: 20
   movementSpeed: 4.5
   allegiance: 1
-  IFrameOnHit: 1
+  IFrameOnHit: 0
   onDeath:
     m_PersistentCalls:
       m_Calls: []
