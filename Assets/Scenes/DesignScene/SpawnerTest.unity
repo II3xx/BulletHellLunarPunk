@@ -557,7 +557,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ToggleCollider: {fileID: 323228636}
-  TotalKills: 6
+  TotalKills: 2
 --- !u!114 &323228639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -574,30 +574,6 @@ MonoBehaviour:
   onTriggerEnter:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 323228635}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -1136,7 +1112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ToggleCollider: {fileID: 731275418}
-  TotalKills: 5
+  TotalKills: 2
 --- !u!61 &731275418
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1249,6 +1225,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 848315445}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
         m_CallState: 2
   onTriggerExit:
     m_PersistentCalls:
@@ -1680,9 +1668,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spawner (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 119296439721137288, guid: cf057fbfe65af4b47be86812d8ba6246, type: 3}
-      propertyPath: m_IsActive
-      value: 0
+    - target: {fileID: 4323706135422635807, guid: cf057fbfe65af4b47be86812d8ba6246, type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4323706135422635807, guid: cf057fbfe65af4b47be86812d8ba6246, type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 323228638}
+    - target: {fileID: 4323706135422635807, guid: cf057fbfe65af4b47be86812d8ba6246, type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: OnKillUpdate
+      objectReference: {fileID: 0}
+    - target: {fileID: 4323706135422635807, guid: cf057fbfe65af4b47be86812d8ba6246, type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: TargetKillLimitWallSwap, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 4371266063215738778, guid: cf057fbfe65af4b47be86812d8ba6246, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1754,6 +1754,22 @@ PrefabInstance:
     - target: {fileID: 119296439721137288, guid: cf057fbfe65af4b47be86812d8ba6246, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4323706135422635807, guid: cf057fbfe65af4b47be86812d8ba6246, type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4323706135422635807, guid: cf057fbfe65af4b47be86812d8ba6246, type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 323228638}
+    - target: {fileID: 4323706135422635807, guid: cf057fbfe65af4b47be86812d8ba6246, type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: OnKillUpdate
+      objectReference: {fileID: 0}
+    - target: {fileID: 4323706135422635807, guid: cf057fbfe65af4b47be86812d8ba6246, type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: TargetKillLimitWallSwap, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 4371266063215738778, guid: cf057fbfe65af4b47be86812d8ba6246, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2071,7 +2087,7 @@ Transform:
   m_GameObject: {fileID: 2026251872}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -43.48, y: 29.66, z: -10}
+  m_LocalPosition: {x: -43.23, y: 29.78, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2422,6 +2438,22 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4323706135422635807, guid: cf057fbfe65af4b47be86812d8ba6246, type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4323706135422635807, guid: cf057fbfe65af4b47be86812d8ba6246, type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 731275417}
+    - target: {fileID: 4323706135422635807, guid: cf057fbfe65af4b47be86812d8ba6246, type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: OnKillUpdate
+      objectReference: {fileID: 0}
+    - target: {fileID: 4323706135422635807, guid: cf057fbfe65af4b47be86812d8ba6246, type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: TargetKillLimitWallSwap, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 4371266063215738778, guid: cf057fbfe65af4b47be86812d8ba6246, type: 3}
       propertyPath: m_LocalPosition.x
       value: -18.16
@@ -2482,6 +2514,22 @@ PrefabInstance:
     - target: {fileID: 119296439721137288, guid: cf057fbfe65af4b47be86812d8ba6246, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4323706135422635807, guid: cf057fbfe65af4b47be86812d8ba6246, type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4323706135422635807, guid: cf057fbfe65af4b47be86812d8ba6246, type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 731275417}
+    - target: {fileID: 4323706135422635807, guid: cf057fbfe65af4b47be86812d8ba6246, type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: OnKillUpdate
+      objectReference: {fileID: 0}
+    - target: {fileID: 4323706135422635807, guid: cf057fbfe65af4b47be86812d8ba6246, type: 3}
+      propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: TargetKillLimitWallSwap, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 4371266063215738778, guid: cf057fbfe65af4b47be86812d8ba6246, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2544,7 +2592,6 @@ SceneRoots:
   - {fileID: 848315450}
   - {fileID: 2028745801}
   - {fileID: 601077220}
-  - {fileID: 549655978}
   - {fileID: 475010718}
   - {fileID: 1101413999}
   - {fileID: 42677052}
@@ -2554,3 +2601,4 @@ SceneRoots:
   - {fileID: 2121581037}
   - {fileID: 1190709781}
   - {fileID: 715411613}
+  - {fileID: 549655978}
