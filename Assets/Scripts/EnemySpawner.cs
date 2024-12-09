@@ -42,15 +42,17 @@ public class EnemySpawner : MonoBehaviour
             {
                 if (spawnedList.Count > spawnLimit)
                     return;
-                GameObject toManipulate;
+                GameObject toManipulate = null;
                 if(isRandom)
                 {
                     toManipulate = Instantiate(PrefabsToSpawn[Random.Range(0, PrefabsToSpawn.Count - 1)]);
                 }
-                else
+                else if (!isRandom)
                 {
                     toManipulate = Instantiate(PrefabsToSpawn[orderToSpawn]);
                     orderToSpawn++;
+                    if (orderToSpawn > PrefabsToSpawn.Count)
+                        orderToSpawn = 0;
                 }
                 toManipulate.transform.position = transform.position;
                 spawnedList.Add(toManipulate);

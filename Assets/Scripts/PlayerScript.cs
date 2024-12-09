@@ -35,7 +35,10 @@ public class PlayerScript : MonoBehaviour
         animator = gameObject.GetComponent<Animator>();
         rb.gravityScale = 0;
         stats = stats.CopyStats(stats);
-        textMesh.text = "Health: " + stats.Health;
+        if(textMesh != null)
+        {
+            textMesh.text = "Health: " + stats.Health;
+        }
         stats.onDeath.AddListener(OnDeath);
     }
 
@@ -49,6 +52,8 @@ public class PlayerScript : MonoBehaviour
         set
         {
             stats.Damage = value;
+            if (textMesh == null)
+                return;
             textMesh.text = "Health: " + stats.Health;
         }
     }
