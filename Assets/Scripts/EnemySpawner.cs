@@ -6,9 +6,10 @@ public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] EnemyStats stats;
     [SerializeField] bool isRandom;
-    [SerializeField] List<GameObject> PrefabsToSpawn;
+    [SerializeField] GameObject[] PrefabsToSpawn;
     [SerializeField] [Range(0.5f, 10)] float timeToSpawn;
     [SerializeField] [Range(1,15)] int spawnLimit;
+    GameObject specificObject;
     float runTime = 0;
     int orderToSpawn = 0;
     List<GameObject> spawnedList;
@@ -17,7 +18,6 @@ public class EnemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PrefabsToSpawn = new();
         spawnedList = new();
         stats = stats.CopyStats(stats);
     }
@@ -32,6 +32,22 @@ public class EnemySpawner : MonoBehaviour
         set => stats.Damage = value;
     }
 
+    private GameObject RandomSpawn()
+    {
+        return Instantiate(PrefabsToSpawn[Random.Range(0, PrefabsToSpawn.Length - 1)]);
+    }
+
+    private GameObject OrderedSpawn()
+    {
+        return Instantiate(PrefabsToSpawn[orderToSpawn]);
+    }
+
+    private GameObject SetTransformPos(GameObject gameObject)
+    {
+        gameObject.transform.position = transform.position;
+        return gameObject;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -40,22 +56,19 @@ public class EnemySpawner : MonoBehaviour
         {
             for(int i = 0; i < spawnAmount; i++)
             {
-                if (spawnedList.Count > spawnLimit)
-                    return;
-                GameObject toManipulate = null;
+                if (spawnedList.Count >= spawnLimit)
+                    break;
                 if(isRandom)
                 {
-                    toManipulate = Instantiate(PrefabsToSpawn[Random.Range(0, PrefabsToSpawn.Count - 1)]);
+                    spawnedList.Add(SetTransformPos(RandomSpawn()));
                 }
                 else if (!isRandom)
                 {
-                    toManipulate = Instantiate(PrefabsToSpawn[orderToSpawn]);
+                    spawnedList.Add(SetTransformPos(OrderedSpawn()));
                     orderToSpawn++;
-                    if (orderToSpawn > PrefabsToSpawn.Count)
+                    if (orderToSpawn > PrefabsToSpawn.Length)
                         orderToSpawn = 0;
                 }
-                toManipulate.transform.position = transform.position;
-                spawnedList.Add(toManipulate);
             }
         }
     }
