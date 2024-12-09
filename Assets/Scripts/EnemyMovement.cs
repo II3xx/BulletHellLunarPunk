@@ -28,6 +28,7 @@ public class EnemyMovement : MonoBehaviour
     private void OnDeath()
     {
         onDeath.Invoke();
+        Destroy(gameObject);
     }
 
     public Faction Allegiance
