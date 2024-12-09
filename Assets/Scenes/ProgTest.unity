@@ -123751,6 +123751,9 @@ MonoBehaviour:
   PrefabsToSpawn:
   - {fileID: 244785705504047452, guid: f6528504292839a4384293a2e83e92c7, type: 3}
   - {fileID: 244785705504047452, guid: df44a3f471d0d384c8b8383294928ae5, type: 3}
+  - {fileID: 244785705504047452, guid: df44a3f471d0d384c8b8383294928ae5, type: 3}
+  - {fileID: 244785705504047452, guid: df44a3f471d0d384c8b8383294928ae5, type: 3}
+  - {fileID: 244785705504047452, guid: df44a3f471d0d384c8b8383294928ae5, type: 3}
   timeToSpawn: 1.02
   spawnLimit: 1
   spawnAmount: 1

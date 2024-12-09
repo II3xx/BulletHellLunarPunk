@@ -9,7 +9,6 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] GameObject[] PrefabsToSpawn;
     [SerializeField] [Range(0.5f, 10)] float timeToSpawn;
     [SerializeField] [Range(1,15)] int spawnLimit;
-    GameObject specificObject;
     float runTime = 0;
     int orderToSpawn = 0;
     List<GameObject> spawnedList;
@@ -48,9 +47,21 @@ public class EnemySpawner : MonoBehaviour
         return gameObject;
     }
 
+    private void UpdateDeadSpawns()
+    {
+        for(int i = spawnedList.Count - 1; i == 0; i--)
+        {
+            if(spawnedList[i] == null)
+            {
+                spawnedList.RemoveAt(i);
+            }
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
+        UpdateDeadSpawns();
         runTime += Time.deltaTime;
         if(runTime > timeToSpawn)
         {
@@ -58,6 +69,7 @@ public class EnemySpawner : MonoBehaviour
             {
                 if (spawnedList.Count >= spawnLimit)
                     break;
+                runTime = 0;
                 if(isRandom)
                 {
                     spawnedList.Add(SetTransformPos(RandomSpawn()));
