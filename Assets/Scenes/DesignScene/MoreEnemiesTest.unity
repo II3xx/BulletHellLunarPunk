@@ -892,6 +892,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyPistol3
       objectReference: {fileID: 0}
+    - target: {fileID: 244785705504047452, guid: ee1256afe6ce034499e0d45b98645a4f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 362749502119244999, guid: ee1256afe6ce034499e0d45b98645a4f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.48756
@@ -2250,6 +2254,10 @@ PrefabInstance:
     - target: {fileID: 244785705504047452, guid: ee1256afe6ce034499e0d45b98645a4f, type: 3}
       propertyPath: m_Name
       value: EnemyShotgun
+      objectReference: {fileID: 0}
+    - target: {fileID: 244785705504047452, guid: ee1256afe6ce034499e0d45b98645a4f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 362749502119244999, guid: ee1256afe6ce034499e0d45b98645a4f, type: 3}
       propertyPath: m_LocalPosition.x

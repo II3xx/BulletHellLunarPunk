@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6999677576356030330}
   - component: {fileID: 5181922689934263450}
   - component: {fileID: 4323706135422635807}
-  - component: {fileID: 7743672174842508849}
+  - component: {fileID: 9054705845741895285}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
@@ -131,7 +131,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.7, y: 0.7}
   m_EdgeRadius: 0
 --- !u!50 &5181922689934263450
 Rigidbody2D:
@@ -201,7 +201,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &7743672174842508849
+--- !u!114 &9054705845741895285
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -210,11 +210,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 119296439721137288}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fba027a0659aa1541b8b7f611f470b21, type: 3}
+  m_Script: {fileID: 11500000, guid: 2e48a254ae3ca324ea56ccbd7ed4bd37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnedObjectType: {fileID: 244785705504047452, guid: f6528504292839a4384293a2e83e92c7, type: 3}
-  spawnedObjectType2: {fileID: 244785705504047452, guid: df44a3f471d0d384c8b8383294928ae5, type: 3}
-  spawnTime: 8
-  maxSpawnCount: 6
-  spawnerInstance: {fileID: 119296439721137288}
+  stats: {fileID: 11400000, guid: 6e6c75e569a92894fa220ce0a163dbd3, type: 2}
+  isRandom: 1
+  PrefabsToSpawn:
+  - {fileID: 244785705504047452, guid: f6528504292839a4384293a2e83e92c7, type: 3}
+  - {fileID: 244785705504047452, guid: df44a3f471d0d384c8b8383294928ae5, type: 3}
+  timeToSpawn: 5.5
+  spawnLimit: 4
+  spawnAmount: 1
