@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e68d2f25a0210e542b94b89a8f6eab02, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -124,7 +124,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.64, y: 0.65}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -189,9 +189,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 119296439721137288}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
+        m_MethodName: 
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -213,7 +213,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fba027a0659aa1541b8b7f611f470b21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnedObject: {fileID: 244785705504047452, guid: f6528504292839a4384293a2e83e92c7, type: 3}
-  spawnTime: 10
-  maxSpawnCount: 5
+  spawnedObjectType: {fileID: 244785705504047452, guid: f6528504292839a4384293a2e83e92c7, type: 3}
+  spawnedObjectType2: {fileID: 244785705504047452, guid: df44a3f471d0d384c8b8383294928ae5, type: 3}
+  spawnTime: 8
+  maxSpawnCount: 6
   spawnerInstance: {fileID: 119296439721137288}
