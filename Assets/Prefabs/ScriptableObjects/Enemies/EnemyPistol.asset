@@ -19,6 +19,7 @@ MonoBehaviour:
   onDeath:
     m_PersistentCalls:
       m_Calls: []
+  onDamage: {r: 1, g: 0.1, b: 0.1, a: 0.5}
   bulletSpeed: 5.5
   bulletAmount: 1
   bulletSpread: 15
@@ -27,3 +28,4 @@ MonoBehaviour:
   bulletPrefab: {fileID: 7793830625488646587, guid: 596cfe30c38394a4f8cf07718cf0cda1, type: 3}
   minDistance: 4
   gunSound: {fileID: 8300000, guid: 45fc6a4795fd1d64999c03a358bc309e, type: 3}
+  minDistanceToShoot: 12.3

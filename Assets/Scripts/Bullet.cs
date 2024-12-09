@@ -14,6 +14,7 @@ public enum Faction
 public class Bullet : MonoBehaviour
 {
     private Faction allegiance;
+    [SerializeField] AudioClip audioClip;
     [SerializeField] private int damage;
     private Rigidbody2D rb2D;
     private bool ready = false;
@@ -44,32 +45,71 @@ public class Bullet : MonoBehaviour
         return false;
     }
 
+    private void CheckEnemyMovement(Collider2D collision)
+    {
+        EnemyMovement enemyMovement = collision.GetComponent<EnemyMovement>();
+        if (enemyMovement != null)
+        {
+            enemyMovement.Damage = damage;
+            Destroy(gameObject);
+            return;
+        }
+    }
+
+    private void CheckSpawner(Collider2D collision)
+    {
+        EnemySpawner enemySpawner = collision.GetComponent<EnemySpawner>();
+        if (enemySpawner != null)
+        {
+            enemySpawner.Damage = damage;
+            Destroy(gameObject);
+            return;
+        }
+    }
+
+    private void checkAllEnemies(Collider2D collision)
+    {
+        CheckEnemyMovement(collision);
+        CheckSpawner(collision);
+    }
+
+    private void CheckPlayer(Collider2D collision)
+    {
+        PlayerScript playerScript = collision.GetComponent<PlayerScript>();
+        if (playerScript != null)
+        {
+            playerScript.Damage = damage;
+            Destroy(gameObject);
+            return;
+        }
+    }
+
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!ready)
             return;
-        EnemyMovement enemyMovement = collision.GetComponent<EnemyMovement>();
-        if (enemyMovement != null)
+
+        if(allegiance == Faction.player)
         {
-            if (enemyMovement.Allegiance != allegiance)
-            {
-                enemyMovement.Damage = damage;
-                Destroy(gameObject);
-                return;
-            }
+            checkAllEnemies(collision);
         }
-        PlayerScript playerScript = collision.GetComponent<PlayerScript>();
-        if(playerScript != null)
+
+        else if(allegiance == Faction.enemy)
         {
-            if (playerScript.Allegiance != allegiance)
-            {
-                playerScript.Damage = damage;
-                Destroy(gameObject);
-                return;
-            }
+            CheckPlayer(collision);
         }
+        
         if(IsWall(collision))
         {
+            if(audioClip != null)
+            {
+                var temp = GameObject.CreatePrimitive(PrimitiveType.Plane);
+                temp.transform.position = rb2D.position;
+                var tempaudio = temp.AddComponent<TemporaryAudioSource>();
+                tempaudio.setClipAndPlay(audioClip);
+                temp.GetComponent<MeshRenderer>().enabled = false;
+            }
             Destroy(gameObject);
         }
     }

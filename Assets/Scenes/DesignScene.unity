@@ -970,7 +970,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
+  m_VertexColorAlwaysGammaSpace: 1
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -1326,6 +1326,10 @@ PrefabInstance:
       propertyPath: enemyStats
       value: 
       objectReference: {fileID: 11400000, guid: e1437da39812d8d4096948e38d746695, type: 2}
+    - target: {fileID: 5655895968406131712, guid: ee1256afe6ce034499e0d45b98645a4f, type: 3}
+      propertyPath: minDistanceToShoot
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8997878228620036409, guid: ee1256afe6ce034499e0d45b98645a4f, type: 3}
       propertyPath: enemyStats
       value: 
@@ -1996,6 +2000,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 189522365}
     m_Modifications:
+    - target: {fileID: 160824781607087426, guid: f44c80ff38003ef4ea0ea22059fb3445, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2558860973052948592, guid: f44c80ff38003ef4ea0ea22059fb3445, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4483610750071842362, guid: f44c80ff38003ef4ea0ea22059fb3445, type: 3}
       propertyPath: m_Name
       value: CatherdralMainRoomDraft
@@ -2039,6 +2051,10 @@ PrefabInstance:
     - target: {fileID: 6381035587358140222, guid: f44c80ff38003ef4ea0ea22059fb3445, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6741839827639676226, guid: f44c80ff38003ef4ea0ea22059fb3445, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

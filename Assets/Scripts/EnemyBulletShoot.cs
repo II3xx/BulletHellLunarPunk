@@ -36,6 +36,8 @@ public class EnemyBulletShoot : MonoBehaviour
     void Update()
     {
         runTime += Time.deltaTime;
+        if (Vector2.Distance(player.transform.position, rb2D.transform.position) > enemyStats.MinDistanceToShoot)
+            return;
         if (runTime >= currentRoF)
         {
             RandomizeRoF();
@@ -48,7 +50,6 @@ public class EnemyBulletShoot : MonoBehaviour
                 float angle = AngleMath(player.GetComponent<Rigidbody2D>().position);
                 Vector2 bulletVelocity = new(enemyStats.BulletSpeed * Mathf.Cos(angle), enemyStats.BulletSpeed * Mathf.Sin(angle));
                 GameObject Bullet = Instantiate(enemyStats.BulletPrefab);
-                Bullet.AddComponent(typeof(Bullet));
                 Bullet.transform.SetPositionAndRotation(transform.position, Quaternion.Euler(0, 0, Mathf.Rad2Deg * angle - 90));
                 Bullet.GetComponent<Bullet>().SetBulletStats(bulletVelocity, Faction.enemy);
             }
