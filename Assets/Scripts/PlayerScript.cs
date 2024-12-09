@@ -75,12 +75,12 @@ public class PlayerScript : MonoBehaviour
             return;
         InputEnabled = false;
         isDashing = true;
-        stats.setIFrameTime(stats.DashTime);
+        stats.setIFrameTime(stats.DashTime, true);
         DashAudioSource.clip = stats.DashSound;
         DashAudioSource.Play();
         if (moveInput != new Vector2(0, 0))
         {
-            rb.velocity = moveInput * stats.DashVelocity / stats.DashTime;
+            rb.velocity = moveInput;
             return;
         }
         else
@@ -88,49 +88,81 @@ public class PlayerScript : MonoBehaviour
             switch (rotState)
             {
                 case 0f:
-                    rb.velocity = Vector2.left * stats.DashVelocity / stats.DashTime;
+                    rb.velocity = Vector2.left;
                     break;
                 case 0.33f:
-                    rb.velocity = Vector2.down * stats.DashVelocity / stats.DashTime;
+                    rb.velocity = Vector2.down;
                     break;
                 case 0.66f:
-                    rb.velocity = Vector2.right * stats.DashVelocity / stats.DashTime;
+                    rb.velocity = Vector2.right;
                     break;
                 case 1f:
-                    rb.velocity = Vector2.up * stats.DashVelocity / stats.DashTime;
+                    rb.velocity = Vector2.up;
                     break;
             }
         }
+
+        rb.velocity *= stats.DashVelocity / stats.DashTime * stats.DashCurve.Evaluate(0);
     }
 
+
+    private void UpdateBlinkDash()
+    {
+        if (spriteRenderer.color.a == stats.OnDash.a)
+        {
+            spriteRenderer.color = new Color(1, 1, 1, 1);
+        }
+        else
+        {
+            spriteRenderer.color = stats.OnDash;
+        }
+    }
+
+    private void UpdateBlinkDamage()
+    {
+        if (spriteRenderer.color.a == stats.OnDamage.a)
+        {
+            spriteRenderer.color = new Color(1, 1, 1, 1);
+        }
+        else
+        {
+            spriteRenderer.color = stats.OnDamage;
+        }
+    }
+
+    private void UpdateBlink()
+    {
+        if (stats.IFrameActive())
+        {
+            if (stats.UpdateIFrameBlink())
+            {
+                if(stats.Dashed)
+                {
+                    UpdateBlinkDash();
+                }
+                else
+                {
+                    UpdateBlinkDamage();
+                }
+            }
+        }
+        else if (spriteRenderer.color.a != 1)
+        {
+            spriteRenderer.color = new Color(1, 1, 1, 1);
+        }
+    }
     
     // Update is called once per frame
     private void Update()
     {
         stats.UpdateIframe();
-        if(stats.IFrameActive())
-        {
-            if(stats.UpdateIFrameBlink())
-            {
-                if (spriteRenderer.color.a == 0.5f)
-                {
-                    spriteRenderer.color = new Color(1, 1, 1, 1);
-                }
-                else
-                {
-                    spriteRenderer.color = new Color(1, 1, 1, .5f);
-                }
-            }
-        }
-        else if (spriteRenderer.color.a == 0.5f)
-        {
-            spriteRenderer.color = new Color(1, 1, 1, 1);
-        }
+        UpdateBlink();
         velocity = TranslateInputToVelocity(moveInput);
         if (isDashing)
         {
             runTime += Time.deltaTime;
-            if(runTime >= stats.DashTime)
+            rb.velocity = rb.velocity.normalized * stats.DashVelocity / stats.DashTime * stats.DashCurve.Evaluate(runTime);
+            if (runTime >= stats.DashTime)
             {
                 dashAvailable = false;
                 runTime = 0;

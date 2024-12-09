@@ -45,28 +45,38 @@ public class EnemyMovement : MonoBehaviour
         return Mathf.Atan2(rb2D.position.y - Dest.y, rb2D.position.x - Dest.x);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void UpdateBlinkDamage()
     {
-        enemyStats.UpdateIframe();
+        if (spriteRenderer.color.a == enemyStats.OnDamage.a)
+        {
+            spriteRenderer.color = new Color(1, 1, 1, 1);
+        }
+        else
+        {
+            spriteRenderer.color = enemyStats.OnDamage;
+        }
+    }
+
+    private void UpdateBlink()
+    {
         if (enemyStats.IFrameActive())
         {
             if (enemyStats.UpdateIFrameBlink())
             {
-                if (spriteRenderer.color.a == 0.5f)
-                {
-                    spriteRenderer.color = new Color(1, 1, 1, 1);
-                }
-                else
-                {
-                    spriteRenderer.color = new Color(1, 1, 1, .5f);
-                }
+                UpdateBlinkDamage();
             }
         }
-        else if (spriteRenderer.color.a == 0.5f)
+        else if (spriteRenderer.color.a == enemyStats.OnDamage.a)
         {
             spriteRenderer.color = new Color(1, 1, 1, 1);
         }
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        enemyStats.UpdateIframe();
+        UpdateBlink();
         Vector2 Dest = player.GetComponent<Rigidbody2D>().position;
         float angle = AngleMath(Dest);
         float length = Mathf.Abs(Vector2.Distance(Dest, rb2D.position));

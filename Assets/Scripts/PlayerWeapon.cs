@@ -47,7 +47,6 @@ public class PlayerWeapon : MonoBehaviour
             float angle = Mathf.Deg2Rad * (transform.localRotation.eulerAngles.z + Random.Range(0, weaponStats.BulletSpread) - weaponStats.BulletSpread * 0.5f - 90);
             Vector2 bulletVelocity = new(weaponStats.BulletSpeed * Mathf.Cos(angle), weaponStats.BulletSpeed * Mathf.Sin(angle));
             GameObject Bullet = Instantiate(weaponStats.BulletPrefab);
-            Bullet.AddComponent(typeof(Bullet));
             Bullet.transform.position = transform.position;
             Bullet.transform.rotation = Quaternion.Euler(0, 0, Mathf.Rad2Deg * angle - 90);
             Bullet.GetComponent<Bullet>().SetBulletStats(bulletVelocity, Faction.player);

@@ -14,10 +14,16 @@ public class EnemyStats : Stats
     [SerializeField] protected GameObject bulletPrefab;
     [SerializeField] [Range(0, 8)] float minDistance = 0;
     [SerializeField] AudioClip gunSound;
+    [SerializeField] [Range(1, 25)] float minDistanceToShoot;
 
     public float BulletSpeed
     {
         get => bulletSpeed;
+    }
+
+    public float MinDistanceToShoot
+    {
+        get => minDistanceToShoot;
     }
 
     public float BulletAmount
@@ -72,6 +78,8 @@ public class EnemyStats : Stats
         newStats.IFrameOnHit = copyFrom.IFrameOnHit;
         newStats.currentIFrame = copyFrom.currentIFrame;
         newStats.IFrameBlinkTime = copyFrom.IFrameBlinkTime;
+        newStats.onDamage = copyFrom.onDamage;
+        newStats.minDistanceToShoot = copyFrom.minDistanceToShoot;
         newStats.onDeath = new UnityEvent();
         return newStats;
     }
