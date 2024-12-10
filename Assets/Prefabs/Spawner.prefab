@@ -214,7 +214,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats: {fileID: 11400000, guid: 6e6c75e569a92894fa220ce0a163dbd3, type: 2}
-  isRandom: 1
+  isRandom: 0
   PrefabsToSpawn:
   - {fileID: 244785705504047452, guid: f6528504292839a4384293a2e83e92c7, type: 3}
   - {fileID: 244785705504047452, guid: df44a3f471d0d384c8b8383294928ae5, type: 3}
