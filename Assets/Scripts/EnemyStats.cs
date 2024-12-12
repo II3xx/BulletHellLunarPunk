@@ -12,7 +12,7 @@ public class EnemyStats : Stats
     [Range(0.5f, 3f)] [SerializeField] protected float maxRof = 2f;
     [Range(0, 2f)] [SerializeField] protected float minRof = 1f;
     [SerializeField] protected GameObject bulletPrefab;
-    [SerializeField] [Range(0, 8)] float minDistance = 0;
+    [SerializeField] [Range(0, 8)] float minDistance = 0, maxDistance = 8;
     [SerializeField] AudioClip gunSound;
     [SerializeField] [Range(1, 25)] float minDistanceToShoot;
 
@@ -49,6 +49,11 @@ public class EnemyStats : Stats
     public float MinDistance
     {
         get => minDistance;
+    }
+
+    public float MaxDistance
+    {
+        get => maxDistance;
     }
 
     public GameObject BulletPrefab

@@ -33,18 +33,12 @@ public class EnemySpawner : MonoBehaviour
 
     private GameObject RandomSpawn()
     {
-        return Instantiate(PrefabsToSpawn[Random.Range(0, PrefabsToSpawn.Length - 1)]);
+        return Instantiate(PrefabsToSpawn[Random.Range(0, PrefabsToSpawn.Length - 1)], transform.position, Quaternion.identity);
     }
 
     private GameObject OrderedSpawn()
     {
-        return Instantiate(PrefabsToSpawn[orderToSpawn]);
-    }
-
-    private GameObject SetTransformPos(GameObject gameObject)
-    {
-        gameObject.transform.position = transform.position;
-        return gameObject;
+        return Instantiate(PrefabsToSpawn[orderToSpawn], transform.position, Quaternion.identity);
     }
 
     private void UpdateDeadSpawns()
@@ -72,11 +66,11 @@ public class EnemySpawner : MonoBehaviour
                 runTime = 0;
                 if(isRandom)
                 {
-                    spawnedList.Add(SetTransformPos(RandomSpawn()));
+                    spawnedList.Add(RandomSpawn());
                 }
                 else if (!isRandom)
                 {
-                    spawnedList.Add(SetTransformPos(OrderedSpawn()));
+                    spawnedList.Add(OrderedSpawn());
                     orderToSpawn++;
                     if (orderToSpawn > PrefabsToSpawn.Length)
                         orderToSpawn = 0;

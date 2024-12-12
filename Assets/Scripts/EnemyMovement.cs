@@ -4,14 +4,18 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
 
-[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Rigidbody2D), typeof(NavMeshAgent))]
 
 public class EnemyMovement : MonoBehaviour
 {
     private GameObject player;
+    private NavMeshAgent navAgent;
     [SerializeField] private EnemyStats enemyStats;
     [SerializeField] private SpriteRenderer spriteRenderer;
     readonly float deadZone = 0.1f;
+    private float moveRunTime = 0;
+    [SerializeField] [Range(0.5f,8)] float timeBetweenMoves;
+    [SerializeField] [Range(1, 100)] float moveChance;
     Rigidbody2D rb2D;
     [SerializeField] private UnityEvent onDeath;
 
@@ -19,10 +23,13 @@ public class EnemyMovement : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        navAgent = gameObject.GetComponent<NavMeshAgent>();
         rb2D = gameObject.GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         enemyStats = enemyStats.CopyStats(enemyStats);
         enemyStats.onDeath.AddListener(OnDeath);
+        navAgent.updateRotation = false;
+        navAgent.updateUpAxis = false;
     }
 
     private void OnDeath()
@@ -73,27 +80,45 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
+    Vector2 NewTestPosition()
+    {
+        Vector3 Dest = player.GetComponent<Rigidbody2D>().position;
+        float angle2 = Random.Range(0, 360) * Mathf.Deg2Rad;
+
+        Vector2 maxPos = new(enemyStats.MaxDistance * Mathf.Cos(angle2), enemyStats.MaxDistance * Mathf.Sin(angle2));
+        Vector2 minPos = new(enemyStats.MinDistance * Mathf.Cos(angle2), enemyStats.MinDistance * Mathf.Sin(angle2));
+
+        Vector3 Destin = new(Dest.x + Random.Range(minPos.x, maxPos.x), Dest.y + Random.Range(minPos.y, maxPos.y), 0);
+
+        return Destin;
+    }
+
+    void UpdatePosition()
+    {
+        moveRunTime += Time.deltaTime;
+        if(moveRunTime < timeBetweenMoves)
+        {
+            moveRunTime += Time.deltaTime;
+            return;
+        }
+        moveRunTime = 0;
+
+        if(Random.Range(0,100) < moveChance)
+        {
+            return;
+        }
+
+        Vector2 Destin = NewTestPosition();
+
+        if (navAgent.isOnNavMesh)
+            navAgent.SetDestination(Destin);
+    }
+
     // Update is called once per frame
     void Update()
     {
         enemyStats.UpdateIframe();
         UpdateBlink();
-        Vector2 Dest = player.GetComponent<Rigidbody2D>().position;
-        float angle = AngleMath(Dest);
-        float length = Mathf.Abs(Vector2.Distance(Dest, rb2D.position));
-
-        if (length + deadZone < enemyStats.MinDistance)
-        {
-            rb2D.velocity = new Vector2(enemyStats.Speed * Mathf.Cos(angle), enemyStats.Speed * Mathf.Sin(angle));
-        }
-        else if (length - deadZone > enemyStats.MinDistance)
-        {
-            rb2D.velocity = new Vector2(-enemyStats.Speed * Mathf.Cos(angle), -enemyStats.Speed * Mathf.Sin(angle));
-        }
-        else
-        {
-            rb2D.velocity = new Vector2(0, 0);
-            return;
-        }
+        UpdatePosition();
     }
 }
