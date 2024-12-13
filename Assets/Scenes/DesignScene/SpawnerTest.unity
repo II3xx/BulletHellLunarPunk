@@ -2356,6 +2356,14 @@ PrefabInstance:
       value: SpawnerGarden
       objectReference: {fileID: 0}
     - target: {fileID: 4323706135422635807, guid: cf057fbfe65af4b47be86812d8ba6246, type: 3}
+      propertyPath: moveChance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4323706135422635807, guid: cf057fbfe65af4b47be86812d8ba6246, type: 3}
+      propertyPath: timeBetweenMoves
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4323706135422635807, guid: cf057fbfe65af4b47be86812d8ba6246, type: 3}
       propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
       value: 1
       objectReference: {fileID: 0}
