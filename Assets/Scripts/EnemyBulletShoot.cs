@@ -32,6 +32,27 @@ public class EnemyBulletShoot : MonoBehaviour
         RandomizeRoF();
     }
 
+    void OnPointShot()
+    {
+        float angle = AngleMath(player.GetComponent<Rigidbody2D>().position);
+        Vector2 bulletVelocity = new(enemyStats.BulletSpeed * Mathf.Cos(angle), enemyStats.BulletSpeed * Mathf.Sin(angle));
+        GameObject Bullet = Instantiate(enemyStats.BulletPrefab);
+        Bullet.transform.SetPositionAndRotation(transform.position, Quaternion.Euler(0, 0, Mathf.Rad2Deg * angle - 90));
+        Bullet.GetComponent<Bullet>().SetBulletStats(bulletVelocity, Faction.enemy);
+    }
+
+    void OnPredictionShot()
+    {
+        Rigidbody2D playRB2d = player.GetComponent<Rigidbody2D>();
+        float angle = AngleMath(playRB2d.position);
+        Vector2 bulletVelocity = new(enemyStats.BulletSpeed * Mathf.Cos(angle), enemyStats.BulletSpeed * Mathf.Sin(angle));
+        angle = AngleMath(playRB2d.position + playRB2d.velocity * (playRB2d.position - rb2D.position) / bulletVelocity);
+        bulletVelocity = new(enemyStats.BulletSpeed * Mathf.Cos(angle), enemyStats.BulletSpeed * Mathf.Sin(angle));
+        GameObject Bullet = Instantiate(enemyStats.BulletPrefab);
+        Bullet.transform.SetPositionAndRotation(transform.position, Quaternion.Euler(0, 0, Mathf.Rad2Deg * angle - 90));
+        Bullet.GetComponent<Bullet>().SetBulletStats(bulletVelocity, Faction.enemy);
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -47,11 +68,10 @@ public class EnemyBulletShoot : MonoBehaviour
             audioSource.Play();
             for (int i = 0; i < enemyStats.BulletAmount; i++)
             {
-                float angle = AngleMath(player.GetComponent<Rigidbody2D>().position);
-                Vector2 bulletVelocity = new(enemyStats.BulletSpeed * Mathf.Cos(angle), enemyStats.BulletSpeed * Mathf.Sin(angle));
-                GameObject Bullet = Instantiate(enemyStats.BulletPrefab);
-                Bullet.transform.SetPositionAndRotation(transform.position, Quaternion.Euler(0, 0, Mathf.Rad2Deg * angle - 90));
-                Bullet.GetComponent<Bullet>().SetBulletStats(bulletVelocity, Faction.enemy);
+                if (Random.Range(0, 100) < enemyStats.PredictionShot)
+                    OnPredictionShot();
+                else
+                    OnPointShot();
             }
         }
     }

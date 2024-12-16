@@ -56,6 +56,8 @@ public class EnemySpawner : MonoBehaviour
     void Update()
     {
         UpdateDeadSpawns();
+        if (spawnedList.Count >= spawnLimit)
+            return;
         runTime += Time.deltaTime;
         if(runTime > timeToSpawn)
         {

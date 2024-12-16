@@ -14,7 +14,7 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private UnityEvent onDeath;
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private AudioSource DashAudioSource;
-    [SerializeField] private TextMeshProUGUI textMesh;
+    [SerializeField] private UIBehavior uiBheavior; 
     private Rigidbody2D rb;
     private PlayerInput playInput;
     private bool InputEnabled = true;
@@ -35,10 +35,6 @@ public class PlayerScript : MonoBehaviour
         animator = gameObject.GetComponent<Animator>();
         rb.gravityScale = 0;
         stats = stats.CopyStats(stats);
-        if(textMesh != null)
-        {
-            textMesh.text = "Health: " + stats.Health;
-        }
         stats.onDeath.AddListener(OnDeath);
     }
 
@@ -52,9 +48,7 @@ public class PlayerScript : MonoBehaviour
         set
         {
             stats.Damage = value;
-            if (textMesh == null)
-                return;
-            textMesh.text = "Health: " + stats.Health;
+            uiBheavior.setHPUI(stats.Health);
         }
     }
 
@@ -71,7 +65,7 @@ public class PlayerScript : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         Vector2 moveVector = context.ReadValue<Vector2>();
-        moveInput = InputEnabled ? moveVector.normalized : Vector2.zero;
+        moveInput = moveVector.normalized;
     }
 
     public void OnDash(InputAction.CallbackContext context)
@@ -162,13 +156,15 @@ public class PlayerScript : MonoBehaviour
     {
         stats.UpdateIframe();
         UpdateBlink();
-        velocity = TranslateInputToVelocity(moveInput);
+        if(InputEnabled)
+            velocity = TranslateInputToVelocity(moveInput);
         if (isDashing)
         {
             runTime += Time.deltaTime;
             rb.velocity = rb.velocity.normalized * stats.DashVelocity / stats.DashTime * stats.DashCurve.Evaluate(runTime);
             if (runTime >= stats.DashTime)
             {
+                uiBheavior.onDash(stats.DashCooldown);
                 dashAvailable = false;
                 runTime = 0;
                 isDashing = false;

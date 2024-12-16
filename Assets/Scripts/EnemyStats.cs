@@ -15,10 +15,16 @@ public class EnemyStats : Stats
     [SerializeField] [Range(0, 8)] float minDistance = 0, maxDistance = 8;
     [SerializeField] AudioClip gunSound;
     [SerializeField] [Range(1, 25)] float minDistanceToShoot;
+    [SerializeField] [Range(0, 100)] float predictionShot;
 
     public float BulletSpeed
     {
         get => bulletSpeed;
+    }
+
+    public float PredictionShot
+    {
+        get => predictionShot;
     }
 
     public float MinDistanceToShoot
