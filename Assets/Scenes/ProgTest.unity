@@ -124474,37 +124474,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5126431814535361981, guid: fb0a0abaa56991b4f9a435a96a22e2ec, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 31.099976
-      objectReference: {fileID: 0}
     - target: {fileID: 5543589452591450782, guid: fb0a0abaa56991b4f9a435a96a22e2ec, type: 3}
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
-    - target: {fileID: 6236461264963535563, guid: fb0a0abaa56991b4f9a435a96a22e2ec, type: 3}
-      propertyPath: m_Type
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6236461264963535563, guid: fb0a0abaa56991b4f9a435a96a22e2ec, type: 3}
-      propertyPath: m_FillAmount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6236461264963535563, guid: fb0a0abaa56991b4f9a435a96a22e2ec, type: 3}
-      propertyPath: m_FillOrigin
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6236461264963535563, guid: fb0a0abaa56991b4f9a435a96a22e2ec, type: 3}
-      propertyPath: m_FillClockwise
+    - target: {fileID: 7910421913566129978, guid: fb0a0abaa56991b4f9a435a96a22e2ec, type: 3}
+      propertyPath: m_RenderPostProcessing
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6236461264963535563, guid: fb0a0abaa56991b4f9a435a96a22e2ec, type: 3}
-      propertyPath: m_RaycastTarget
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6236461264963535563, guid: fb0a0abaa56991b4f9a435a96a22e2ec, type: 3}
-      propertyPath: m_UseSpriteMesh
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
