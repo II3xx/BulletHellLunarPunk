@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a2c297ca891af541be4053abd0fd9f8, type: 3}
+  m_Name: Renderflies2
+  m_EditorClassIdentifier: 
+  DialogueText:
+  - "You hack into the renderflies\u2026 "
+  - 'Two Humans True members can be seen discussing with each other after what seems
+    to be some sort of sermon.  '
+  - "\u201CDo you truly think we will be able to summon her? I mean, six people seems
+    quite low for such a ritual\u201D "
+  - "\u201CNonsense brother, master Tyroal knows what he\u2019s talking about\u201D "
+  - "\u201CI don't know.. I just can't see how we\u2019re supposed to go from these
+    fleshy clumps to something of that size and power\u201D. "
+  - "\u201CYou have to have trust us brother, soon mother Tha-\u201D "
+  - 'The recording cuts out. '
+  isRunic: 1

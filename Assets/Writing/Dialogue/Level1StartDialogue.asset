@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a2c297ca891af541be4053abd0fd9f8, type: 3}
+  m_Name: Level1StartDialogue
+  m_EditorClassIdentifier: 
+  DialogueText:
+  - Well done on making it this far rookie, and you did it faster than expected.
+  - now just don't forget your mission, get in that dusty old cathedral and smoke
+    whoevers keeping it under wraps okay?
+  - Fastest way there will be through that old dusty archive.
+  - "Now show em\u2019 that you\u2019re as good as everyone claims you are. "
+  - For the New Dawn.
+  - "Rosanne, over and out.\u201D "
+  isRunic: 0
