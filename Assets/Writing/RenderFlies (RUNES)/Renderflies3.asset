@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a2c297ca891af541be4053abd0fd9f8, type: 3}
+  m_Name: Renderflies3
+  m_EditorClassIdentifier: 
+  DialogueText:
+  - "You hack into renderflies\u2026 "
+  - 'A large gathering of cultists are assembled in a sermon. They all listen keenly
+    to who seems their leader. '
+  - "\u201CBrothers and sisters! We\u2019ve gathered here today to honor the one
+    true mother, because soon we will be graced by her presence!\u201D "
+  - 'Most of the crowd cheers but some seem skeptical. '
+  - " \u201CThree days from now, I and six other of mothers precious children will
+    call upon her. Then we, The Humans True, shall be unstoppable!\u201D "
+  - "\u201CFOR THE ONE TRUE MOTHER!\u201D "
+  - 'The recording cuts out. '
+  isRunic: 1
