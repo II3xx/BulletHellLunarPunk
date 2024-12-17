@@ -12,7 +12,6 @@ public class EnemyMovement : MonoBehaviour
     private NavMeshAgent navAgent;
     [SerializeField] private EnemyStats enemyStats;
     [SerializeField] private SpriteRenderer spriteRenderer;
-    readonly float deadZone = 0.1f;
     private float moveRunTime = 0;
     [SerializeField] [Range(0.5f,8)] float timeBetweenMoves;
     [SerializeField] [Range(1, 100)] float moveChance;

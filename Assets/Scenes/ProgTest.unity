@@ -3306,7 +3306,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_OverrideByGrid: 0
-  m_UseMeshPrefab: {fileID: 2075499567}
+  m_UseMeshPrefab: {fileID: 0}
   m_CompressBounds: 0
   m_OverrideVector: {x: 1, y: 1, z: 1}
 --- !u!114 &779466528
@@ -124872,7 +124872,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 809b9eae94a34934fb7f84316149c003, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stats: {fileID: 11400000, guid: 1924ee335f7cae049b9743a258f4cd58, type: 2}
+  stats: {fileID: 11400000, guid: c0dda8078c91ef2468722883bac86be7, type: 2}
   onDeath:
     m_PersistentCalls:
       m_Calls: []

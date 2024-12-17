@@ -189,10 +189,23 @@ public class PlayerScript : MonoBehaviour
         return new Vector2(input.x * stats.Speed, input.y * stats.Speed);
     }
 
+
+    private void MovementUpdate()
+    {
+        if(moveInput == new Vector2(0,0))
+        {
+            rb.velocity = Vector2.Lerp(rb.velocity, new Vector2(0,0), 0.14f);
+        }
+        else
+        {
+            rb.velocity = velocity;
+        }
+    }
+
     private void FixedUpdate()
     {
-        if(!isDashing)
-            rb.velocity = velocity;
+        if (!isDashing)
+            MovementUpdate();
         if (animator == null)
             return;
         if(velocity != new Vector2(0, 0) && !isDashing)
