@@ -12,5 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a2c297ca891af541be4053abd0fd9f8, type: 3}
   m_Name: PreBoss1Dialogue
   m_EditorClassIdentifier: 
-  DialogueText: []
+  DialogueText:
+  - "Well, I take it you\u2019re the cause of all that dreadful noise?"
+  - "I'm guessing you\u2019re here to stop us? Why, though? You don't look like your
+    typical Argyrian"
+  - ...
+  - "Wait, don't tell me, you\u2019re one of those resistance fighters aren\u2019t
+    you?"
+  - Well either way you are far too late
+  - Oh true mother of all. Oh great Thalassa. Bless us with your presence! Let us
+    cover the world in perfect flesh!
+  - ...
+  - "What\u2019s this? This is not what was supposed to happen!"
+  - ugh, to hell with this! Whatever abomination you are, tear this interloper limb
+    from limb!
   isRunic: 0
