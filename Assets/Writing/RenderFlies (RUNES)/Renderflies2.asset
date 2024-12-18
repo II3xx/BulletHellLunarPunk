@@ -26,4 +26,3 @@ MonoBehaviour:
   isRunic: 1
   fontSize: 30
   defaultFont: {fileID: 11400000, guid: 98aff1b069105a84f906805549108141, type: 2}
-  resetable: 1
