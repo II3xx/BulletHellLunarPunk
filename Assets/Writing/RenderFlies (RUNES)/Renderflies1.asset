@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a2c297ca891af541be4053abd0fd9f8, type: 3}
+  m_Name: Renderflies1
+  m_EditorClassIdentifier: 
+  DialogueText:
+  - You hack into the Renderflies...
+  - A Massive brawl between Humans True cultists and resistance fighters rages as
+    one lone man lies dying by the wall. Loud wailing can be heard from the battle
+    but faint words can be heard from the dying man.
+  - "\u201CThis isn't what we were told.. There\u2019s too many of them.. Oh lisa,
+    Sam, I guess it won't be long until I see you again\u201D"
+  - The recording continues with the man lying lifeless as the battle roars on.
+  - 'The recording suddenly cuts out. '
+  isRunic: 1
