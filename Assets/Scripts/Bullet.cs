@@ -16,7 +16,8 @@ public class Bullet : MonoBehaviour
     private Faction allegiance;
     [SerializeField] AudioClip audioClipWallHit, audioClipUnitHit;
     [SerializeField] private int damage;
-    [SerializeField] private float knockBackForce;
+    [SerializeField] [Range(0.2f,10)] private float knockBackForce;
+    [SerializeField] [Range(0.2f, 2)] private float knockBackTime;
     private Rigidbody2D rb2D;
     private bool ready = false;
     private readonly float lifeTime = 15f;
@@ -39,6 +40,11 @@ public class Bullet : MonoBehaviour
         }
     }
 
+    private float AngleMath(Vector2 Dest)
+    {
+        return Mathf.Atan2(Dest.y - rb2D.position.y, Dest.x - rb2D.position.x);
+    }
+
     private bool IsWall(Collider2D collision)
     {
         if (collision is not BoxCollider2D && collision is not CircleCollider2D && collision is not CapsuleCollider2D)
@@ -51,7 +57,11 @@ public class Bullet : MonoBehaviour
         EnemyMovement enemyMovement = collision.GetComponent<EnemyMovement>();
         if (enemyMovement != null)
         {
+            UnitAudioHit();
             enemyMovement.Damage = damage;
+            Debug.Log(AngleMath(collision.transform.position));
+            float angle = AngleMath(collision.transform.position);
+            enemyMovement.Knockback(angle, knockBackForce, knockBackTime);
             Destroy(gameObject);
             return;
         }
@@ -62,6 +72,7 @@ public class Bullet : MonoBehaviour
         EnemySpawner enemySpawner = collision.GetComponent<EnemySpawner>();
         if (enemySpawner != null)
         {
+            UnitAudioHit();
             enemySpawner.Damage = damage;
             Destroy(gameObject);
             return;
@@ -79,6 +90,7 @@ public class Bullet : MonoBehaviour
         PlayerScript playerScript = collision.GetComponent<PlayerScript>();
         if (playerScript != null)
         {
+            UnitAudioHit();
             playerScript.Damage = damage;
             Destroy(gameObject);
             return;
