@@ -21,3 +21,6 @@ MonoBehaviour:
   - For the New Dawn.
   - "Rosanne, over and out.\u201D "
   isRunic: 0
+  fontSize: 24
+  defaultFont: {fileID: 0}
+  resetable: 0

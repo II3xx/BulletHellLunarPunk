@@ -91,13 +91,13 @@ public class DialogueReader : MonoBehaviour
 
     private void StartRunicText()
     {
-        runicAnimator.SetTrigger("Runic");
+        runicAnimator.SetBool("Runic", true);
         runicAnimator.SetTrigger("Reading");
     }
 
     private void StartNormalText()
     {
-        runicAnimator.SetTrigger("Runic");
+        runicAnimator.SetBool("Runic", false);
         runicAnimator.SetTrigger("Reading");
     }
 
