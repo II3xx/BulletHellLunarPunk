@@ -33,6 +33,7 @@ public class TargetKillLimitWallSwap : MonoBehaviour
     IEnumerator OnKillCompletion()
     {
         float shaker = shakeAmount;
+        virtCam.AddCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
         CinemachineBasicMultiChannelPerlin virtCamNoise = virtCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
 
         for (;shaker>0; shaker=-Time.deltaTime)
@@ -40,6 +41,7 @@ public class TargetKillLimitWallSwap : MonoBehaviour
             virtCamNoise.m_AmplitudeGain = shaker;
             yield return null;
         }
+        virtCam.DestroyCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
         yield break;
     }
 }
