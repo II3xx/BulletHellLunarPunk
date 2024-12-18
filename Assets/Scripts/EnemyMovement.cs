@@ -47,6 +47,11 @@ public class EnemyMovement : MonoBehaviour
         set => enemyStats.Damage = value;
     }
 
+    public void Knockback(float knockbackAngle, float knockBackAmount)
+    {
+
+    }
+
     private float AngleMath(Vector2 Dest)
     {
         return Mathf.Atan2(rb2D.position.y - Dest.y, rb2D.position.x - Dest.x);

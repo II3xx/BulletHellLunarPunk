@@ -15,7 +15,7 @@ public class DialogueReader : MonoBehaviour
         
     public void SetHolder(DialogueHolder holder)
     {
-        this.currentText = holder;
+        currentText = holder;
     }
 
     public void OnDialogueEnter()
@@ -26,11 +26,11 @@ public class DialogueReader : MonoBehaviour
         }
         if (currentText.IsRunic)
         {
-
+            StartRunicText();
         }
         else
         {
-
+            StartNormalText();
         }
         OnNextDialogue();
         playerInput.SwitchCurrentControlScheme("UI");
@@ -48,35 +48,35 @@ public class DialogueReader : MonoBehaviour
 
     private void StartRunicText()
     {
-        runicAnimator.SetBool("Runic", true);
-        runicAnimator.SetBool("Reading", true);
+        runicAnimator.SetTrigger("Runic");
+        runicAnimator.SetTrigger("Reading");
     }
 
     private void StartNormalText()
     {
-        runicAnimator.SetBool("Runic", false);
-        runicAnimator.SetBool("Reading", true);
+        runicAnimator.SetTrigger("Runic");
+        runicAnimator.SetTrigger("Reading");
     }
 
     private void EndRunicText()
     {
-        runicAnimator.SetBool("Ending", true);
+        runicAnimator.SetTrigger("Ending");
     }
 
     private void EndNormalText()
     {
-        runicAnimator.SetBool("Ending", true);
+        runicAnimator.SetTrigger("Ending");
     }
 
     private void EndDialogue()
     {
         if(currentText.IsRunic)
         {
-
+            EndRunicText();
         }
         else
         {
-
+            EndNormalText();
         }
         playerInput.SwitchCurrentControlScheme("Player");
         currentText = null;

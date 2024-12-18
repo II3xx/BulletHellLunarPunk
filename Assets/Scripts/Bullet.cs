@@ -14,11 +14,12 @@ public enum Faction
 public class Bullet : MonoBehaviour
 {
     private Faction allegiance;
-    [SerializeField] AudioClip audioClip;
+    [SerializeField] AudioClip audioClipWallHit, audioClipUnitHit;
     [SerializeField] private int damage;
+    [SerializeField] private float knockBackForce;
     private Rigidbody2D rb2D;
     private bool ready = false;
-    private float lifeTime = 15f;
+    private readonly float lifeTime = 15f;
     private float runTime = 0f;
 
     public void SetBulletStats(Vector2 velocity, Faction allegiance)
@@ -84,6 +85,31 @@ public class Bullet : MonoBehaviour
         }
     }
 
+    private void CreateTempAudio(AudioClip audioClip)
+    {
+        var temp = GameObject.CreatePrimitive(PrimitiveType.Plane);
+        temp.transform.position = rb2D.position;
+        var tempaudio = temp.AddComponent<TemporaryAudioSource>();
+        tempaudio.setClipAndPlay(audioClip);
+        temp.GetComponent<MeshRenderer>().enabled = false;
+    }
+
+    private void UnitAudioHit()
+    {
+        if (audioClipUnitHit != null)
+        {
+            CreateTempAudio(audioClipUnitHit);
+        }
+    }
+
+    private void WallAudioHit()
+    {
+        if (audioClipWallHit != null)
+        {
+            CreateTempAudio(audioClipWallHit);
+        }
+    }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -102,14 +128,7 @@ public class Bullet : MonoBehaviour
         
         if(IsWall(collision))
         {
-            if(audioClip != null)
-            {
-                var temp = GameObject.CreatePrimitive(PrimitiveType.Plane);
-                temp.transform.position = rb2D.position;
-                var tempaudio = temp.AddComponent<TemporaryAudioSource>();
-                tempaudio.setClipAndPlay(audioClip);
-                temp.GetComponent<MeshRenderer>().enabled = false;
-            }
+            WallAudioHit();
             Destroy(gameObject);
         }
     }
