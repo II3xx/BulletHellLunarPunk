@@ -22,3 +22,5 @@ MonoBehaviour:
   - <i>The recording continues with the man lying lifeless as the battle roars on.</i>
   - <i>The recording suddenly cuts out.</i>
   isRunic: 1
+  fontSize: 30
+  defaultFont: {fileID: 11400000, guid: 98aff1b069105a84f906805549108141, type: 2}

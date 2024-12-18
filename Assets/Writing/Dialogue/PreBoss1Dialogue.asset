@@ -27,3 +27,5 @@ MonoBehaviour:
   - ugh, to hell with this! Whatever abomination you are, tear this interloper limb
     from limb!
   isRunic: 0
+  fontSize: 30
+  defaultFont: {fileID: 11400000, guid: 98aff1b069105a84f906805549108141, type: 2}
