@@ -6,12 +6,14 @@ using UnityEngine;
 
 public class DialogueReader : MonoBehaviour
 {
-
+    private readonly Dictionary<DialogueHolder, int> unResetableHolders = new();
     DialogueHolder currentText = null;
     [SerializeField] PlayerInput playerInput;
     [SerializeField] TextMeshProUGUI textMesh;
     [SerializeField] Animator runicAnimator;
     private TMP_FontAsset defaultFont;
+    private int currentIndex = 0;
+    private int maxIndex = 0;
 
 
     private void Start()
@@ -22,7 +24,8 @@ public class DialogueReader : MonoBehaviour
     public void SetHolder(DialogueHolder holder)
     {
         currentText = holder;
-        
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScript>().AddToInteract(OnDialogueEnter);
+        maxIndex = currentText.DialogueSize;
         textMesh.fontSize = currentText.FontSize;
         if (currentText.DefaultFont != null)
             textMesh.font = currentText.DefaultFont;
@@ -30,9 +33,32 @@ public class DialogueReader : MonoBehaviour
             textMesh.font = defaultFont;
     }
 
+    public void OnExitHolder()
+    {
+        currentText = null;
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScript>().RemoveFromInteract(OnDialogueEnter);
+    }
+
+    public string NextString()
+    {
+        string dialogeuToReturn = currentText.GetStringIndex(currentIndex);
+        currentIndex++;
+        return dialogeuToReturn;
+    }
+
     public void OnDialogueEnter()
     {
         if(currentText == null)
+        {
+            return;
+        }
+        unResetableHolders.TryGetValue(currentText, out currentIndex);
+        if (currentIndex >= maxIndex)
+        {
+            return;
+        }
+        string textStart = NextString();
+        if (textStart.Equals(""))
         {
             return;
         }
@@ -44,17 +70,22 @@ public class DialogueReader : MonoBehaviour
         {
             StartNormalText();
         }
-        OnNextDialogue();
-        playerInput.SwitchCurrentControlScheme("UI");
+        textMesh.text = textStart;
+
+
+        playerInput.SwitchCurrentActionMap("UI");
     }
 
-    public void OnNextDialogue()
+    public void OnNextDialogue(InputAction.CallbackContext context)
     {
-        string text = currentText.NextString();
-        textMesh.text = text;
-        if (text.Equals(""))
+        if(context.started)
         {
-            EndDialogue();
+            string text = NextString();
+            textMesh.text = text;
+            if (text.Equals(""))
+            {
+                EndDialogue();
+            }
         }
     }
 
@@ -90,7 +121,13 @@ public class DialogueReader : MonoBehaviour
         {
             EndNormalText();
         }
-        playerInput.SwitchCurrentControlScheme("Player");
-        currentText = null;
+        playerInput.SwitchCurrentActionMap("Player");
+        if (!currentText.Resetable)
+        {
+            unResetableHolders.Add(currentText, currentIndex);
+            currentText = null;
+        }
+        else
+            currentIndex = 0;
     }
 }
