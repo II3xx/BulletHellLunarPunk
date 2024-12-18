@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] EnemyStats stats;
+    [Tooltip("Determines if the spawn order is random or in order from top to bottom")]
     [SerializeField] bool isRandom;
     [SerializeField] GameObject[] PrefabsToSpawn;
     [SerializeField] [Range(0.5f, 10)] float timeToSpawn;
@@ -12,6 +13,7 @@ public class EnemySpawner : MonoBehaviour
     float runTime = 0;
     int orderToSpawn = 0;
     List<GameObject> spawnedList;
+    [Tooltip("How many get spawned each time it tries to spawn (does not exceed spawn limit)")]
     [SerializeField] [Range(1, 5)] int spawnAmount;
 
     // Start is called before the first frame update

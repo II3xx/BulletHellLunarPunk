@@ -16,7 +16,9 @@ public class Bullet : MonoBehaviour
     private Faction allegiance;
     [SerializeField] AudioClip audioClipWallHit, audioClipUnitHit;
     [SerializeField] private int damage;
+    [Tooltip("The force amount that they're hit back by per bullet")]
     [SerializeField] [Range(0.2f,10)] private float knockBackForce;
+    [Tooltip("The time that enemies hit are 'stunned' and being knocked back")]
     [SerializeField] [Range(0.2f, 2)] private float knockBackTime;
     private Rigidbody2D rb2D;
     private bool ready = false;

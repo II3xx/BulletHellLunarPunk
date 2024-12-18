@@ -9,7 +9,7 @@ public class UIBehavior : MonoBehaviour
 
     
 
-    public void setHPUI(int HP)
+    public void SetHPUI(int HP)
     {
         switch(HP)
         {
@@ -51,13 +51,13 @@ public class UIBehavior : MonoBehaviour
         }
     }
 
-    public void onDash(float timeToFill)
+    public void OnDash(float timeToFill)
     {
         dashImage.fillAmount = 0;
-        StartCoroutine(dashFill(timeToFill));
+        StartCoroutine(DashFill(timeToFill));
     }
 
-    IEnumerator dashFill(float timeToFill)
+    IEnumerator DashFill(float timeToFill)
     {
         float oneDivFill = 1 / timeToFill;
         for (float i = 0; i <= 1 ;i += (Time.deltaTime * oneDivFill))

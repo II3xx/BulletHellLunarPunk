@@ -48,7 +48,7 @@ public class PlayerScript : MonoBehaviour
         set
         {
             stats.Damage = value;
-            uiBheavior.setHPUI(stats.Health);
+            uiBheavior.SetHPUI(stats.Health);
         }
     }
 
@@ -164,7 +164,7 @@ public class PlayerScript : MonoBehaviour
             rb.velocity = rb.velocity.normalized * stats.DashVelocity / stats.DashTime * stats.DashCurve.Evaluate(runTime);
             if (runTime >= stats.DashTime)
             {
-                uiBheavior.onDash(stats.DashCooldown);
+                uiBheavior.OnDash(stats.DashCooldown);
                 dashAvailable = false;
                 runTime = 0;
                 isDashing = false;
