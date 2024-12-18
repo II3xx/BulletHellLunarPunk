@@ -52,6 +52,16 @@ public class Stats : ScriptableObject
         get => health;
     }
 
+    public int Healing
+    {
+        set{
+            if (health + value < maxHealth)
+                health = maxHealth;
+            else
+                health += value;
+        }
+    }
+
     public bool UpdateIFrameBlink()
     {
         IFrameBlinkRunTime += Time.deltaTime;
@@ -89,11 +99,6 @@ public class Stats : ScriptableObject
     public void UpdateIframe()
     {
         currentIFrame = Mathf.Clamp((currentIFrame-Time.deltaTime), 0, 8);
-    }
-
-    public int Healing
-    {
-        set => health += value;
     }
 
     public float Speed

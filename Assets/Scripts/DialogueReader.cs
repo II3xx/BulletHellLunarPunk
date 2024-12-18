@@ -11,11 +11,23 @@ public class DialogueReader : MonoBehaviour
     [SerializeField] PlayerInput playerInput;
     [SerializeField] TextMeshProUGUI textMesh;
     [SerializeField] Animator runicAnimator;
-    
-        
+    private TMP_FontAsset defaultFont;
+
+
+    private void Start()
+    {
+        defaultFont = textMesh.font; 
+    }
+
     public void SetHolder(DialogueHolder holder)
     {
         currentText = holder;
+        
+        textMesh.fontSize = currentText.FontSize;
+        if (currentText.DefaultFont != null)
+            textMesh.font = currentText.DefaultFont;
+        else
+            textMesh.font = defaultFont;
     }
 
     public void OnDialogueEnter()
@@ -38,12 +50,12 @@ public class DialogueReader : MonoBehaviour
 
     public void OnNextDialogue()
     {
-        string text = currentText.nextString();
+        string text = currentText.NextString();
+        textMesh.text = text;
         if (text.Equals(""))
         {
             EndDialogue();
         }
-        textMesh.text = text;
     }
 
     private void StartRunicText()

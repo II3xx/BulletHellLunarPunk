@@ -13,7 +13,9 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private EnemyStats enemyStats;
     [SerializeField] private SpriteRenderer spriteRenderer;
     private float moveRunTime = 0;
+    [Tooltip("How long until it will retry to move")]
     [SerializeField] [Range(0.5f,8)] float timeBetweenMoves;
+    [Tooltip("The chance upon an attempt to move to change desired location")]
     [SerializeField] [Range(1, 100)] float moveChance;
     [SerializeField] private UnityEvent onDeath;
 
