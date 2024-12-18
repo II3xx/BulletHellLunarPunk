@@ -443,7 +443,7 @@ MonoBehaviour:
         m_MethodName: SetHolder
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: af98f4261bca5084ba79f9ebc5b7bf65, type: 2}
+          m_ObjectArgument: {fileID: 11400000, guid: 1a9fe7b01544af548b794f15aa1018f4, type: 2}
           m_ObjectArgumentAssemblyTypeName: DialogueHolder, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0

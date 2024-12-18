@@ -19,7 +19,8 @@ MonoBehaviour:
   - Fastest way there will be through that old dusty archive.
   - "Now show em\u2019 that you\u2019re as good as everyone claims you are. "
   - For the New Dawn.
-  - "Rosanne, over and out.\u201D "
+  - Rosanne, over and out.
   isRunic: 0
   fontSize: 30
   defaultFont: {fileID: 11400000, guid: 98aff1b069105a84f906805549108141, type: 2}
+  resetable: 0
