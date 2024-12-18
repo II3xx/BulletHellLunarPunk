@@ -25,9 +25,18 @@ public class TargetKillLimitWallSwap : MonoBehaviour
             ToggleCollider.isTrigger = true;
             if(virtCam != null)
                 StartCoroutine(OnKillCompletion());
-            if(audioClip != null)
-                gameObject.AddComponent<TemporaryAudioSource>().setClipAndPlay(audioClip);
+            if (audioClip != null)
+                CreateTempAudio(audioClip);
         }
+    }
+
+    private void CreateTempAudio(AudioClip audioClip)
+    {
+        var temp = GameObject.CreatePrimitive(PrimitiveType.Plane);
+        temp.transform.position = transform.position;
+        var tempaudio = temp.AddComponent<TemporaryAudioSource>();
+        tempaudio.setClipAndPlay(audioClip);
+        temp.GetComponent<MeshRenderer>().enabled = false;
     }
 
     IEnumerator OnKillCompletion()
