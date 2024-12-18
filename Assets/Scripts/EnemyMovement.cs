@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
 
-[RequireComponent(typeof(Rigidbody2D), typeof(NavMeshAgent))]
+[RequireComponent(typeof(NavMeshAgent))]
 
 public class EnemyMovement : MonoBehaviour
 {
@@ -15,7 +15,6 @@ public class EnemyMovement : MonoBehaviour
     private float moveRunTime = 0;
     [SerializeField] [Range(0.5f,8)] float timeBetweenMoves;
     [SerializeField] [Range(1, 100)] float moveChance;
-    Rigidbody2D rb2D;
     [SerializeField] private UnityEvent onDeath;
 
     // Start is called before the first frame update
@@ -23,10 +22,10 @@ public class EnemyMovement : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         navAgent = gameObject.GetComponent<NavMeshAgent>();
-        rb2D = gameObject.GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         enemyStats = enemyStats.CopyStats(enemyStats);
         enemyStats.onDeath.AddListener(OnDeath);
+        navAgent.speed = enemyStats.Speed;
         navAgent.updateRotation = false;
         navAgent.updateUpAxis = false;
     }
@@ -47,14 +46,23 @@ public class EnemyMovement : MonoBehaviour
         set => enemyStats.Damage = value;
     }
 
-    public void Knockback(float knockbackAngle, float knockBackAmount)
+    public void Knockback(float knockbackAngle, float knockBackAmount, float knockBackTime)
     {
-
+        Vector2 velocity = new(knockBackAmount * Mathf.Cos(knockbackAngle), knockBackAmount * Mathf.Sin(knockbackAngle));
+        StartCoroutine(OnKnockback(knockBackTime, velocity));
     }
 
-    private float AngleMath(Vector2 Dest)
+    IEnumerator OnKnockback(float maxTimer, Vector2 Velocity)
     {
-        return Mathf.Atan2(rb2D.position.y - Dest.y, rb2D.position.x - Dest.x);
+        float normalAccel = navAgent.acceleration;
+        navAgent.acceleration = 0;
+        navAgent.velocity = Velocity;
+        for (float i = 0; maxTimer > i; i += Time.deltaTime)
+        {
+            navAgent.velocity = Vector2.Lerp(Velocity, new(0, 0), 0.1f);
+            yield return null;
+        }
+        navAgent.acceleration = normalAccel;
     }
 
     private void UpdateBlinkDamage()
