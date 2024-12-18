@@ -13,12 +13,14 @@ MonoBehaviour:
   m_Name: Renderflies1
   m_EditorClassIdentifier: 
   DialogueText:
-  - You hack into the Renderflies...
-  - A Massive brawl between Humans True cultists and resistance fighters rages as
-    one lone man lies dying by the wall. Loud wailing can be heard from the battle
-    but faint words can be heard from the dying man.
+  - <i>You hack into the Renderflies...</i>
+  - <i>A Massive brawl between Humans True cultists and resistance fighters rages
+    as one lone man lies dying by the wall. Loud wailing can be heard from the battle
+    but faint words can be heard from the dying man.</i>
   - "\u201CThis isn't what we were told.. There\u2019s too many of them.. Oh lisa,
     Sam, I guess it won't be long until I see you again\u201D"
-  - The recording continues with the man lying lifeless as the battle roars on.
-  - 'The recording suddenly cuts out. '
+  - <i>The recording continues with the man lying lifeless as the battle roars on.</i>
+  - <i>The recording suddenly cuts out.</i>
   isRunic: 1
+  fontSize: 30
+  defaultFont: {fileID: 11400000, guid: 98aff1b069105a84f906805549108141, type: 2}

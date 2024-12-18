@@ -13,14 +13,16 @@ MonoBehaviour:
   m_Name: Renderflies3
   m_EditorClassIdentifier: 
   DialogueText:
-  - "You hack into renderflies\u2026 "
-  - 'A large gathering of cultists are assembled in a sermon. They all listen keenly
-    to who seems their leader. '
+  - "</i>You hack into renderflies\u2026 </i>"
+  - '<i>A large gathering of cultists are assembled in a sermon. They all listen
+    keenly to who seems their leader. '
   - "\u201CBrothers and sisters! We\u2019ve gathered here today to honor the one
     true mother, because soon we will be graced by her presence!\u201D "
-  - 'Most of the crowd cheers but some seem skeptical. '
+  - <i>Most of the crowd cheers but some seem skeptical. </i>
   - " \u201CThree days from now, I and six other of mothers precious children will
     call upon her. Then we, The Humans True, shall be unstoppable!\u201D "
   - "\u201CFOR THE ONE TRUE MOTHER!\u201D "
-  - 'The recording cuts out. '
+  - <i>The recording cuts out.</i>
   isRunic: 1
+  fontSize: 30
+  defaultFont: {fileID: 11400000, guid: 98aff1b069105a84f906805549108141, type: 2}

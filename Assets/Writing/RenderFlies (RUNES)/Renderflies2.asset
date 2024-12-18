@@ -13,14 +13,16 @@ MonoBehaviour:
   m_Name: Renderflies2
   m_EditorClassIdentifier: 
   DialogueText:
-  - "You hack into the renderflies\u2026 "
-  - 'Two Humans True members can be seen discussing with each other after what seems
-    to be some sort of sermon.  '
+  - "<i>You hack into the renderflies\u2026 </i>"
+  - <i>Two Humans True members can be seen discussing with each other after what
+    seems to be some sort of sermon.  </i>
   - "\u201CDo you truly think we will be able to summon her? I mean, six people seems
     quite low for such a ritual\u201D "
   - "\u201CNonsense brother, master Tyroal knows what he\u2019s talking about\u201D "
   - "\u201CI don't know.. I just can't see how we\u2019re supposed to go from these
     fleshy clumps to something of that size and power\u201D. "
   - "\u201CYou have to have trust us brother, soon mother Tha-\u201D "
-  - 'The recording cuts out. '
+  - <i>The recording cuts out. </i>
   isRunic: 1
+  fontSize: 30
+  defaultFont: {fileID: 11400000, guid: 98aff1b069105a84f906805549108141, type: 2}
