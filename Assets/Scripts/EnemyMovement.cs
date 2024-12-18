@@ -25,6 +25,7 @@ public class EnemyMovement : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         enemyStats = enemyStats.CopyStats(enemyStats);
         enemyStats.onDeath.AddListener(OnDeath);
+        navAgent.speed = enemyStats.Speed;
         navAgent.updateRotation = false;
         navAgent.updateUpAxis = false;
     }
