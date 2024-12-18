@@ -14,7 +14,8 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private UnityEvent onDeath;
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private AudioSource DashAudioSource;
-    [SerializeField] private UIBehavior uiBheavior; 
+    [SerializeField] private UIBehavior uiBheavior;
+    private readonly UnityEvent InteractEvent = new();
     private Rigidbody2D rb;
     private PlayerInput playInput;
     private bool InputEnabled = true;
@@ -60,6 +61,22 @@ public class PlayerScript : MonoBehaviour
     public void ToggleInput()
     {
         InputEnabled = !InputEnabled;
+    }
+
+    public void OnInteract(InputAction.CallbackContext context)
+    {
+        if(context.started)
+            InteractEvent.Invoke();
+    }
+
+    public void AddToInteract(UnityAction function)
+    {
+        InteractEvent.AddListener(function);
+    }
+
+    public void RemoveFromInteract(UnityAction function)
+    {
+        InteractEvent.RemoveListener(function);
     }
 
     public void OnMove(InputAction.CallbackContext context)

@@ -11,20 +11,11 @@ public class DialogueHolder : ScriptableObject
     [SerializeField] private bool isRunic;
     [SerializeField] [Range(12,36)] private float fontSize = 24;
     [SerializeField] private TMP_FontAsset defaultFont;
-    private int current;
+    [SerializeField] private bool resetable;
 
     public bool IsRunic
     {
-        get => IsRunic;
-    }
-
-    public string NextString()
-    {
-        if (current == DialogueText.Count)
-            return "";
-        string dialogeuToReturn = DialogueText[current];
-        current++;
-        return dialogeuToReturn;
+        get => isRunic;
     }
 
     public TMP_FontAsset DefaultFont
@@ -35,5 +26,22 @@ public class DialogueHolder : ScriptableObject
     public float FontSize
     {
         get => fontSize;
+    }
+
+    public int DialogueSize
+    {
+        get => DialogueText.Count;
+    }
+
+    public bool Resetable
+    {
+        get => resetable;
+    }
+
+    public string GetStringIndex(int index)
+    {
+        if (index >= DialogueText.Count)
+            return "";
+        return DialogueText[index];
     }
 }
