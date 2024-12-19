@@ -85,7 +85,7 @@ public class EnemySpawner : MonoBehaviour
                 {
                     spawnedList.Add(OrderedSpawn());
                     orderToSpawn++;
-                    if (orderToSpawn > PrefabsToSpawn.Length)
+                    if (orderToSpawn >= PrefabsToSpawn.Length)
                         orderToSpawn = 0;
                 }
             }

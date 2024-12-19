@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a2c297ca891af541be4053abd0fd9f8, type: 3}
+  m_Name: Book1_Equilibrium
+  m_EditorClassIdentifier: 
+  DialogueText:
+  - <i>The Beginning of Equilibrium</i>
+  - 'When the universe came to exist, there was nothing but chaos. Infantile beings
+    of the dark roamed without purpose. '
+  - Many millennia passed by with none of it changing, and chaos still reigning supreme.
+    But in an otherworldly flash of light, the first of the Aeons emerged.
+  - 'It sought out to purge all chaos and bring order to all of existence, and in
+    mere hours it was successful. All of reality was now all in its grasp.  '
+  - 'It began creating more aeons that would aid in the sculpting of its perfect
+    world. Each and every Aeon were to have its equal, another Aeon that ruled of
+    its opposite as to keep everything in order.  '
+  - "When all of the new Aeons were created and its perfect world sculpted however,
+    The first Aeon, now known as \u201CThe Equilibrium\u201D, vanished, never to
+    be seen again.  "
+  - 'It is said that the day the Equilibrium gets its equal is the day the world
+    meets its end.  '
+  isRunic: 0
+  fontSize: 30
+  defaultFont: {fileID: 11400000, guid: 98aff1b069105a84f906805549108141, type: 2}
+  resetable: 1
