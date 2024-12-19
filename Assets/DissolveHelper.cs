@@ -8,8 +8,9 @@ public class DissolveHelper : MonoBehaviour
     [SerializeField] float dissolveAmount;
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
+        dissolveAmount = Mathf.Clamp01(dissolveAmount);
         DissolveMaterial.SetFloat("_Dissolve", dissolveAmount);
     }
 }
