@@ -644,6 +644,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ToggleCollider: {fileID: 323228636}
   TotalKills: 2
+  shakeAmount: 0.1
+  virtCam: {fileID: 0}
+  audioClip: {fileID: 0}
 --- !u!114 &323228639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1301,6 +1304,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ToggleCollider: {fileID: 731275418}
   TotalKills: 3
+  shakeAmount: 0.1
+  virtCam: {fileID: 0}
+  audioClip: {fileID: 0}
 --- !u!61 &731275418
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2036,6 +2042,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpawnerSquare
       objectReference: {fileID: 0}
+    - target: {fileID: 119296439721137288, guid: cf057fbfe65af4b47be86812d8ba6246, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4323706135422635807, guid: cf057fbfe65af4b47be86812d8ba6246, type: 3}
       propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
       value: 1
@@ -2354,6 +2364,10 @@ PrefabInstance:
     - target: {fileID: 119296439721137288, guid: cf057fbfe65af4b47be86812d8ba6246, type: 3}
       propertyPath: m_Name
       value: SpawnerGarden
+      objectReference: {fileID: 0}
+    - target: {fileID: 119296439721137288, guid: cf057fbfe65af4b47be86812d8ba6246, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4323706135422635807, guid: cf057fbfe65af4b47be86812d8ba6246, type: 3}
       propertyPath: moveChance
@@ -2997,6 +3011,10 @@ PrefabInstance:
     - target: {fileID: 119296439721137288, guid: cf057fbfe65af4b47be86812d8ba6246, type: 3}
       propertyPath: m_Name
       value: SpawnerGarden1
+      objectReference: {fileID: 0}
+    - target: {fileID: 119296439721137288, guid: cf057fbfe65af4b47be86812d8ba6246, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4323706135422635807, guid: cf057fbfe65af4b47be86812d8ba6246, type: 3}
       propertyPath: onDeath.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
