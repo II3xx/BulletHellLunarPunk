@@ -19,6 +19,14 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] [Range(1, 100)] float moveChance;
     [SerializeField] private UnityEvent onDeath;
 
+    private void OnValidate()
+    {
+        if(GetComponent<EnemySpawner>() != null)
+        {
+            Debug.LogError("You seem to have misconfigured the enemy."); 
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {

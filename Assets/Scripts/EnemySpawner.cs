@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -15,12 +16,20 @@ public class EnemySpawner : MonoBehaviour
     List<GameObject> spawnedList;
     [Tooltip("How many get spawned each time it tries to spawn (does not exceed spawn limit)")]
     [SerializeField] [Range(1, 5)] int spawnAmount;
+    [SerializeField] UnityEvent onDeath;
 
     // Start is called before the first frame update
     void Start()
     {
         spawnedList = new();
         stats = stats.CopyStats(stats);
+        stats.onDeath.AddListener(OnDeath);
+    }
+
+    private void OnDeath()
+    {
+        onDeath.Invoke();
+        Destroy(gameObject);
     }
 
     public Faction Allegiance
