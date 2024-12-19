@@ -14,10 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DesignScene/TestScene.unity
     guid: 0782441f5a2983d45962c1a36b730aa3
-  - enabled: 0
-    path: Assets/Scenes/DesignScene/DesignScene.unity
-    guid: 6789aef8a65531e4ba09ab455c3e9f4e
-  - enabled: 0
-    path: Assets/Scenes/ProgTest.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Scenes/WinScreen.unity
+    guid: d84720741ca48774bae8ee357f20b070
+  - enabled: 1
+    path: Assets/Scenes/DeathScreen.unity
+    guid: b85041c35658b4240b8b7a2dc8adfd77
   m_configObjects: {}
