@@ -208,6 +208,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: b6846481-32a8-4e01-a361-34e105d8f682
     m_ActionName: Player/Dash[/Keyboard/q]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 13290e95-fb86-4732-b0ca-07b01ddf17c2
+    m_ActionName: Player/Interact[/Keyboard/e]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player
@@ -316,9 +320,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  spriteRenderer: {fileID: 0}
+  spriteRenderer: {fileID: 2577995011620076090}
   DashAudioSource: {fileID: 2937420614285148009}
-  textMesh: {fileID: 0}
+  uiBheavior: {fileID: 0}
 --- !u!82 &2937420614285148009
 AudioSource:
   m_ObjectHideFlags: 0

@@ -134,7 +134,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac947b4f011926140819664cca494d6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioClipWallHit: {fileID: 0}
+  audioClipUnitHit: {fileID: 0}
   damage: 1
+  knockBackForce: 0.2
+  knockBackTime: 0.2
 --- !u!50 &2654311292048537460
 Rigidbody2D:
   serializedVersion: 4
