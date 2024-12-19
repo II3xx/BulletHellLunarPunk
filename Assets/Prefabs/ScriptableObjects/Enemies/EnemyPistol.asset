@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: EnemyPistol
   m_EditorClassIdentifier: 
   health: 3
-  movementSpeed: 3
+  movementSpeed: 3.5
   allegiance: 1
   IFrameOnHit: 0.5
   onDeath:
@@ -30,4 +30,4 @@ MonoBehaviour:
   maxDistance: 8
   gunSound: {fileID: 8300000, guid: 45fc6a4795fd1d64999c03a358bc309e, type: 3}
   minDistanceToShoot: 12.3
-  predictionShot: 100
+  predictionShot: 65
