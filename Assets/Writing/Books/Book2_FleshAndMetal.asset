@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a2c297ca891af541be4053abd0fd9f8, type: 3}
+  m_Name: Book2_FleshAndMetal
+  m_EditorClassIdentifier: 
+  DialogueText:
+  - <i>The Flesh and the Metal</i>
+  - 'While there are many Aeons of varying power and influence, none have been as
+    influential in humanities upbringing and none have had as much hatred for each
+    other as Thalassa, the Aeon of Flesh and its opposite Argyria, the Aeon of Metal. '
+  - 'Thalassa is said to be the mother of flesh magic and sentient life. Argyria
+    on the other hand is called the harbinger of technology.  '
+  - "\tThese two Aeons have been said to be at eachothers throats since time immemorial
+    but without either of them, humanity would not be what we are today. "
+  isRunic: 0
+  fontSize: 30
+  defaultFont: {fileID: 11400000, guid: 98aff1b069105a84f906805549108141, type: 2}
+  resetable: 1
