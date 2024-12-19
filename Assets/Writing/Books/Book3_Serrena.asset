@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a2c297ca891af541be4053abd0fd9f8, type: 3}
+  m_Name: Book3_Serrena
+  m_EditorClassIdentifier: 
+  DialogueText:
+  - <i>Built of ignorance, Serrena</i>
+  - Serrana was originally built in the 12th century by devout worshippers of the
+    Equilibrium and was named as such due to the serenity the city was meant to create,
+    but other than that, most of the city's early years have been lost to history.
+  - 'It is believed that before the 14th century that the city was run by the church,
+    since the oldest surviving records of the city''s existence mention that new
+    political powers outside thos of worship were rising. '
+  - 'This led to many extremist religious groups to try and revolt and overthrow
+    the new government. But to no avail.  '
+  - "In the city\u2019s later years, Serrena has now become one of the first cities
+    to harbing a new coming age of technology but still struggles with rampant corruption
+    to this very day. "
+  isRunic: 0
+  fontSize: 30
+  defaultFont: {fileID: 11400000, guid: 98aff1b069105a84f906805549108141, type: 2}
+  resetable: 1
