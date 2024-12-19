@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1894b68f085862b45bdb702064601cb7, type: 3}
   m_Name: Pistol
   m_EditorClassIdentifier: 
-  bulletSpeed: 6
+  bulletSpeed: 8
   bulletAmount: 1
   bulletSpread: 5
   fireRate: 0.5
