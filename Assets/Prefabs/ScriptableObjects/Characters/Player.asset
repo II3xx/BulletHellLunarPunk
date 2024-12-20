@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Player
   m_EditorClassIdentifier: 
   health: 6
-  movementSpeed: 3.5
+  movementSpeed: 3.75
   allegiance: 0
   IFrameOnHit: 1
   onDeath:
@@ -21,9 +21,9 @@ MonoBehaviour:
       m_Calls: []
   onDamage: {r: 1, g: 0, b: 0, a: 0.49411765}
   CharacterName: LeonardoDaVinci
-  dashCooldown: 1
-  dashVelocity: 7.23
-  dashTime: 0.3
+  dashCooldown: 2
+  dashVelocity: 6.5
+  dashTime: 0.33
   dashSound: {fileID: 8300000, guid: 910faa9bfb22aec479512e1172519d2c, type: 3}
   dashCurve:
     serializedVersion: 2
