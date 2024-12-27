@@ -13,13 +13,11 @@ MonoBehaviour:
   m_Name: EnemyShotgun
   m_EditorClassIdentifier: 
   health: 6
-  movementSpeed: 4
-  allegiance: 1
-  IFrameOnHit: 0.5
-  onDeath:
-    m_PersistentCalls:
-      m_Calls: []
+  iFrameOnHit: 0
   onDamage: {r: 1, g: 0.1, b: 0.1, a: 0.5}
+  timeBetweenMoves: 0.5
+  moveChance: 1
+  movementSpeed: 4
   bulletSpeed: 5
   bulletAmount: 4
   bulletSpread: 25

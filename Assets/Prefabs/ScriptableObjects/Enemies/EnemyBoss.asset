@@ -13,13 +13,11 @@ MonoBehaviour:
   m_Name: EnemyBoss
   m_EditorClassIdentifier: 
   health: 14
-  movementSpeed: 4.5
-  allegiance: 1
-  IFrameOnHit: 2
-  onDeath:
-    m_PersistentCalls:
-      m_Calls: []
+  iFrameOnHit: 0
   onDamage: {r: 1, g: 0.1, b: 0.1, a: 0.5}
+  timeBetweenMoves: 0.5
+  moveChance: 1
+  movementSpeed: 4.5
   bulletSpeed: 6
   bulletAmount: 5
   bulletSpread: 22.5

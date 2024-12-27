@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8780adb2b7155d4b82a391402e45955, type: 3}
+  m_Name: StationarySpawnerStats
+  m_EditorClassIdentifier: 
+  health: 6
+  iFrameOnHit: 0.13
+  onDamage: {r: 1, g: 0.1, b: 0.1, a: 0.5}
+  spawnAmount: 3
+  isRandom: 1
+  prefabsToSpawn:
+  - {fileID: 244785705504047452, guid: f6528504292839a4384293a2e83e92c7, type: 3}
+  - {fileID: 244785705504047452, guid: df44a3f471d0d384c8b8383294928ae5, type: 3}
+  timeToSpawn: 1.9
+  spawnLimit: 6

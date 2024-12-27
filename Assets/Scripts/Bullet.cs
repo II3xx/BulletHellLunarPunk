@@ -54,37 +54,21 @@ public class Bullet : MonoBehaviour
         return false;
     }
 
-    private void CheckEnemyMovement(Collider2D collision)
+    private void CheckAllEnemies(Collider2D collision)
     {
-        EnemyMovement enemyMovement = collision.GetComponent<EnemyMovement>();
-        if (enemyMovement != null)
+        BaseEnemy enemyBase = collision.GetComponent<BaseEnemy>();
+        if (enemyBase != null)
         {
             UnitAudioHit();
-            enemyMovement.Damage = damage;
-            Debug.Log(AngleMath(collision.transform.position));
+            enemyBase.Damage = damage;
             float angle = AngleMath(collision.transform.position);
-            enemyMovement.Knockback(angle, knockBackForce, knockBackTime);
+            if(enemyBase is MovingEnemy enemy)
+            {
+                enemy.Knockback(angle, knockBackForce, knockBackTime);
+            }
             Destroy(gameObject);
             return;
         }
-    }
-
-    private void CheckSpawner(Collider2D collision)
-    {
-        EnemySpawner enemySpawner = collision.GetComponent<EnemySpawner>();
-        if (enemySpawner != null)
-        {
-            UnitAudioHit();
-            enemySpawner.Damage = damage;
-            Destroy(gameObject);
-            return;
-        }
-    }
-
-    private void checkAllEnemies(Collider2D collision)
-    {
-        CheckEnemyMovement(collision);
-        CheckSpawner(collision);
     }
 
     private void CheckPlayer(Collider2D collision)
@@ -132,7 +116,7 @@ public class Bullet : MonoBehaviour
 
         if(allegiance == Faction.player)
         {
-            checkAllEnemies(collision);
+            CheckAllEnemies(collision);
         }
 
         else if(allegiance == Faction.enemy)
