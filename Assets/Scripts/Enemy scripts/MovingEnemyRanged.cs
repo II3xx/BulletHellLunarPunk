@@ -38,7 +38,7 @@ public class MovingEnemyRanged : MovingEnemy
         }
         moveRunTime = 0;
 
-        if(Random.Range(0,100) < rangedStats.MoveChance)
+        if(Random.Range(0,100) > rangedStats.MoveChance)
         {
             return;
         }

@@ -16,31 +16,31 @@ public class EnemyMeleeMovement : MovingEnemy
     }
 
 
-    Vector2 NewTestPosition()
+    Vector2 NewTestPosition(float minDistance)
     {
         Vector3 Dest = player.GetComponent<Rigidbody2D>().position;
         float angle2 = Random.Range(0, 360) * Mathf.Deg2Rad;
 
-        Vector2 maxPos = new(0.5f * Mathf.Cos(angle2), 0.5f * Mathf.Sin(angle2));
-        Vector2 minPos = new(0.5f * Mathf.Cos(angle2), 0.5f * Mathf.Sin(angle2));
+        Vector2 maxPos = new(minDistance * Mathf.Cos(angle2), minDistance * Mathf.Sin(angle2));
 
-        Vector3 Destin = new(Dest.x + Random.Range(minPos.x, maxPos.x), Dest.y + Random.Range(minPos.y, maxPos.y), 0);
+        Vector3 Destin = new(Dest.x + maxPos.x, Dest.y + maxPos.y, 0);
 
         return Destin;
     }
 
-    private void EngagePosition()
+    Vector2 EngagePosition()
     {
-        navAgent.speed = stats.Speed;
+        return NewTestPosition(0.5f);
     }
 
-    private void DisengagePosition()
+    Vector2 DisengagePosition()
     {
-        navAgent.speed = -stats.Speed * 0.2f;
+        return NewTestPosition(4f);
     }
 
     override protected void UpdatePosition()
     {
+        Vector2 Destin = new();
         if (moveRunTime < stats.TimeBetweenMoves)
         {
             moveRunTime += Time.deltaTime;
@@ -48,21 +48,19 @@ public class EnemyMeleeMovement : MovingEnemy
         }
         moveRunTime = 0;
 
-        if (Random.Range(0, 100) < stats.MoveChance)
+        if (Random.Range(0, 100) > stats.MoveChance)
         {
             return;
         }
 
         if (Random.Range(0, 100) > stats.EngagePercentage)
         {
-            DisengagePosition();
+            Destin = DisengagePosition();
         }
         else
         {
-            EngagePosition();
+            Destin = EngagePosition();
         }
-
-        Vector2 Destin = NewTestPosition();
 
         if (navAgent.isOnNavMesh)
             navAgent.SetDestination(Destin);
