@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "StationarySpawnerStats", menuName = "Enemies/StationarySpawnerStats", order = 1)]
 public class StationarySpawnerStats : EnemyBaseStats
 {
+    [Header("Spawner Related Stats")]
     [Tooltip("How many get spawned each time it tries to spawn (does not exceed spawn limit)")]
     [SerializeField] [Range(1, 5)] int spawnAmount;
     [Tooltip("Determines if the spawn order is random or in order from top to bottom")]

@@ -2,16 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
-using UnityEngine.AI;
-
-[RequireComponent( typeof(NavMeshAgent))]
 
 public class EnemyBulletShoot : MonoBehaviour
 {
     private GameObject player;
     [SerializeField] private EnemyRangedStats enemyStats;
     private float currentRoF;
-    private float runTime;
     [SerializeField] private AudioSource audioSource;
     
 
@@ -28,7 +24,7 @@ public class EnemyBulletShoot : MonoBehaviour
     void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        RandomizeRoF();
+        StartCoroutine(Shooter());
     }
 
     void OnPointShot()
@@ -52,26 +48,28 @@ public class EnemyBulletShoot : MonoBehaviour
         Bullet.GetComponent<Bullet>().SetBulletStats(bulletVelocity, Faction.enemy);
     }
 
-    // Update is called once per frame
-    void Update()
+    IEnumerator Shooter()
     {
-        runTime += Time.deltaTime;
-        if (Vector2.Distance(player.transform.position, transform.transform.position) > enemyStats.MinDistanceToShoot)
-            return;
-        if (runTime >= currentRoF)
+        RandomizeRoF();
+        for(float runtime = 0;runtime <= currentRoF; runtime+=Time.deltaTime)
         {
-            RandomizeRoF();
-            runTime = 0;
-            audioSource.clip = enemyStats.GunSound;
-            audioSource.pitch = Random.Range(0.95f, 1.05f);
-            audioSource.Play();
-            for (int i = 0; i < enemyStats.BulletAmount; i++)
-            {
-                if (Random.Range(0, 100) < enemyStats.PredictionShot)
-                    OnPredictionShot();
-                else
-                    OnPointShot();
-            }
+            yield return null;
         }
+        while (Vector2.Distance(player.transform.position, transform.transform.position) > enemyStats.MinDistanceToShoot)
+        {
+            yield return null;
+        }
+        audioSource.clip = enemyStats.GunSound;
+        audioSource.pitch = Random.Range(0.95f, 1.05f);
+        audioSource.Play();
+        for (int i = 0; i < enemyStats.BulletAmount; i++)
+        {
+            if (Random.Range(0, 100) < enemyStats.PredictionShot)
+                OnPredictionShot();
+            else
+                OnPointShot();
+        }
+        StartCoroutine(Shooter());
+        yield break;
     }
 }

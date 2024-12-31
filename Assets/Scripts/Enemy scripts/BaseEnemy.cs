@@ -11,7 +11,7 @@ abstract public class BaseEnemy : MonoBehaviour
     [SerializeField] protected EnemyBaseStats enemyStats;
     [SerializeField] protected SpriteRenderer spriteRenderer;
     [SerializeField] private UnityEvent onDeath;
-    private int health;
+    protected int health;
     private bool iFramed = false;
 
     virtual protected void OnStart()
@@ -36,7 +36,6 @@ abstract public class BaseEnemy : MonoBehaviour
     {
         set
         {
-            Debug.Log(health);
             if (iFramed)
                 return;
             health -= value;

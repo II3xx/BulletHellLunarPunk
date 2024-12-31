@@ -42,6 +42,11 @@ public class PlayerScript : MonoBehaviour
         get => stats.Allegiance;
     }
 
+    public bool Dashing
+    {
+        get => isDashing;
+    }
+
     public int Damage
     {
         set

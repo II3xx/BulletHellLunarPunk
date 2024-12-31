@@ -4,6 +4,7 @@ using UnityEngine;
 
 abstract public class MovingEnemyStats : EnemyBaseStats
 {
+    [Header("Movement Related Stats")]
     [Tooltip("How long until it will retry to move")]
     [SerializeField] [Range(0.5f, 8)] float timeBetweenMoves;
     [Tooltip("The chance upon an attempt to move to change desired location")]

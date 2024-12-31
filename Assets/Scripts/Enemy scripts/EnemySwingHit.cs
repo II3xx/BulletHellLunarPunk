@@ -4,15 +4,33 @@ using UnityEngine;
 
 public class EnemySwingHit : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private int swingDamage;
+    [SerializeField] AudioClip audioClipUnitHit;
+
+    private void CreateTempAudio(AudioClip audioClip)
     {
-        
+        var temp = GameObject.CreatePrimitive(PrimitiveType.Plane);
+        temp.transform.position = transform.position;
+        var tempaudio = temp.AddComponent<TemporaryAudioSource>();
+        tempaudio.setClipAndPlay(audioClip);
+        temp.GetComponent<MeshRenderer>().enabled = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        PlayerScript playerScript = collision.GetComponent<PlayerScript>();
+        if (playerScript != null)
+        {
+            UnitAudioHit();
+            playerScript.Damage = swingDamage;
+        }
+    }
+
+    private void UnitAudioHit()
+    {
+        if (audioClipUnitHit != null)
+        {
+            CreateTempAudio(audioClipUnitHit);
+        }
     }
 }

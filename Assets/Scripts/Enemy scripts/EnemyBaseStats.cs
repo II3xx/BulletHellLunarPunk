@@ -4,6 +4,7 @@ using UnityEngine;
 
 abstract public class EnemyBaseStats : ScriptableObject
 {
+    [Header("Base Enemy Related Stats")]
     [SerializeField] [Range(0, 200)] protected int health;
     [SerializeField] [Range(0, 2)] protected float iFrameOnHit;
     protected float iFrameBlinkTime = 0.125f;

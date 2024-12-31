@@ -35,7 +35,8 @@ abstract public class MovingEnemy : BaseEnemy
     public void Knockback(float knockbackAngle, float knockBackAmount, float knockBackTime)
     {
         Vector2 velocity = new(knockBackAmount * Mathf.Cos(knockbackAngle), knockBackAmount * Mathf.Sin(knockbackAngle));
-        StartCoroutine(OnKnockback(knockBackTime, velocity));
+        if(health > 0)
+            StartCoroutine(OnKnockback(knockBackTime, velocity));
     }
 
     virtual protected void UpdatePosition() { }

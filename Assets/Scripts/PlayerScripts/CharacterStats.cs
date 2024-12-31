@@ -12,7 +12,7 @@ public class CharacterStats : ScriptableObject
     [SerializeField] [Range(0, 2)] protected float iFrameOnHit;
     [SerializeField] protected string CharacterName;
     [Range(0.25f, 3f)] [SerializeField] protected float dashCooldown;
-    [Range(2f, 10f)] [SerializeField] protected float dashVelocity;
+    [Range(2f, 25f)] [SerializeField] protected float dashVelocity;
     [Range(0.1f, 1.5f)] [SerializeField] protected float dashTime;
     [SerializeField] private AudioClip dashSound;
     [SerializeField] [Range(0, 10)] protected float movementSpeed;
