@@ -16,6 +16,7 @@ public class StationaryEnemySpawner : BaseEnemy
         stationarySpawnerStats = (StationarySpawnerStats)enemyStats;
         spawnedList = new();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        OnStart();
     }
 
     private GameObject RandomSpawn()

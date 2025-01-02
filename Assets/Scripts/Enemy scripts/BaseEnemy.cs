@@ -9,7 +9,7 @@ abstract public class BaseEnemy : MonoBehaviour
     private readonly Faction allegiance = Faction.enemy;
     protected GameObject player;
     [SerializeField] protected EnemyBaseStats enemyStats;
-    [SerializeField] protected SpriteRenderer spriteRenderer;
+    protected SpriteRenderer spriteRenderer;
     [SerializeField] private UnityEvent onDeath;
     protected int health;
     private bool iFramed = false;

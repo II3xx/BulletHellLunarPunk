@@ -15,18 +15,13 @@ public class EnemySwingScript : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
-    private float AngleMath(Vector2 Dest)
-    {
-        return Mathf.Atan2(Dest.y - transform.position.y, Dest.x - transform.position.x);
-    }
-
     IEnumerator Swinging()
     {
         swingReset = false;
         swingObject.SetActive(true);
         float arcToSkip = stats.SwingArc / stats.SwingSpeed;
         float maxDistance = Vector2.Distance(swingObject.transform.position, transform.position);
-        float startAngleToPlayer = AngleMath(player.transform.position);
+        float startAngleToPlayer = LunarMath.VectorAngle(player.transform.position, transform.position);
         swingObject.transform.localRotation = Quaternion.Euler(0, 0, startAngleToPlayer * Mathf.Rad2Deg + stats.SwingStart);
         for (float runtime = 0; runtime < stats.SwingSpeed; runtime += Time.deltaTime)
         {

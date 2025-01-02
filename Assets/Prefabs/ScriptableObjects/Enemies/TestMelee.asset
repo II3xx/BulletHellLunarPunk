@@ -16,10 +16,10 @@ MonoBehaviour:
   iFrameOnHit: 0.25
   onDamage: {r: 1, g: 0.1, b: 0.1, a: 0.5}
   timeBetweenMoves: 0.5
-  moveChance: 1
-  movementSpeed: 0
+  moveChance: 100
+  movementSpeed: 4
   swingArc: 180
-  swingStart: 90
-  swingSpeed: 4
+  swingStart: 0
+  swingSpeed: 1
   swingCooldown: 2
   engagePercentage: 86.7

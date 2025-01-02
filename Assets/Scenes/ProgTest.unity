@@ -456,7 +456,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyStats: {fileID: 11400000, guid: 0b578546eef8b914aa915ed28a80abe0, type: 2}
-  spriteRenderer: {fileID: 256796819}
   onDeath:
     m_PersistentCalls:
       m_Calls: []
@@ -677,7 +676,6 @@ GameObject:
   - component: {fileID: 365878791}
   - component: {fileID: 365878793}
   - component: {fileID: 365878792}
-  - component: {fileID: 365878794}
   m_Layer: 3
   m_Name: cm
   m_TagString: Untagged
@@ -755,23 +753,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &365878794
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 365878790}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68bb026fafb42b14791938953eaace77, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_NoiseProfile: {fileID: 11400000, guid: 20a705aea2d80e0478fb89b6f43d8530, type: 2}
-  m_PivotOffset: {x: 0, y: 0, z: 0}
-  m_AmplitudeGain: 1
-  m_FrequencyGain: 1
-  mNoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!1 &468451387
 GameObject:
   m_ObjectHideFlags: 0
@@ -782,17 +763,17 @@ GameObject:
   m_Component:
   - component: {fileID: 468451393}
   - component: {fileID: 468451392}
-  - component: {fileID: 468451391}
   - component: {fileID: 468451390}
   - component: {fileID: 468451389}
   - component: {fileID: 468451394}
+  - component: {fileID: 468451395}
   m_Layer: 0
   m_Name: Isometric Diamond (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &468451389
 AudioSource:
   m_ObjectHideFlags: 0
@@ -934,20 +915,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.5}
   m_EdgeRadius: 0
---- !u!114 &468451391
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 468451387}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5093eeb21f071374fb1eb16952efe6c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyStats: {fileID: 11400000, guid: 0b578546eef8b914aa915ed28a80abe0, type: 2}
-  audioSource: {fileID: 468451389}
 --- !u!212 &468451392
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1028,10 +995,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyStats: {fileID: 11400000, guid: 0b578546eef8b914aa915ed28a80abe0, type: 2}
-  spriteRenderer: {fileID: 0}
   onDeath:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &468451395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 468451387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c686cd281e9fe043b2dfe87c621b439, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyStats: {fileID: 11400000, guid: 0b578546eef8b914aa915ed28a80abe0, type: 2}
+  audioSource: {fileID: 468451389}
 --- !u!1 &498474635
 GameObject:
   m_ObjectHideFlags: 0
@@ -1209,7 +1189,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyStats: {fileID: 11400000, guid: 0b578546eef8b914aa915ed28a80abe0, type: 2}
-  spriteRenderer: {fileID: 498474641}
   onDeath:
     m_PersistentCalls:
       m_Calls: []
@@ -2678,7 +2657,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyStats: {fileID: 11400000, guid: 0b578546eef8b914aa915ed28a80abe0, type: 2}
-  spriteRenderer: {fileID: 749343912}
   onDeath:
     m_PersistentCalls:
       m_Calls: []
@@ -124164,7 +124142,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyStats: {fileID: 11400000, guid: ef92c0a2467d08c4290538ea1f426212, type: 2}
-  spriteRenderer: {fileID: 0}
   onDeath:
     m_PersistentCalls:
       m_Calls: []
@@ -125225,7 +125202,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyStats: {fileID: 11400000, guid: e14226a199644fc4ba59fe2162567fec, type: 2}
-  spriteRenderer: {fileID: 1667616388}
   onDeath:
     m_PersistentCalls:
       m_Calls: []
@@ -125249,7 +125225,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &1840627025
 AudioSource:
   m_ObjectHideFlags: 0
@@ -125485,7 +125461,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyStats: {fileID: 11400000, guid: 0b578546eef8b914aa915ed28a80abe0, type: 2}
-  spriteRenderer: {fileID: 0}
   onDeath:
     m_PersistentCalls:
       m_Calls: []
@@ -125677,7 +125652,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyStats: {fileID: 11400000, guid: 0b578546eef8b914aa915ed28a80abe0, type: 2}
-  spriteRenderer: {fileID: 1892907580}
   onDeath:
     m_PersistentCalls:
       m_Calls: []
@@ -132033,7 +132007,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyStats: {fileID: 11400000, guid: 0b578546eef8b914aa915ed28a80abe0, type: 2}
-  spriteRenderer: {fileID: 1985992898}
   onDeath:
     m_PersistentCalls:
       m_Calls: []

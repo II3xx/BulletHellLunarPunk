@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 [CreateAssetMenu(fileName = "EnemyRangedStats", menuName = "Enemies/EnemyRangedStats", order = 1)]
-sealed class EnemyRangedStats : MovingEnemyStats
+public class EnemyRangedStats : MovingEnemyStats
 {
     [SerializeField] [Range(0, 8)] float minDistance = 0;
     [SerializeField] [Range(0, 8)] float maxDistance = 8;

@@ -42,11 +42,6 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    private float AngleMath(Vector2 Dest)
-    {
-        return Mathf.Atan2(Dest.y - rb2D.position.y, Dest.x - rb2D.position.x);
-    }
-
     private bool IsWall(Collider2D collision)
     {
         if (collision is not BoxCollider2D && collision is not CircleCollider2D && collision is not CapsuleCollider2D)
@@ -61,7 +56,7 @@ public class Bullet : MonoBehaviour
         {
             UnitAudioHit();
             enemyBase.Damage = damage;
-            float angle = AngleMath(collision.transform.position);
+            float angle = LunarMath.VectorAngle(collision.transform.position, rb2D.position);
             if(enemyBase is MovingEnemy enemy)
             {
                 enemy.Knockback(angle, knockBackForce, knockBackTime);

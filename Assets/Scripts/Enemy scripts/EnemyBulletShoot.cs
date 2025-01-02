@@ -5,20 +5,15 @@ using UnityEditor;
 
 public class EnemyBulletShoot : MonoBehaviour
 {
-    private GameObject player;
-    [SerializeField] private EnemyRangedStats enemyStats;
+    protected GameObject player;
+    [SerializeField] protected EnemyRangedStats enemyStats;
     private float currentRoF;
-    [SerializeField] private AudioSource audioSource;
+    [SerializeField] protected AudioSource audioSource;
     
 
     void RandomizeRoF()
     {
         currentRoF = Random.Range(enemyStats.MinRof, enemyStats.MaxRof);
-    }
-
-    float AngleMath(Vector2 Dest)
-    {
-        return Mathf.Atan2(Dest.y - transform.position.y, Dest.x - transform.position.x) + Mathf.Deg2Rad * (Random.Range(0, enemyStats.BulletSpread) - enemyStats.BulletSpread * 0.5f);
     }
 
     void Awake()
@@ -27,21 +22,21 @@ public class EnemyBulletShoot : MonoBehaviour
         StartCoroutine(Shooter());
     }
 
-    void OnPointShot()
+    protected void OnPointShot()
     {
-        float angle = AngleMath(player.GetComponent<Rigidbody2D>().position);
+        float angle = LunarMath.VectorAngle(player.transform.position, transform.position);
         Vector2 bulletVelocity = new(enemyStats.BulletSpeed * Mathf.Cos(angle), enemyStats.BulletSpeed * Mathf.Sin(angle));
         GameObject Bullet = Instantiate(enemyStats.BulletPrefab);
         Bullet.transform.SetPositionAndRotation(transform.position, Quaternion.Euler(0, 0, Mathf.Rad2Deg * angle - 90));
         Bullet.GetComponent<Bullet>().SetBulletStats(bulletVelocity, Faction.enemy);
     }
 
-    void OnPredictionShot()
+    protected void OnPredictionShot()
     {
         Rigidbody2D playRB2d = player.GetComponent<Rigidbody2D>();
-        float angle = AngleMath(playRB2d.position);
+        float angle = LunarMath.VectorAngle(player.transform.position, transform.position);
         Vector2 bulletVelocity = new(enemyStats.BulletSpeed * Mathf.Cos(angle), enemyStats.BulletSpeed * Mathf.Sin(angle));
-        angle = AngleMath(playRB2d.position + playRB2d.velocity * (playRB2d.position - (Vector2)transform.position) / bulletVelocity);
+        angle = LunarMath.VectorAngle(playRB2d.position + playRB2d.velocity * (playRB2d.position - (Vector2)transform.position) / bulletVelocity, transform.position);
         bulletVelocity = new(enemyStats.BulletSpeed * Mathf.Cos(angle), enemyStats.BulletSpeed * Mathf.Sin(angle));
         GameObject Bullet = Instantiate(enemyStats.BulletPrefab);
         Bullet.transform.SetPositionAndRotation(transform.position, Quaternion.Euler(0, 0, Mathf.Rad2Deg * angle - 90));

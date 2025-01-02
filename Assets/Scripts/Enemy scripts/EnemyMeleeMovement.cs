@@ -15,7 +15,6 @@ public class EnemyMeleeMovement : MovingEnemy
         OnStart();
     }
 
-
     Vector2 NewTestPosition(float minDistance)
     {
         Vector3 Dest = player.GetComponent<Rigidbody2D>().position;
