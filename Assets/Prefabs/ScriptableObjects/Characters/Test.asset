@@ -13,40 +13,11 @@ MonoBehaviour:
   m_Name: Test
   m_EditorClassIdentifier: 
   health: 6
-  movementSpeed: 3.5
-  allegiance: 0
-  IFrameOnHit: 1
-  onDeath:
-    m_PersistentCalls:
-      m_Calls: []
-  onDamage: {r: 1, g: 0, b: 0, a: 0.49411765}
+  iFrameOnHit: 0
   CharacterName: LeonardoDaVinci
   dashCooldown: 1
-  dashVelocity: 4
-  dashTime: 0.3
+  dashVelocity: 8
+  dashTime: 0.5
   dashSound: {fileID: 8300000, guid: 910faa9bfb22aec479512e1172519d2c, type: 3}
-  dashCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  onDash: {r: 1, g: 1, b: 1, a: 0.49411765}
+  movementSpeed: 3.5
+  onDamage: {r: 1, g: 0, b: 0, a: 0.49411765}
