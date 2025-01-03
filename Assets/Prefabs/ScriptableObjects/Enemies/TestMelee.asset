@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b268f087cd2f6bd4d9b81a86bacaee4d, type: 3}
+  m_Name: TestMelee
+  m_EditorClassIdentifier: 
+  health: 4
+  iFrameOnHit: 0.25
+  onDamage: {r: 1, g: 0.1, b: 0.1, a: 0.5}
+  timeBetweenMoves: 0.5
+  moveChance: 100
+  movementSpeed: 4
+  swingArc: 180
+  swingStart: 0
+  swingSpeed: 1
+  swingCooldown: 2
+  engagePercentage: 86.7

@@ -13,21 +13,19 @@ MonoBehaviour:
   m_Name: EnemyPistol
   m_EditorClassIdentifier: 
   health: 3
-  movementSpeed: 3.5
-  allegiance: 1
-  IFrameOnHit: 0.5
-  onDeath:
-    m_PersistentCalls:
-      m_Calls: []
+  iFrameOnHit: 0
   onDamage: {r: 1, g: 0.1, b: 0.1, a: 0.5}
+  timeBetweenMoves: 0.5
+  moveChance: 75
+  movementSpeed: 3.5
+  minDistance: 4
+  maxDistance: 8
   bulletSpeed: 5.5
   bulletAmount: 1
   bulletSpread: 10
+  bulletPrefab: {fileID: 7793830625488646587, guid: 596cfe30c38394a4f8cf07718cf0cda1, type: 3}
   maxRof: 2
   minRof: 1
-  bulletPrefab: {fileID: 7793830625488646587, guid: 596cfe30c38394a4f8cf07718cf0cda1, type: 3}
-  minDistance: 4
-  maxDistance: 8
   gunSound: {fileID: 8300000, guid: 45fc6a4795fd1d64999c03a358bc309e, type: 3}
   minDistanceToShoot: 12.3
   predictionShot: 65
