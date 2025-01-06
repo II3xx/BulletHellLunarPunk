@@ -14,8 +14,9 @@ public class DialogueReader : MonoBehaviour
     private TMP_FontAsset defaultFont;
     private int currentIndex = 0;
     private int maxIndex = 0;
+    private string currentLine;
+    private Coroutine currentTextDelay;
     private bool hasRead = false;
-
 
     private void Start()
     {
@@ -25,11 +26,22 @@ public class DialogueReader : MonoBehaviour
     private IEnumerator TextTimer()
     {
         hasRead = true;
-        for (float i = 0; i <= 2; i += Time.deltaTime)
+        for (float i = 0; i <= 1; i++)
         {
             yield return new WaitForSeconds(0.2f);
         }
         hasRead = false;
+        yield break;
+    }
+
+    private IEnumerator TextDelay()
+    {
+        textMesh.text = "";
+        for(int i = 0; i < currentLine.Length; i++)
+        {
+            textMesh.text += currentLine[i];
+            yield return new WaitForSeconds(0.05f);
+        }
         yield break;
     }
 
@@ -55,15 +67,15 @@ public class DialogueReader : MonoBehaviour
     {
         if (context.started)
         {
+            StopTextDelay();
             EndDialogue();
         }
     }
 
-    public string NextString()
+    public void NextString()
     {
-        string dialogeuToReturn = currentText.GetStringIndex(currentIndex);
+        currentLine = currentText.GetStringIndex(currentIndex);
         currentIndex++;
-        return dialogeuToReturn;
     }
 
     public void OnDialogueEnter()
@@ -81,8 +93,8 @@ public class DialogueReader : MonoBehaviour
         {
             return;
         }
-        string textStart = NextString();
-        if (textStart.Equals(""))
+        NextString();
+        if (currentLine.Equals(""))
         {
             return;
         }
@@ -94,19 +106,30 @@ public class DialogueReader : MonoBehaviour
         {
             StartNormalText();
         }
-        textMesh.text = textStart;
-
+        currentTextDelay = StartCoroutine(TextDelay());
 
         playerInput.SwitchCurrentActionMap("UI");
     }
 
+    private void StopTextDelay()
+    {
+        StopCoroutine(currentTextDelay);
+        currentTextDelay = null;
+    }
+
     public void OnNextDialogue(InputAction.CallbackContext context)
     {
+        if(currentTextDelay != null)
+        {
+            StopTextDelay();
+            textMesh.text = currentLine;
+            return;
+        }
         if(context.started)
         {
-            string text = NextString();
-            textMesh.text = text;
-            if (text.Equals(""))
+            NextString();
+            currentTextDelay = StartCoroutine(TextDelay());
+            if (currentLine.Equals(""))
             {
                 EndDialogue();
             }
@@ -137,6 +160,7 @@ public class DialogueReader : MonoBehaviour
 
     private void EndDialogue()
     {
+        textMesh.text = "";
         StartCoroutine(TextTimer());
         if (currentText.IsRunic)
         {

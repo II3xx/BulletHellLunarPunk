@@ -7,6 +7,11 @@ public class Key : Item
 {
     [SerializeField] private string openable;
 
+    private Key()
+    {
+        category = ItemCategory.Key;
+    }
+
     public string Openable
     {
         get => openable;

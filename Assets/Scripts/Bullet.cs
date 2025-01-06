@@ -22,7 +22,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] [Range(0.2f, 2)] private float knockBackTime;
     private Rigidbody2D rb2D;
     private bool ready = false;
-    private readonly float lifeTime = 15f;
+    private const float lifeTime = 10f;
     private float runTime = 0f;
 
     public void SetBulletStats(Vector2 velocity, Faction allegiance)

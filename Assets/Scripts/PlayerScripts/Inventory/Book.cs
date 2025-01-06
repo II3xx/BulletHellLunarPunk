@@ -7,6 +7,11 @@ public class Book : Item
 {
     [SerializeField] DialogueHolder bookText;
 
+    private Book()
+    {
+        category = ItemCategory.Book;
+    }
+
     public DialogueHolder BookText
     {
         get => bookText;
