@@ -7,6 +7,7 @@ public class Inventory : MonoBehaviour
 {
 
     [SerializeField] private Weapon startingWeapon;
+    [SerializeField] private InventoryUI inventoryUI;
     private Item toAdd;
     private readonly List<Weapon> weapons = new();
     private int currentWeaponIndex = 0; 
@@ -17,6 +18,7 @@ public class Inventory : MonoBehaviour
     {
         weapons.Add(startingWeapon);
         gameObject.GetComponentInChildren<PlayerWeapon>().OnWeaponChange(startingWeapon);
+        InventoryUI();
     }
 
     // Inventory Add methods
@@ -45,7 +47,23 @@ public class Inventory : MonoBehaviour
 
     // Outbound Inventory Methods
 
-    
+    public void InventoryUI()
+    {
+        List<Sprite> itemImages = new();
+        List<Sprite> weaponImages = new();
+
+        foreach(Item item in inventoryItems)
+        {
+            itemImages.Add(item.ItemSprite);
+        }
+
+        foreach(Weapon weapon in weapons)
+        {
+            weaponImages.Add(weapon.ItemSprite);
+        }
+
+        inventoryUI.UpdatePanel(itemImages.ToArray(), weaponImages.ToArray());
+    }
 
     // Outbound Item Methods
 
