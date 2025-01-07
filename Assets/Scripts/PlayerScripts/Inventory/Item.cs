@@ -9,11 +9,17 @@ public enum ItemCategory
     Book
 }
 
-[CreateAssetMenu(fileName = "GenericItem", menuName = "Items/Item", order = 1)]
-public class Item : ScriptableObject
+public abstract class Item : ScriptableObject
 {
-    [TextArea] private readonly string itemName;
-    [SerializeField] protected ItemCategory category;
+    [SerializeField] private string itemName;
+    [TextArea] [SerializeField] private string itemDescription;
+    protected ItemCategory category;
+    [SerializeField] private Sprite itemSprite;
+
+    public Sprite ItemSprite
+    {
+        get => itemSprite;
+    }
 
     public string ItemName
     {

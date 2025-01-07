@@ -39,7 +39,7 @@ public class EnemyMeleeMovement : MovingEnemy
 
     override protected void UpdatePosition()
     {
-        Vector2 Destin = new();
+        Vector2 Destin;
         if (moveRunTime < stats.TimeBetweenMoves)
         {
             moveRunTime += Time.deltaTime;

@@ -67,6 +67,12 @@ public class PlayerWeapon : MonoBehaviour
         }
     }
 
+    public void OnWeaponChange(Weapon weaponToChangeTo)
+    {
+        weaponStats = weaponToChangeTo.Stats;
+        gameObject.GetComponent<SpriteRenderer>().sprite = weaponToChangeTo.ItemSprite;
+    }
+
     public void OnShoot(InputAction.CallbackContext context)
     {
         if(context.started)
@@ -77,6 +83,5 @@ public class PlayerWeapon : MonoBehaviour
         {
             notActived = true;
         }
-        
     }
 }

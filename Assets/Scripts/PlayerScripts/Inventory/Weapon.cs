@@ -7,6 +7,11 @@ public class Weapon : Item
 {
     [SerializeField] private WeaponStats stats;
 
+    private Weapon()
+    {
+        category = ItemCategory.Weapon;
+    }
+
     public WeaponStats Stats
     {
         get => stats;
