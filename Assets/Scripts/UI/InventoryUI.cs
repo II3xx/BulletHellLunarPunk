@@ -3,17 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering.Universal;
 
 public class InventoryUI : MonoBehaviour
 {
 
     [SerializeField] GameObject itemPanelPrefab;
     [SerializeField] GameObject weaponPanelPrefab;
+    [SerializeField] DialogueReader dialogueReader;
+    [SerializeField] GameObject toolTipObjectPrefab;
     private Animator animator;
     private readonly List<GameObject> itemPanels = new();
     private readonly List<GameObject> weaponPanels = new();
+    private readonly Dictionary<GameObject, Item> itemDict = new();
+    private GameObject toolTipObject;
+    private GameObject currentObjectSelected;
+    private bool isTooltiping = false;
+    private bool initialized = false;
 
-    private void Start()
+    private void Initialize()
     {
         animator = gameObject.GetComponent<Animator>();
         for(int i = 0; i < 2; i++)
@@ -36,22 +44,34 @@ public class InventoryUI : MonoBehaviour
                 itemPanels.Add(itemPanel);
             }
         }
+        initialized = true;
     }
 
-    public void UpdatePanel(Sprite[] itemImages, Sprite[] weaponImages)
+    public void UpdatePanel(List<Item> items)
     {
-        for (int i = 0; i < itemImages.Length; i++)
+        if(!initialized)
         {
-            Image itemImage = itemPanels[i].GetComponent<UIImageHolder>().HeldImage;
-            itemImage.sprite = itemImages[i];
-            itemImage.color = new Color(1, 1, 1, 1);
+            Initialize();
         }
-
-        for (int i = 0; i < weaponImages.Length; i++)
+        int itemPanelUpdated = 0;
+        int weaponPanelUpdated = 0;
+        itemDict.Clear();
+        foreach (Item item in items)
         {
-            Image weaponImage = weaponPanels[i].GetComponent<UIImageHolder>().HeldImage;
-            weaponImage.sprite = weaponImages[i];
-            weaponImage.color = new Color(1, 1, 1, 1);
+            if(item.Category == ItemCategory.Weapon)
+            {
+                itemDict.Add(weaponPanels[weaponPanelUpdated], item);
+                weaponPanels[weaponPanelUpdated].GetComponent<UIImageHolder>().HeldImage.sprite = item.ItemSprite;
+                weaponPanels[weaponPanelUpdated].GetComponent<UIImageHolder>().HeldImage.color = new Color(1, 1, 1, 1);
+                weaponPanelUpdated++;
+            }
+            else
+            {
+                itemDict.Add(itemPanels[itemPanelUpdated], item);
+                itemPanels[itemPanelUpdated].GetComponent<UIImageHolder>().HeldImage.sprite = item.ItemSprite;
+                weaponPanels[weaponPanelUpdated].GetComponent<UIImageHolder>().HeldImage.color = new Color(1, 1, 1, 1);
+                itemPanelUpdated++;
+            }
         }
     }
 
@@ -61,5 +81,91 @@ public class InventoryUI : MonoBehaviour
             return;
         animator.SetTrigger("InventoryTrigger");
     }
-    
+
+    private void ShowTooltip(GameObject gameObject)
+    {
+        if(itemDict.TryGetValue(gameObject, out Item itemDisc))
+        {
+            isTooltiping = true;
+            currentObjectSelected = gameObject;
+            toolTipObject = Instantiate(toolTipObjectPrefab);
+            toolTipObject.transform.SetParent(transform);
+            toolTipObject.transform.localScale = new(1, 1, 1);
+            NextToMouse next = toolTipObject.GetComponent<NextToMouse>();
+            next.BodyText = itemDisc.ItemDescription;
+            next.NameText = itemDisc.ItemName;
+            next.transform.position = gameObject.transform.position - new Vector3(2, -0.35f, 0);
+
+            SetDialogueHolder();
+        }
+    }
+
+    private void SetDialogueHolder()
+    {
+        itemDict.TryGetValue(gameObject, out Item itemDisc);
+        if(itemDisc is Book itemBook)
+        {
+            dialogueReader.SetHolder(itemBook.BookText);
+        }
+    }
+
+    private void HideToolTip()
+    {
+        Destroy(toolTipObject);
+    }
+
+    private void CheckToolTip()
+    {
+        var cameraData = Camera.main.GetUniversalAdditionalCameraData();
+        Vector3 Mousepos = cameraData.cameraStack[0].ScreenToWorldPoint(Input.mousePosition);
+        if(itemPanels.Contains(currentObjectSelected))
+        {
+            if (Vector2.Distance(Mousepos, currentObjectSelected.transform.position) < 0.4f)
+            {
+                return;
+            }
+        }
+        else
+        {
+            if (Vector2.Distance(Mousepos, currentObjectSelected.transform.position) < 1)
+            {
+                return;
+            }
+        }
+
+        isTooltiping = false;
+        HideToolTip();
+    }
+
+    private void Update()
+    {
+        if (isTooltiping)
+        {
+            CheckToolTip();
+            return;
+        }
+        var cameraData = Camera.main.GetUniversalAdditionalCameraData();
+        Vector3 Mousepos = cameraData.cameraStack[0].ScreenToWorldPoint(Input.mousePosition);
+
+        
+        
+        foreach (GameObject gameObject in itemPanels)
+        {
+            if (Vector2.Distance(Mousepos,gameObject.transform.position) < 0.4f)
+            {
+                ShowTooltip(gameObject);
+                return;
+            }
+        }
+
+        foreach (GameObject gameObject in weaponPanels)
+        {
+            if (Vector2.Distance(Mousepos, gameObject.transform.position) < 1)
+            {
+                ShowTooltip(gameObject);
+                return;
+            }
+        }
+    }
+
 }

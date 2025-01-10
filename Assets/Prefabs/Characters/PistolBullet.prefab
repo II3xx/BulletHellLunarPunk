@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6823409642454315526}
   - component: {fileID: 4972855042881615436}
   - component: {fileID: 2795689669131966344}
-  - component: {fileID: -8038499097807069496}
+  - component: {fileID: 4622532069009263473}
   m_Layer: 0
   m_Name: PistolBullet
   m_TagString: Untagged
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 50b486f6bc7662447a59cf2646f67940, type: 3}
   m_Color: {r: 0.88601494, g: 1, b: 0.23045808, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -131,8 +131,8 @@ MonoBehaviour:
   damage: 1
   knockBackForce: 4
   knockBackTime: 0.4
---- !u!70 &-8038499097807069496
-CapsuleCollider2D:
+--- !u!58 &4622532069009263473
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -163,6 +163,6 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.14441898}
-  m_Size: {x: 0.28526783, y: 0.8661713}
-  m_Direction: 0
+  m_Offset: {x: 0, y: -0.13303822}
+  serializedVersion: 2
+  m_Radius: 0.6894564

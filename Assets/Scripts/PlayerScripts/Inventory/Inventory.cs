@@ -25,8 +25,13 @@ public class Inventory : MonoBehaviour
 
     private void AddWeapon()
     {
+        
         if(toAdd is Weapon weaponToAdd)
         {
+            if (!NotHasWeapon(weaponToAdd))
+            {
+                return;
+            }
             if (weapons.Count < 2)
             {
                 weapons.Add(weaponToAdd);
@@ -34,35 +39,65 @@ public class Inventory : MonoBehaviour
             }
             weapons[currentWeaponIndex] = weaponToAdd;
             gameObject.GetComponentInChildren<PlayerWeapon>().OnWeaponChange(weaponToAdd);
+            InventoryUI();
         }
     }
 
     private void AddItem()
     {
-        inventoryItems.Add(toAdd);
+        if (NotHasItem(toAdd))
+        {
+            print("Added item");
+            inventoryItems.Add(toAdd);
+            InventoryUI();
+        }
     }
 
 
+    // Internal Inventory Check
+
+    private bool NotHasWeapon(Weapon toAdd)
+    {
+        foreach (Weapon weapon in weapons)
+        {
+            if (weapon.ItemName.Equals(toAdd.ItemName))
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private bool NotHasItem(Item toAdd)
+    {
+        foreach(Item item in inventoryItems)
+        {
+            if(item.ItemName.Equals(toAdd.ItemName))
+            {
+                return false;
+            }
+        }
+        return true;
+    }
 
 
     // Outbound Inventory Methods
 
     public void InventoryUI()
     {
-        List<Sprite> itemImages = new();
-        List<Sprite> weaponImages = new();
+        List<Item> allItems = new();
 
         foreach(Item item in inventoryItems)
         {
-            itemImages.Add(item.ItemSprite);
+            allItems.Add(item);
         }
 
         foreach(Weapon weapon in weapons)
         {
-            weaponImages.Add(weapon.ItemSprite);
+            allItems.Add(weapon);
         }
 
-        inventoryUI.UpdatePanel(itemImages.ToArray(), weaponImages.ToArray());
+        inventoryUI.UpdatePanel(allItems);
     }
 
     // Outbound Item Methods

@@ -87,7 +87,13 @@ public class PlayerScript : MonoBehaviour
 
     public void AddToInteract(UnityAction function)
     {
+        InteractEvent.RemoveAllListeners();
         InteractEvent.AddListener(function);
+    }
+
+    public void RemoveAllInteracts()
+    {
+        InteractEvent.RemoveAllListeners();
     }
 
     public void RemoveFromInteract(UnityAction function)

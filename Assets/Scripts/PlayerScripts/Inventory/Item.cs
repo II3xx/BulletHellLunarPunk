@@ -26,6 +26,11 @@ public abstract class Item : ScriptableObject
         get => itemName;
     }
 
+    public string ItemDescription
+    {
+        get => itemDescription;
+    }
+
     public ItemCategory Category
     {
         get => category;
