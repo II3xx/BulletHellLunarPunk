@@ -91,6 +91,12 @@ public class PlayerScript : MonoBehaviour
         InteractEvent.AddListener(function);
     }
 
+    // Used if multiple different actions need to be added.
+    public void StaggerAddToInteract(UnityAction function)
+    {
+        InteractEvent.AddListener(function);
+    }
+
     public void RemoveAllInteracts()
     {
         InteractEvent.RemoveAllListeners();

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class DialogueReader : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class DialogueReader : MonoBehaviour
     [SerializeField] PlayerInput playerInput;
     [SerializeField] TextMeshProUGUI textMesh;
     [SerializeField] Animator runicAnimator;
+    private readonly UnityEvent onRead = new();
+    private bool onEndEmpty = false;
     private TMP_FontAsset defaultFont;
     private int currentIndex = 0;
     private int maxIndex = 0;
@@ -45,10 +48,9 @@ public class DialogueReader : MonoBehaviour
         yield break;
     }
 
-    public void SetHolder(DialogueHolder holder)
+    private void InternalSetHolder(DialogueHolder holder)
     {
         currentText = holder;
-        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScript>().AddToInteract(OnDialogueEnter);
         maxIndex = currentText.DialogueSize;
         textMesh.fontSize = currentText.FontSize;
         if (currentText.DefaultFont != null)
@@ -57,10 +59,28 @@ public class DialogueReader : MonoBehaviour
             textMesh.font = defaultFont;
     }
 
+    public void InventorySetHolder(DialogueHolder holder, UnityAction action)
+    {
+        InternalSetHolder(holder);
+        onRead.AddListener(action);
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScript>().StaggerAddToInteract(OnDialogueEnter);
+    }
+
+    public void SetHolder(DialogueHolder holder)
+    {
+        InternalSetHolder(holder);
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScript>().AddToInteract(OnDialogueEnter);
+    }
+
     public void OnExitHolder()
     {
         currentText = null;
         GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScript>().RemoveFromInteract(OnDialogueEnter);
+    }
+
+    public void OnExitInventory()
+    {
+        onEndEmpty = true;
     }
 
     public void OnEscapeHolder(InputAction.CallbackContext context)
@@ -171,6 +191,7 @@ public class DialogueReader : MonoBehaviour
             EndNormalText();
         }
         playerInput.SwitchCurrentActionMap("Player");
+        
         if (!currentText.Resetable)
         {
             unResetableHolders.Add(currentText, currentIndex);
@@ -178,5 +199,12 @@ public class DialogueReader : MonoBehaviour
         }
         else
             currentIndex = 0;
+        onRead.Invoke();
+        onRead.RemoveAllListeners();
+        if (onEndEmpty)
+        {
+            onEndEmpty = false;
+            OnExitHolder();
+        }
     }
 }

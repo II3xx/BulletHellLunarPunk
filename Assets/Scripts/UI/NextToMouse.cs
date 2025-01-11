@@ -6,7 +6,7 @@ using UnityEngine.Rendering.Universal;
 
 public class NextToMouse : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI bodyText, nameText;
+    [SerializeField] private TextMeshProUGUI bodyText, nameText, readText;
 
     public string BodyText
     {
@@ -16,5 +16,10 @@ public class NextToMouse : MonoBehaviour
     public string NameText
     {
         set => nameText.text = value;
+    }
+
+    public TextMeshProUGUI ReadText
+    {
+        get => readText;
     }
 }

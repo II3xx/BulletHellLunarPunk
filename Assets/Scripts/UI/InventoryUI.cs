@@ -12,6 +12,7 @@ public class InventoryUI : MonoBehaviour
     [SerializeField] GameObject weaponPanelPrefab;
     [SerializeField] DialogueReader dialogueReader;
     [SerializeField] GameObject toolTipObjectPrefab;
+    
     private Animator animator;
     private readonly List<GameObject> itemPanels = new();
     private readonly List<GameObject> weaponPanels = new();
@@ -26,25 +27,35 @@ public class InventoryUI : MonoBehaviour
         animator = gameObject.GetComponent<Animator>();
         for(int i = 0; i < 2; i++)
         {
-            GameObject weaponPanel = Instantiate(weaponPanelPrefab);
-            weaponPanel.transform.SetParent(transform);
-            weaponPanel.transform.localScale = new Vector3(1, 1, 1);
-            weaponPanel.transform.localPosition = new Vector3(-53.9f + (107.8f * i), 124.4f, 0);
-            weaponPanels.Add(weaponPanel);
+            CreateWeaponPanel(i);
         }
 
         for (int i = 0; i < 4; i++)
         {
             for(int j = 0; j < 4; j++)
             {
-                GameObject itemPanel = Instantiate(itemPanelPrefab);
-                itemPanel.transform.SetParent(transform);
-                itemPanel.transform.localScale = new Vector3(1, 1, 1);
-                itemPanel.transform.localPosition = new Vector3(-81.9f - -54.7f * j, 30.5f - 57.3f * i, 0);
-                itemPanels.Add(itemPanel);
+                CreateItemPanel(i, j);
             }
         }
         initialized = true;
+    }
+
+    private void CreateWeaponPanel(int i)
+    {
+        GameObject weaponPanel = Instantiate(weaponPanelPrefab);
+        weaponPanel.transform.SetParent(transform);
+        weaponPanel.transform.localScale = new Vector3(1, 1, 1);
+        weaponPanel.transform.localPosition = new Vector3(-53.9f + (107.8f * i), 124.4f, 0);
+        weaponPanels.Add(weaponPanel);
+    }
+
+    private void CreateItemPanel(int i, int j)
+    {
+        GameObject itemPanel = Instantiate(itemPanelPrefab);
+        itemPanel.transform.SetParent(transform);
+        itemPanel.transform.localScale = new Vector3(1, 1, 1);
+        itemPanel.transform.localPosition = new Vector3(-81.9f - -54.7f * j, 30.5f - 57.3f * i, 0);
+        itemPanels.Add(itemPanel);
     }
 
     public void UpdatePanel(List<Item> items)
@@ -96,22 +107,37 @@ public class InventoryUI : MonoBehaviour
             next.NameText = itemDisc.ItemName;
             next.transform.position = gameObject.transform.position - new Vector3(2, -0.35f, 0);
 
-            SetDialogueHolder();
+            if(itemDisc is Book book)
+            {
+                next.ReadText.alpha = 1f;
+                SetDialogueHolder(book);
+            }
+            else
+            {
+                next.ReadText.alpha = 0f;
+            }
         }
     }
 
-    private void SetDialogueHolder()
+    private void SetDialogueHolder(Book book)
     {
-        itemDict.TryGetValue(gameObject, out Item itemDisc);
-        if(itemDisc is Book itemBook)
-        {
-            dialogueReader.SetHolder(itemBook.BookText);
-        }
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScript>().StaggerAddToInteract(EventTrigger);
+        dialogueReader.InventorySetHolder(book.BookText, EventTrigger);
+    }
+
+    private void RemoveDialogueHolder()
+    {
+        dialogueReader.OnExitInventory();
     }
 
     private void HideToolTip()
     {
         Destroy(toolTipObject);
+    }
+
+    private void EventTrigger()
+    {
+        animator.SetTrigger("InventoryTrigger");
     }
 
     private void CheckToolTip()
@@ -133,6 +159,7 @@ public class InventoryUI : MonoBehaviour
             }
         }
 
+        RemoveDialogueHolder();
         isTooltiping = false;
         HideToolTip();
     }

@@ -47,7 +47,6 @@ public class Inventory : MonoBehaviour
     {
         if (NotHasItem(toAdd))
         {
-            print("Added item");
             inventoryItems.Add(toAdd);
             InventoryUI();
         }
