@@ -10,6 +10,7 @@ abstract public class MovingEnemyStats : EnemyBaseStats
     [Tooltip("The chance upon an attempt to move to change desired location")]
     [SerializeField] [Range(1, 100)] float moveChance;
     [SerializeField] [Range(0, 10)] protected float movementSpeed;
+    [SerializeField] [Range(0, 100)] private float knockBackResistance;
 
     public float MoveChance
     {
@@ -24,5 +25,10 @@ abstract public class MovingEnemyStats : EnemyBaseStats
     public float Speed
     {
         get => movementSpeed;
+    }
+
+    public float KnockBackResistance
+    {
+        get => knockBackResistance;
     }
 }

@@ -24,7 +24,9 @@ abstract public class MovingEnemy : BaseEnemy
         float normalAccel = navAgent.acceleration;
         navAgent.acceleration = 0;
         navAgent.velocity = Velocity;
-        for (float i = 0; maxTimer > i; i += Time.deltaTime)
+        float knockBackResistance = 1 - ((MovingEnemyStats)enemyStats).KnockBackResistance * 0.01f;
+        float timer = maxTimer * knockBackResistance;
+        for (float i = 0; timer > i; i += Time.deltaTime)
         {
             navAgent.velocity = Vector2.Lerp(Velocity, new(0, 0), 0.1f);
             yield return null;

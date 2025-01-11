@@ -15,6 +15,8 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private AudioSource DashAudioSource;
     [SerializeField] private UIBehavior uiBheavior;
+    [SerializeField] private GameObject eKeyPrefab;
+    private GameObject eKey;
     private int health;
     private readonly UnityEvent InteractEvent = new();
     private Rigidbody2D rb;
@@ -79,6 +81,18 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
+    private void CreateEKey()
+    {
+        eKey = Instantiate(eKeyPrefab);
+        eKey.transform.parent = transform;
+        eKey.transform.localPosition = new Vector3(-3.67f, 2.81f, 0);
+    }
+
+    private void DestroyEKey()
+    {
+        Destroy(eKey);
+    }
+
     public void OnInteract(InputAction.CallbackContext context)
     {
         if(context.started)
@@ -87,6 +101,7 @@ public class PlayerScript : MonoBehaviour
 
     public void AddToInteract(UnityAction function)
     {
+        CreateEKey();
         InteractEvent.RemoveAllListeners();
         InteractEvent.AddListener(function);
     }
@@ -99,11 +114,13 @@ public class PlayerScript : MonoBehaviour
 
     public void RemoveAllInteracts()
     {
+        DestroyEKey();
         InteractEvent.RemoveAllListeners();
     }
 
     public void RemoveFromInteract(UnityAction function)
     {
+        DestroyEKey();
         InteractEvent.RemoveListener(function);
     }
 
