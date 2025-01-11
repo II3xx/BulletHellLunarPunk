@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &8376044598704292517
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3599534862145263125, guid: 1e29dc0f268278541a66bf39942e3894, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1745670798, guid: b497907430dbbbe45b8d80e26d077ebc, type: 3}
+    - target: {fileID: 5609815846114808971, guid: 1e29dc0f268278541a66bf39942e3894, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.112
+      objectReference: {fileID: 0}
+    - target: {fileID: 5609815846114808971, guid: 1e29dc0f268278541a66bf39942e3894, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 29.946
+      objectReference: {fileID: 0}
+    - target: {fileID: 5609815846114808971, guid: 1e29dc0f268278541a66bf39942e3894, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5609815846114808971, guid: 1e29dc0f268278541a66bf39942e3894, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5609815846114808971, guid: 1e29dc0f268278541a66bf39942e3894, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5609815846114808971, guid: 1e29dc0f268278541a66bf39942e3894, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5609815846114808971, guid: 1e29dc0f268278541a66bf39942e3894, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5609815846114808971, guid: 1e29dc0f268278541a66bf39942e3894, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5609815846114808971, guid: 1e29dc0f268278541a66bf39942e3894, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5609815846114808971, guid: 1e29dc0f268278541a66bf39942e3894, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7374664173018598073, guid: 1e29dc0f268278541a66bf39942e3894, type: 3}
+      propertyPath: m_PointLightInnerRadius
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7374664173018598073, guid: 1e29dc0f268278541a66bf39942e3894, type: 3}
+      propertyPath: m_PointLightOuterRadius
+      value: 1.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8361069435106053141, guid: 1e29dc0f268278541a66bf39942e3894, type: 3}
+      propertyPath: m_Name
+      value: CandleLight Variant 12
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1e29dc0f268278541a66bf39942e3894, type: 3}

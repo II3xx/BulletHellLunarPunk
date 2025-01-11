@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &8454287389262297159
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2470527495247307048, guid: d5577a62bb146e74aa50ec04e883ac7d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 260438423, guid: b497907430dbbbe45b8d80e26d077ebc, type: 3}
+    - target: {fileID: 6802440405771576246, guid: d5577a62bb146e74aa50ec04e883ac7d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.112
+      objectReference: {fileID: 0}
+    - target: {fileID: 6802440405771576246, guid: d5577a62bb146e74aa50ec04e883ac7d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 29.946
+      objectReference: {fileID: 0}
+    - target: {fileID: 6802440405771576246, guid: d5577a62bb146e74aa50ec04e883ac7d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6802440405771576246, guid: d5577a62bb146e74aa50ec04e883ac7d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6802440405771576246, guid: d5577a62bb146e74aa50ec04e883ac7d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6802440405771576246, guid: d5577a62bb146e74aa50ec04e883ac7d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6802440405771576246, guid: d5577a62bb146e74aa50ec04e883ac7d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6802440405771576246, guid: d5577a62bb146e74aa50ec04e883ac7d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6802440405771576246, guid: d5577a62bb146e74aa50ec04e883ac7d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6802440405771576246, guid: d5577a62bb146e74aa50ec04e883ac7d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7473004578747710248, guid: d5577a62bb146e74aa50ec04e883ac7d, type: 3}
+      propertyPath: m_Name
+      value: CandleLight Variant 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8495231138889104772, guid: d5577a62bb146e74aa50ec04e883ac7d, type: 3}
+      propertyPath: m_PointLightInnerRadius
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8495231138889104772, guid: d5577a62bb146e74aa50ec04e883ac7d, type: 3}
+      propertyPath: m_PointLightOuterRadius
+      value: 1.6
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d5577a62bb146e74aa50ec04e883ac7d, type: 3}
