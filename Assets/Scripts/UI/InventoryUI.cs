@@ -79,7 +79,7 @@ public class InventoryUI : MonoBehaviour
             {
                 itemDict.Add(itemPanels[itemPanelUpdated], item);
                 itemPanels[itemPanelUpdated].GetComponent<UIImageHolder>().HeldImage.sprite = item.ItemSprite;
-                weaponPanels[weaponPanelUpdated].GetComponent<UIImageHolder>().HeldImage.color = new Color(1, 1, 1, 1);
+                itemPanels[itemPanelUpdated].GetComponent<UIImageHolder>().HeldImage.color = new Color(1, 1, 1, 1);
                 itemPanelUpdated++;
             }
         }
