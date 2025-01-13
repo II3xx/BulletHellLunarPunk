@@ -796,6 +796,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingWeapon: {fileID: 11400000, guid: ef8a1b8e3ca3d7042b86c2d76560c4cc, type: 2}
   inventoryUI: {fileID: 1062573680}
+  floatingText: {fileID: 3388696973331036694, guid: e47eefffab6cb0045b38afdc17c467f2, type: 3}
 --- !u!1 &1382416576
 GameObject:
   m_ObjectHideFlags: 0

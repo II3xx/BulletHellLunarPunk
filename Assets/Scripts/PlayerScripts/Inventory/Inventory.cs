@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class Inventory : MonoBehaviour
 {
 
     [SerializeField] private Weapon startingWeapon;
     [SerializeField] private InventoryUI inventoryUI;
+    [SerializeField] private GameObject floatingText;
     private Item toAdd;
     private readonly List<Weapon> weapons = new();
     private int currentWeaponIndex = 0; 
@@ -24,6 +26,12 @@ public class Inventory : MonoBehaviour
 
     // Inventory Add methods
 
+    private void OnTextMake()
+    {
+        GameObject tempObject = Instantiate(floatingText);
+        tempObject.GetComponentInChildren<TemporaryText>().OnStart("You have picked up " + toAdd.ItemName);
+    }
+
     private void AddWeapon()
     {
         
@@ -38,6 +46,7 @@ public class Inventory : MonoBehaviour
                 weapons.Add(weaponToAdd);
                 return;
             }
+            OnTextMake();
             weapons[currentWeaponIndex] = weaponToAdd;
             gameObject.GetComponentInChildren<PlayerWeapon>().OnWeaponChange(weaponToAdd);
             Destroy(toRemoveOnAdd);
@@ -49,6 +58,7 @@ public class Inventory : MonoBehaviour
     {
         if (NotHasItem(toAdd))
         {
+            OnTextMake();
             inventoryItems.Add(toAdd);
             InventoryUI();
             Destroy(toRemoveOnAdd);
