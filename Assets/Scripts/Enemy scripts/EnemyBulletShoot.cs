@@ -24,7 +24,7 @@ public class EnemyBulletShoot : MonoBehaviour
 
     protected void OnPointShot()
     {
-        float angle = LunarMath.VectorAngle(player.transform.position, transform.position);
+        float angle = LunarMath.VectorAngle(player.transform.position, transform.position) + (Random.Range(0,enemyStats.BulletSpread) - enemyStats.BulletSpread * 0.5f) * Mathf.Deg2Rad;
         Vector2 bulletVelocity = new(enemyStats.BulletSpeed * Mathf.Cos(angle), enemyStats.BulletSpeed * Mathf.Sin(angle));
         GameObject Bullet = Instantiate(enemyStats.BulletPrefab);
         Bullet.transform.SetPositionAndRotation(transform.position, Quaternion.Euler(0, 0, Mathf.Rad2Deg * angle - 90));
@@ -34,7 +34,7 @@ public class EnemyBulletShoot : MonoBehaviour
     protected void OnPredictionShot()
     {
         Rigidbody2D playRB2d = player.GetComponent<Rigidbody2D>();
-        float angle = LunarMath.VectorAngle(player.transform.position, transform.position);
+        float angle = LunarMath.VectorAngle(player.transform.position, transform.position) + (Random.Range(0, enemyStats.BulletSpread) - enemyStats.BulletSpread * 0.5f) * Mathf.Deg2Rad;
         Vector2 bulletVelocity = new(enemyStats.BulletSpeed * Mathf.Cos(angle), enemyStats.BulletSpeed * Mathf.Sin(angle));
         angle = LunarMath.VectorAngle(playRB2d.position + playRB2d.velocity * (playRB2d.position - (Vector2)transform.position) / bulletVelocity, transform.position);
         bulletVelocity = new(enemyStats.BulletSpeed * Mathf.Cos(angle), enemyStats.BulletSpeed * Mathf.Sin(angle));
