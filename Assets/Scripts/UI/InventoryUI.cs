@@ -12,8 +12,7 @@ public class InventoryUI : MonoBehaviour
     [SerializeField] GameObject weaponPanelPrefab;
     [SerializeField] DialogueReader dialogueReader;
     [SerializeField] GameObject toolTipObjectPrefab;
-    
-    private Animator animator;
+    [SerializeField] private Animator animator;
     private readonly List<GameObject> itemPanels = new();
     private readonly List<GameObject> weaponPanels = new();
     private readonly Dictionary<GameObject, Item> itemDict = new();
@@ -95,10 +94,12 @@ public class InventoryUI : MonoBehaviour
 
     private void ShowTooltip(GameObject gameObject)
     {
-        if(itemDict.TryGetValue(gameObject, out Item itemDisc))
+        if (isTooltiping)
+            return;
+        isTooltiping = true;
+        currentObjectSelected = gameObject;
+        if (itemDict.TryGetValue(gameObject, out Item itemDisc))
         {
-            isTooltiping = true;
-            currentObjectSelected = gameObject;
             toolTipObject = Instantiate(toolTipObjectPrefab);
             toolTipObject.transform.SetParent(transform);
             toolTipObject.transform.localScale = new(1, 1, 1);
@@ -127,6 +128,7 @@ public class InventoryUI : MonoBehaviour
 
     private void RemoveDialogueHolder()
     {
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScript>().RemoveAllInteracts();
         dialogueReader.OnExitInventory();
     }
 

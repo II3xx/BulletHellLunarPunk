@@ -31,7 +31,7 @@ public class DialogueReader : MonoBehaviour
         hasRead = true;
         for (float i = 0; i <= 1; i++)
         {
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(0.5f);
         }
         hasRead = false;
         yield break;
@@ -45,6 +45,7 @@ public class DialogueReader : MonoBehaviour
             textMesh.text += currentLine[i];
             yield return new WaitForSeconds(0.05f);
         }
+        currentTextDelay = null;
         yield break;
     }
 
@@ -139,20 +140,19 @@ public class DialogueReader : MonoBehaviour
 
     public void OnNextDialogue(InputAction.CallbackContext context)
     {
+        if (!context.started)
+            return;
         if(currentTextDelay != null)
         {
             StopTextDelay();
             textMesh.text = currentLine;
             return;
         }
-        if(context.started)
+        NextString();
+        currentTextDelay = StartCoroutine(TextDelay());
+        if (currentLine.Equals(""))
         {
-            NextString();
-            currentTextDelay = StartCoroutine(TextDelay());
-            if (currentLine.Equals(""))
-            {
-                EndDialogue();
-            }
+            EndDialogue();
         }
     }
 

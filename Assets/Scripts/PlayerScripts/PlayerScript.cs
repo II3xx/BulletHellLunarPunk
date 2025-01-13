@@ -17,6 +17,7 @@ public class PlayerScript : MonoBehaviour
     [SerializeField] private UIBehavior uiBheavior;
     [SerializeField] private GameObject eKeyPrefab;
     private GameObject eKey;
+    private readonly List<UnityAction> unityActions = new();
     private int health;
     private readonly UnityEvent InteractEvent = new();
     private Rigidbody2D rb;
@@ -109,18 +110,24 @@ public class PlayerScript : MonoBehaviour
     // Used if multiple different actions need to be added.
     public void StaggerAddToInteract(UnityAction function)
     {
+        if (unityActions.Contains(function))
+        {
+            return;
+        }
         InteractEvent.AddListener(function);
     }
 
     public void RemoveAllInteracts()
     {
         DestroyEKey();
+        unityActions.Clear();
         InteractEvent.RemoveAllListeners();
     }
 
     public void RemoveFromInteract(UnityAction function)
     {
         DestroyEKey();
+        unityActions.Remove(function);
         InteractEvent.RemoveListener(function);
     }
 
