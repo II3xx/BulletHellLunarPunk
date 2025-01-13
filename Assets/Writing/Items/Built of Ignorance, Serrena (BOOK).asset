@@ -16,5 +16,5 @@ MonoBehaviour:
   itemDescription: 'A pre-war book on the history of the City Serrena. It seems to
     be in noticeably better condition than the rest of the books found within the
     archive. '
-  itemSprite: {fileID: 0}
+  itemSprite: {fileID: -1281308780, guid: a9df86e73966e99468e4bc505b36f878, type: 3}
   bookText: {fileID: 11400000, guid: ff3918c820125984f923b2c42f456a8b, type: 2}

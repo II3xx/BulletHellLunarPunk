@@ -15,5 +15,5 @@ MonoBehaviour:
   itemName: The Beginning
   itemDescription: "An old summary of the birth and subsequent rule of the first
     Aeon, The \u201CEquilibrium\u201D. "
-  itemSprite: {fileID: 0}
+  itemSprite: {fileID: 1674611985, guid: a9df86e73966e99468e4bc505b36f878, type: 3}
   bookText: {fileID: 11400000, guid: 09857402996f94648bbb4fd872530235, type: 2}

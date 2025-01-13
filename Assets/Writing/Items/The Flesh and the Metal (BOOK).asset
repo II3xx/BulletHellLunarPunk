@@ -16,5 +16,5 @@ MonoBehaviour:
   itemDescription: A decrepit book about the Flesh and Metal Aeons and their part
     in the upbringing of humanity. More than half of the book's pages have been ripped
     out.
-  itemSprite: {fileID: 0}
+  itemSprite: {fileID: -1633869154, guid: a9df86e73966e99468e4bc505b36f878, type: 3}
   bookText: {fileID: 11400000, guid: 0742896f3cd311044b319a09a93ebdd2, type: 2}
