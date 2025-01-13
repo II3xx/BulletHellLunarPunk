@@ -12,6 +12,7 @@ public class Inventory : MonoBehaviour
     private readonly List<Weapon> weapons = new();
     private int currentWeaponIndex = 0; 
     private readonly List<Item> inventoryItems = new();
+    private GameObject toRemoveOnAdd;
 
     // Start is called before the first frame update
     void Start()
@@ -39,6 +40,7 @@ public class Inventory : MonoBehaviour
             }
             weapons[currentWeaponIndex] = weaponToAdd;
             gameObject.GetComponentInChildren<PlayerWeapon>().OnWeaponChange(weaponToAdd);
+            Destroy(toRemoveOnAdd);
             InventoryUI();
         }
     }
@@ -49,6 +51,7 @@ public class Inventory : MonoBehaviour
         {
             inventoryItems.Add(toAdd);
             InventoryUI();
+            Destroy(toRemoveOnAdd);
         }
     }
 
@@ -97,6 +100,13 @@ public class Inventory : MonoBehaviour
         }
 
         inventoryUI.UpdatePanel(allItems);
+    }
+
+    // Outbound GameObject Removal Method
+
+    public void SetGameObjectToRemoveOnItemAdd(GameObject toRemove)
+    {
+        toRemoveOnAdd = toRemove;
     }
 
     // Outbound Item Methods
