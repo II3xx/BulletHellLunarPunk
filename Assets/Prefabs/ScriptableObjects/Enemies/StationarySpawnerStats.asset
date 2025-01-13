@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8780adb2b7155d4b82a391402e45955, type: 3}
   m_Name: StationarySpawnerStats
   m_EditorClassIdentifier: 
-  health: 8
+  health: 9
   iFrameOnHit: 0.13
   onDamage: {r: 1, g: 0.1, b: 0.1, a: 0.5}
   spawnAmount: 1
