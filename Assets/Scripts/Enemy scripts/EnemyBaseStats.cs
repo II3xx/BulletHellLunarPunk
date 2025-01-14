@@ -8,11 +8,17 @@ abstract public class EnemyBaseStats : ScriptableObject
     [SerializeField] [Range(0, 200)] protected int health;
     [SerializeField] [Range(0, 2)] protected float iFrameOnHit;
     protected float iFrameBlinkTime = 0.125f;
+    [SerializeField] private List<AudioClip> onHitSounds;
     [SerializeField] protected Color onDamage = new(1, 0.1f, 0.1f, 0.5f);
 
     public float IFrameOnHit
     {
         get => iFrameOnHit;
+    }
+
+    public AudioClip OnHitSound
+    {
+        get => onHitSounds[Random.Range(0, onHitSounds.Count - 1)];
     }
 
     public Color OnDamage

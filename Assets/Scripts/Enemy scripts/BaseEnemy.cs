@@ -11,6 +11,7 @@ abstract public class BaseEnemy : MonoBehaviour
     [SerializeField] protected EnemyBaseStats enemyStats;
     protected SpriteRenderer spriteRenderer;
     [SerializeField] private UnityEvent onDeath;
+    
     protected int health;
     private bool iFramed = false;
 
@@ -32,6 +33,15 @@ abstract public class BaseEnemy : MonoBehaviour
         get => allegiance;
     }
 
+    private void CreateTempAudio(AudioClip audioClip)
+    {
+        var temp = GameObject.CreatePrimitive(PrimitiveType.Plane);
+        temp.transform.position = transform.position;
+        var tempaudio = temp.AddComponent<TemporaryAudioSource>();
+        tempaudio.setClipAndPlay(audioClip);
+        temp.GetComponent<MeshRenderer>().enabled = false;
+    }
+
     public int Damage
     {
         set
@@ -43,6 +53,10 @@ abstract public class BaseEnemy : MonoBehaviour
             if (health <= 0)
             {
                 OnDeath();
+            }
+            else
+            {
+                CreateTempAudio(enemyStats.OnHitSound);
             }
         }
     }
