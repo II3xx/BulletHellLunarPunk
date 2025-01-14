@@ -9,6 +9,7 @@ using UnityEngine.Events;
 public class MovingEnemyRanged : MovingEnemy
 {
     EnemyRangedStats rangedStats;
+    
 
     private void Start()
     {
@@ -49,9 +50,13 @@ public class MovingEnemyRanged : MovingEnemy
             navAgent.SetDestination(Destin);
     }
 
+    
+
     // Update is called once per frame
     void Update()
     {
         UpdatePosition();
+
+        FaceDirection();
     }
 }

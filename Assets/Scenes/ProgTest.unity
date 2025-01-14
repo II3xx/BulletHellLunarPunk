@@ -459,6 +459,7 @@ MonoBehaviour:
   onDeath:
     m_PersistentCalls:
       m_Calls: []
+  FacingLeft: 0
 --- !u!114 &256796817
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1192,6 +1193,7 @@ MonoBehaviour:
   onDeath:
     m_PersistentCalls:
       m_Calls: []
+  FacingLeft: 0
 --- !u!114 &498474639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2660,6 +2662,7 @@ MonoBehaviour:
   onDeath:
     m_PersistentCalls:
       m_Calls: []
+  FacingLeft: 0
 --- !u!114 &749343910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124826,7 +124829,7 @@ GameObject:
   - component: {fileID: 1667616394}
   - component: {fileID: 1667616395}
   - component: {fileID: 1667616397}
-  - component: {fileID: 1667616396}
+  - component: {fileID: 1667616398}
   m_Layer: 0
   m_Name: Isometric Diamond
   m_TagString: Untagged
@@ -125064,22 +125067,6 @@ NavMeshAgent:
   m_BaseOffset: 0.25
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &1667616396
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1667616386}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2270f6b94d28b84e9ed998004bbfa91, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyStats: {fileID: 11400000, guid: e1437da39812d8d4096948e38d746695, type: 2}
-  onDeath:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &1667616397
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125094,6 +125081,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyStats: {fileID: 11400000, guid: e1437da39812d8d4096948e38d746695, type: 2}
   audioSource: {fileID: 1667616394}
+--- !u!114 &1667616398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1667616386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48ccbcf464851194bbc0b9624a01236b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyStats: {fileID: 11400000, guid: e1437da39812d8d4096948e38d746695, type: 2}
+  onDeath:
+    m_PersistentCalls:
+      m_Calls: []
+  FacingLeft: 0
 --- !u!1 &1840627023
 GameObject:
   m_ObjectHideFlags: 0
@@ -125544,6 +125548,7 @@ MonoBehaviour:
   onDeath:
     m_PersistentCalls:
       m_Calls: []
+  FacingLeft: 0
 --- !u!114 &1892907578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131899,6 +131904,7 @@ MonoBehaviour:
   onDeath:
     m_PersistentCalls:
       m_Calls: []
+  FacingLeft: 0
 --- !u!114 &1985992896
 MonoBehaviour:
   m_ObjectHideFlags: 0

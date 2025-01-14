@@ -69,5 +69,6 @@ public class EnemyMeleeMovement : MovingEnemy
     void Update()
     {
         UpdatePosition();
+        FaceDirection();
     }
 }

@@ -9,6 +9,7 @@ abstract public class MovingEnemy : BaseEnemy
 {
     protected NavMeshAgent navAgent;
     protected float moveRunTime = 0;
+    [SerializeField] private bool FacingLeft;
 
     override protected void OnStart()
     {
@@ -32,6 +33,26 @@ abstract public class MovingEnemy : BaseEnemy
             yield return null;
         }
         navAgent.acceleration = normalAccel;
+    }
+
+    protected void FaceDirection()
+    {
+        bool flipX;
+        if (navAgent.velocity.x > 0)
+        {
+            flipX = false;
+        }
+        else
+        {
+            flipX = true;
+        }
+
+        if (FacingLeft)
+        {
+            flipX = !flipX;
+        }
+
+        spriteRenderer.flipX = flipX;
     }
 
     public void Knockback(float knockbackAngle, float knockBackAmount, float knockBackTime)

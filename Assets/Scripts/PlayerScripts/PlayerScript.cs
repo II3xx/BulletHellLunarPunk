@@ -270,10 +270,12 @@ public class PlayerScript : MonoBehaviour
         if(velocity.x < 0)
         {
             rotState = 0f;
+            spriteRenderer.flipX = false;
         }
         else if (velocity.x > 0)
         {
             rotState = 0.66f;
+            spriteRenderer.flipX = true;
         }
         else if (velocity.y > 0)
         {
