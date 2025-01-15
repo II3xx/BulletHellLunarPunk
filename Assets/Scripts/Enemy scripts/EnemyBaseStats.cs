@@ -18,7 +18,13 @@ abstract public class EnemyBaseStats : ScriptableObject
 
     public AudioClip OnHitSound
     {
-        get => onHitSounds[Random.Range(0, onHitSounds.Count - 1)];
+        get{ 
+            if (onHitSounds.Count > 0)
+            {
+                return onHitSounds[Random.Range(0, onHitSounds.Count - 1)];
+            }
+            return null;
+        }
     }
 
     public Color OnDamage

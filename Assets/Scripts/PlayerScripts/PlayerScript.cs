@@ -285,6 +285,5 @@ public class PlayerScript : MonoBehaviour
         {
             rotState = 0.33f;
         }
-        animator.SetFloat("RotState", rotState);
     }
 }
