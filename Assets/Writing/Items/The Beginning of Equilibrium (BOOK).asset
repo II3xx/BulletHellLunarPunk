@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9715b0679d227f5419fbdbc04ef5d185, type: 3}
   m_Name: The Beginning of Equilibrium (BOOK)
   m_EditorClassIdentifier: 
-  itemName: The Beginning
+  itemName: The Beginning of Equilibrium
   itemDescription: "An old summary of the birth and subsequent rule of the first
     Aeon, The \u201CEquilibrium\u201D. "
   itemSprite: {fileID: 1674611985, guid: a9df86e73966e99468e4bc505b36f878, type: 3}
