@@ -14,11 +14,11 @@ PrefabInstance:
       objectReference: {fileID: 260438423, guid: b497907430dbbbe45b8d80e26d077ebc, type: 3}
     - target: {fileID: 6802440405771576246, guid: d5577a62bb146e74aa50ec04e883ac7d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.112
+      value: -10.785744
       objectReference: {fileID: 0}
     - target: {fileID: 6802440405771576246, guid: d5577a62bb146e74aa50ec04e883ac7d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 29.946
+      value: -8.517036
       objectReference: {fileID: 0}
     - target: {fileID: 6802440405771576246, guid: d5577a62bb146e74aa50ec04e883ac7d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -30,15 +30,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6802440405771576246, guid: d5577a62bb146e74aa50ec04e883ac7d, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6802440405771576246, guid: d5577a62bb146e74aa50ec04e883ac7d, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6802440405771576246, guid: d5577a62bb146e74aa50ec04e883ac7d, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6802440405771576246, guid: d5577a62bb146e74aa50ec04e883ac7d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -55,6 +55,14 @@ PrefabInstance:
     - target: {fileID: 7473004578747710248, guid: d5577a62bb146e74aa50ec04e883ac7d, type: 3}
       propertyPath: m_Name
       value: CandleLight Variant 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8495231138889104772, guid: d5577a62bb146e74aa50ec04e883ac7d, type: 3}
+      propertyPath: m_Color.g
+      value: 0.68041235
+      objectReference: {fileID: 0}
+    - target: {fileID: 8495231138889104772, guid: d5577a62bb146e74aa50ec04e883ac7d, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8495231138889104772, guid: d5577a62bb146e74aa50ec04e883ac7d, type: 3}
       propertyPath: m_PointLightInnerRadius
