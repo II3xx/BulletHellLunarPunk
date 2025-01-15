@@ -20,6 +20,7 @@ public class InventoryUI : MonoBehaviour
     private GameObject currentObjectSelected;
     private bool isTooltiping = false;
     private bool initialized = false;
+    private bool turnOff = false;
 
     private void Initialize()
     {
@@ -139,6 +140,16 @@ public class InventoryUI : MonoBehaviour
 
     private void EventTrigger()
     {
+        if (turnOff)
+        {
+            turnOff = false;
+        }
+        else
+        {
+            turnOff = true;
+        }
+        isTooltiping = false;
+        HideToolTip();
         animator.SetTrigger("InventoryTrigger");
     }
 
@@ -168,6 +179,11 @@ public class InventoryUI : MonoBehaviour
 
     private void Update()
     {
+        if (turnOff)
+        {
+            return;
+        }
+            
         if (isTooltiping)
         {
             CheckToolTip();
