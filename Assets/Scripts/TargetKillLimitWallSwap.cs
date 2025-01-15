@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using Cinemachine;
 
 public class TargetKillLimitWallSwap : MonoBehaviour
@@ -10,6 +11,7 @@ public class TargetKillLimitWallSwap : MonoBehaviour
     [SerializeField] [Range(0.1f, 0.8f)] float shakeAmount = 0.1f;
     [SerializeField] CinemachineVirtualCamera virtCam;
     [SerializeField] AudioClip audioClip;
+    [SerializeField] UnityEvent onActivated;
 
     private void Awake()
     {
@@ -22,6 +24,7 @@ public class TargetKillLimitWallSwap : MonoBehaviour
         TotalKills--;
         if(TotalKills <= 0)
         {
+            onActivated.Invoke();
             ToggleCollider.isTrigger = true;
             if(virtCam != null)
                 StartCoroutine(OnKillCompletion());

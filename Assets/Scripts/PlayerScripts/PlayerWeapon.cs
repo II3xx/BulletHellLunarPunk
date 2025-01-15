@@ -8,6 +8,7 @@ public class PlayerWeapon : MonoBehaviour
 
     [SerializeField] private WeaponStats weaponStats;
     [SerializeField] private AudioSource audioSource;
+    private readonly float maxDistance = 0.8f;
     private PlayerScript player;
     private bool notActived = true;
     private float runTime;
@@ -27,6 +28,10 @@ public class PlayerWeapon : MonoBehaviour
     {
         runTime += Time.deltaTime;
         ShootSystem();
+        Vector3 currentPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        float angle = LunarMath.VectorAngle(currentPos, transform.position);
+        transform.localRotation = Quaternion.Euler(0, 0, (angle + 1.5708f) * Mathf.Rad2Deg + weaponStats.WeaponAngle);
+        transform.localPosition = new Vector2(maxDistance * Mathf.Cos(angle), maxDistance * Mathf.Sin(angle));
     }
 
     private void ShootSystem()
@@ -59,7 +64,7 @@ public class PlayerWeapon : MonoBehaviour
     {
         for (int i = 0; i < weaponStats.BulletAmount; i++)
         {
-            float angle = Mathf.Deg2Rad * (transform.localRotation.eulerAngles.z + Random.Range(0, weaponStats.BulletSpread) - weaponStats.BulletSpread * 0.5f - 90);
+            float angle = Mathf.Deg2Rad * (transform.localRotation.eulerAngles.z + Random.Range(0, weaponStats.BulletSpread) - weaponStats.BulletSpread * 0.5f);
             Vector2 bulletVelocity = new(weaponStats.BulletSpeed * Mathf.Cos(angle), weaponStats.BulletSpeed * Mathf.Sin(angle));
             GameObject Bullet = Instantiate(weaponStats.BulletPrefab);
             Bullet.transform.SetPositionAndRotation(transform.position, Quaternion.Euler(0, 0, Mathf.Rad2Deg * angle - 90));

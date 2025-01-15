@@ -11,10 +11,16 @@ public class WeaponStats : ScriptableObject
     [Range(0.25f, 8)] [SerializeField] private float fireRate = 1f;
     [SerializeField] private GameObject bullet;
     [SerializeField] private AudioClip gunSound;
+    [SerializeField] [Range(0, 360)] private float gunPointAngle;
 
     public float BulletSpeed
     {
         get => bulletSpeed;
+    }
+
+    public float WeaponAngle
+    {
+        get => gunPointAngle;
     }
 
     public float BulletAmount
