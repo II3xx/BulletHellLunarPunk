@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Level1StartDialogue
   m_EditorClassIdentifier: 
   DialogueText:
+  - <i>Your communications device is calling </i>
   - Well done on making it this far rookie, and you did it faster than expected.
   - now just don't forget your mission, get in that dusty old cathedral and smoke
     <i>The Humans True" cultists keeping it under wraps okay?
