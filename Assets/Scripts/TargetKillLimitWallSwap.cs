@@ -38,7 +38,7 @@ public class TargetKillLimitWallSwap : MonoBehaviour
         var temp = GameObject.CreatePrimitive(PrimitiveType.Plane);
         temp.transform.position = transform.position;
         var tempaudio = temp.AddComponent<TemporaryAudioSource>();
-        tempaudio.setClipAndPlay(audioClip);
+        tempaudio.SetClipAndPlay2D(audioClip);
         temp.GetComponent<MeshRenderer>().enabled = false;
     }
 

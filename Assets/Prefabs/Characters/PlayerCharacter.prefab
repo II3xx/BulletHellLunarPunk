@@ -154,44 +154,12 @@ MonoBehaviour:
     m_ActionName: Player/Fire[/Mouse/leftButton]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 6ff63e93-aca6-4b4f-ad8b-f44dee621b8c
-    m_ActionName: UI/Navigate[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
-  - m_PersistentCalls:
-      m_Calls: []
     m_ActionId: 9fbf045c-de64-44a8-97ae-b0245d1a0659
     m_ActionName: UI/Submit[/Keyboard/enter]
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: 3f037ff6-5b85-435c-8aa6-86393b153ed6
     m_ActionName: UI/Cancel[/Keyboard/escape]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: b99a68fa-3adf-4704-b44d-d7fb89e813bb
-    m_ActionName: UI/Point[/Mouse/position,/Pen/position]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 42dd1bfd-614d-459c-b078-de4e65f431df
-    m_ActionName: UI/Click[/Mouse/leftButton,/Pen/tip]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: ad9e43c8-eb5f-4b07-b9c6-5c9dbb0ed3a4
-    m_ActionName: UI/ScrollWheel[/Mouse/scroll]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: e665a08a-1c83-4d6c-a58c-8ccb1d114f3c
-    m_ActionName: UI/MiddleClick[/Mouse/middleButton]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: eba2feec-c465-402f-a2df-34c4dfd495a4
-    m_ActionName: UI/RightClick[/Mouse/rightButton]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 0b350358-8adb-42e0-9ba9-e328025e5718
-    m_ActionName: UI/TrackedDevicePosition
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: a4f0d3a1-355f-4bb7-a974-d744b11059b2
-    m_ActionName: UI/TrackedDeviceOrientation
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1575228057551675697}
@@ -212,6 +180,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 13290e95-fb86-4732-b0ca-07b01ddf17c2
     m_ActionName: Player/Interact[/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d6562cf6-b4f1-49a5-b154-e9aeb5b7a471
+    m_ActionName: Player/Inventory[/Keyboard/tab]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player
@@ -323,6 +295,7 @@ MonoBehaviour:
   spriteRenderer: {fileID: 2577995011620076090}
   DashAudioSource: {fileID: 2937420614285148009}
   uiBheavior: {fileID: 0}
+  eKeyPrefab: {fileID: 0}
 --- !u!82 &2937420614285148009
 AudioSource:
   m_ObjectHideFlags: 0
@@ -448,7 +421,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.8, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 862591762986213100}
