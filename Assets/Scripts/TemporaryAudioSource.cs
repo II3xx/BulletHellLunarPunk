@@ -16,6 +16,14 @@ public class TemporaryAudioSource : MonoBehaviour
         audioSource.Play();
     }
 
+    public void SetClipAndPlay2D(AudioClip clip)
+    {
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.spatialBlend = 0.2f;
+        audioSource.clip = clip;
+        audioSource.Play();
+    }
+
     // Update is called once per frame
     void Update()
     {
