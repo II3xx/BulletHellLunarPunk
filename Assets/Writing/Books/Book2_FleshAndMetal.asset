@@ -21,11 +21,11 @@ MonoBehaviour:
     on the other hand is called the harbinger of technology.  '
   - '<i>Sevaral pages seem to be missing</i>
 
-    
+
 
 '
-  - "\tThese two Aeons have been said to be at eachothers throats since time immemorial
-    but without either of them, humanity would not be what we are today. "
+  - 'These two Aeons have been said to be at eachothers throats since time immemorial
+    but without either of them, humanity would not be what we are today. '
   isRunic: 0
   fontSize: 30
   defaultFont: {fileID: 11400000, guid: 98aff1b069105a84f906805549108141, type: 2}
