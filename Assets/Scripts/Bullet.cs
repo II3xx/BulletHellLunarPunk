@@ -57,11 +57,11 @@ public class Bullet : MonoBehaviour
             UnitAudioHit();
             enemyBase.Damage = damage;
             float angle = LunarMath.VectorAngle(collision.transform.position, rb2D.position);
-            if(enemyBase is MovingEnemy enemy)
+            Destroy(gameObject);
+            if (enemyBase is MovingEnemy enemy)
             {
                 enemy.Knockback(angle, knockBackForce, knockBackTime);
             }
-            Destroy(gameObject);
             return;
         }
     }

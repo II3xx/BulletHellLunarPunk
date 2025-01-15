@@ -16,5 +16,5 @@ MonoBehaviour:
   itemDescription: A standard issue plasma pistol used by most of Argyrias lower
     class followers due to being easy to mass produce. Its power is lacking compared
     to most other weaponry from the Aeon of metal, but ammunition for it is abundant.
-  itemSprite: {fileID: 21300000, guid: b4ae2cbd2a047c349ae762f7c9305584, type: 3}
+  itemSprite: {fileID: 21300000, guid: 5818609f8dc840f4692612e0b42c6419, type: 3}
   stats: {fileID: 11400000, guid: d75f9766198f4de46965b5da488340b3, type: 2}

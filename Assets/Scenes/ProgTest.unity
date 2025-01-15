@@ -1498,6 +1498,17 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &529168388 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4438724971867354497, guid: fb0a0abaa56991b4f9a435a96a22e2ec, type: 3}
+  m_PrefabInstance: {fileID: 1241752981}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af4477fcdf703f7458b7a3f7db8eb260, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &593022577
 GameObject:
   m_ObjectHideFlags: 0
@@ -1579,7 +1590,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.8, z: 0}
-  m_LocalScale: {x: 0.1, y: 0.2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1495542899}
@@ -2884,7 +2895,6 @@ GameObject:
   - component: {fileID: 972725969}
   - component: {fileID: 972725968}
   - component: {fileID: 972725971}
-  - component: {fileID: 972725972}
   m_Layer: 3
   m_Name: CinemAchine2D
   m_TagString: Untagged
@@ -2959,22 +2969,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 729aad4491e915a41bda2b8325cf757a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &972725972
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 972725962}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f453f694addf4275988fac205bc91968, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_BoundingShape2D: {fileID: 0}
-  m_Damping: 0.5
-  m_MaxWindowSize: -1
-  m_Padding: 100
 --- !u!1 &1121011671
 GameObject:
   m_ObjectHideFlags: 0
@@ -124129,6 +124123,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6016698308246963905, guid: fb0a0abaa56991b4f9a435a96a22e2ec, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1631055287}
+    - target: {fileID: 6016698308246963905, guid: fb0a0abaa56991b4f9a435a96a22e2ec, type: 3}
+      propertyPath: dialogueReader
+      value: 
+      objectReference: {fileID: 529168388}
+    - target: {fileID: 6016698308246963905, guid: fb0a0abaa56991b4f9a435a96a22e2ec, type: 3}
+      propertyPath: toolTipObjectPrefab
+      value: 
+      objectReference: {fileID: 4999214419396187644, guid: 099643a510694b343926995524799fdb, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -124204,6 +124210,7 @@ GameObject:
   - component: {fileID: 1495542909}
   - component: {fileID: 1495542910}
   - component: {fileID: 1495542911}
+  - component: {fileID: 1495542912}
   m_Layer: 0
   m_Name: Circle
   m_TagString: Player
@@ -124404,44 +124411,12 @@ MonoBehaviour:
     m_ActionName: Player/Fire[/Mouse/leftButton]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 6ff63e93-aca6-4b4f-ad8b-f44dee621b8c
-    m_ActionName: UI/Navigate[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
-  - m_PersistentCalls:
-      m_Calls: []
     m_ActionId: 9fbf045c-de64-44a8-97ae-b0245d1a0659
     m_ActionName: UI/Submit[/Keyboard/enter]
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: 3f037ff6-5b85-435c-8aa6-86393b153ed6
     m_ActionName: UI/Cancel[/Keyboard/escape]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: b99a68fa-3adf-4704-b44d-d7fb89e813bb
-    m_ActionName: UI/Point[/Mouse/position,/Pen/position]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 42dd1bfd-614d-459c-b078-de4e65f431df
-    m_ActionName: UI/Click[/Mouse/leftButton,/Pen/tip]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: ad9e43c8-eb5f-4b07-b9c6-5c9dbb0ed3a4
-    m_ActionName: UI/ScrollWheel[/Mouse/scroll]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: e665a08a-1c83-4d6c-a58c-8ccb1d114f3c
-    m_ActionName: UI/MiddleClick[/Mouse/middleButton]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: eba2feec-c465-402f-a2df-34c4dfd495a4
-    m_ActionName: UI/RightClick[/Mouse/rightButton]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 0b350358-8adb-42e0-9ba9-e328025e5718
-    m_ActionName: UI/TrackedDevicePosition
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: a4f0d3a1-355f-4bb7-a974-d744b11059b2
-    m_ActionName: UI/TrackedDeviceOrientation
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1495542909}
@@ -124462,6 +124437,22 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 13290e95-fb86-4732-b0ca-07b01ddf17c2
     m_ActionName: Player/Interact[/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1631055288}
+        m_TargetAssemblyTypeName: InventoryUI, Assembly-CSharp
+        m_MethodName: TriggerInventory
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: d6562cf6-b4f1-49a5-b154-e9aeb5b7a471
+    m_ActionName: Player/Inventory[/Keyboard/tab]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player
@@ -124479,7 +124470,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fe7d63d491b7b5478e3b3f6d8cafb6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Weapon: {fileID: 593022577}
 --- !u!114 &1495542909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124617,6 +124607,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1495542912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1495542897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3ee9b1bfbfc20a48a8a82894ed3d014, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingWeapon: {fileID: 11400000, guid: 536c09590d40e474db4b932610635d64, type: 2}
+  inventoryUI: {fileID: 1631055288}
+  floatingText: {fileID: 3388696973331036694, guid: e47eefffab6cb0045b38afdc17c467f2, type: 3}
 --- !u!1 &1512924388
 GameObject:
   m_ObjectHideFlags: 0
@@ -124815,6 +124820,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1631055287 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4659459394650322531, guid: fb0a0abaa56991b4f9a435a96a22e2ec, type: 3}
+  m_PrefabInstance: {fileID: 1241752981}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1631055288 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6016698308246963905, guid: fb0a0abaa56991b4f9a435a96a22e2ec, type: 3}
+  m_PrefabInstance: {fileID: 1241752981}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4c117ba84ff0a341a7031d76a2c417b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1667616386
 GameObject:
   m_ObjectHideFlags: 0

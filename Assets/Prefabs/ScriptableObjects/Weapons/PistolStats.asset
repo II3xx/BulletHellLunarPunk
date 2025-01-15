@@ -18,3 +18,4 @@ MonoBehaviour:
   fireRate: 0.5
   bullet: {fileID: 5625652813693948211, guid: 774be4b4c5194c14b90984a6c5cb93d8, type: 3}
   gunSound: {fileID: 8300000, guid: 45fc6a4795fd1d64999c03a358bc309e, type: 3}
+  gunPointAngle: 270
