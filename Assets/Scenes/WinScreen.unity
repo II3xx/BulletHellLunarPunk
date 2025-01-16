@@ -887,7 +887,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "With one of the sect of the Humans True now in shambles, You return to
+  m_text: "With one of the sects of the Humans True now in shambles, You return to
     home base to continue your service to the\n New Dawn "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 98aff1b069105a84f906805549108141, type: 2}

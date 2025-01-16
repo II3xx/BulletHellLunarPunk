@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59c911424c8e77740ba62cdb2d9acf5d, type: 3}
   m_Name: EnemyBoss
   m_EditorClassIdentifier: 
-  health: 14
+  health: 20
   iFrameOnHit: 0
+  onHitSounds:
+  - {fileID: 8300000, guid: afb2d7742de56654da8f44621d11c4d2, type: 3}
+  - {fileID: 8300000, guid: a286a6264274e5540beec8de1e42897e, type: 3}
   onDamage: {r: 1, g: 0.1, b: 0.1, a: 0.5}
   timeBetweenMoves: 0.5
   moveChance: 90

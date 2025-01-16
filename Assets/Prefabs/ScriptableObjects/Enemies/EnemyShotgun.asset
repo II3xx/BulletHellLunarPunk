@@ -14,10 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 6
   iFrameOnHit: 0
+  onHitSounds:
+  - {fileID: 8300000, guid: 8696725dbe4c1824ab4b140d99771517, type: 3}
+  - {fileID: 8300000, guid: 4606b2500c5d6bd4bbb24caa2bf70d7c, type: 3}
+  - {fileID: 8300000, guid: a286a6264274e5540beec8de1e42897e, type: 3}
   onDamage: {r: 1, g: 0.1, b: 0.1, a: 0.5}
   timeBetweenMoves: 0.5
   moveChance: 85
   movementSpeed: 4
+  knockBackResistance: 0
   minDistance: 4
   maxDistance: 8
   bulletSpeed: 5

@@ -18,6 +18,6 @@ MonoBehaviour:
   dashCooldown: 2
   dashVelocity: 20
   dashTime: 0.33
-  dashSound: {fileID: 8300000, guid: 910faa9bfb22aec479512e1172519d2c, type: 3}
+  dashSound: {fileID: 8300000, guid: a2bad6044f7cbcb4ea0d7c7592b1b572, type: 3}
   movementSpeed: 3.75
   onDamage: {r: 1, g: 0, b: 0, a: 0.49411765}

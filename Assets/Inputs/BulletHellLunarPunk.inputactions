@@ -58,6 +58,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Restart",
+                    "type": "Button",
+                    "id": "15bfb604-c69b-4c05-96cd-c5e07fa3210b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -311,6 +320,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Inventory",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "08a634cd-ccd1-4020-b484-fc7d2b83250b",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Restart",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

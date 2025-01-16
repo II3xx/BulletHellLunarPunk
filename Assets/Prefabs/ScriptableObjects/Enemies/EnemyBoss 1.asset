@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 14
   iFrameOnHit: 0
+  onHitSounds:
+  - {fileID: 8300000, guid: afb2d7742de56654da8f44621d11c4d2, type: 3}
   onDamage: {r: 1, g: 0.1, b: 0.1, a: 0.5}
   timeBetweenMoves: 0.5
   moveChance: 90
