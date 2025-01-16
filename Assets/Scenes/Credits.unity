@@ -303,7 +303,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Menu
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 98aff1b069105a84f906805549108141, type: 2}
   m_sharedMaterial: {fileID: 4785150440820827147, guid: 98aff1b069105a84f906805549108141, type: 2}
@@ -947,7 +947,7 @@ MonoBehaviour:
     Music & Sound:
     Jonathan
 
-    Design: Viktor'
+    Design & UI: Viktor'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 98aff1b069105a84f906805549108141, type: 2}
   m_sharedMaterial: {fileID: 4785150440820827147, guid: 98aff1b069105a84f906805549108141, type: 2}

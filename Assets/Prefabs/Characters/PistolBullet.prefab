@@ -128,7 +128,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioClipWallHit: {fileID: 0}
   audioClipUnitHit: {fileID: 0}
-  damage: 10
+  damage: 1
   knockBackForce: 4
   knockBackTime: 0.4
 --- !u!58 &4622532069009263473
