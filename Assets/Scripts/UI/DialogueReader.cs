@@ -26,6 +26,11 @@ public class DialogueReader : MonoBehaviour
         defaultFont = textMesh.font; 
     }
 
+    public bool CurrentlyReading()
+    {
+        return currentText == null;
+    }
+
     private IEnumerator TextTimer()
     {
         hasRead = true;
