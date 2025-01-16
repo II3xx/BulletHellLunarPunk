@@ -18,12 +18,18 @@ public class DialogueReader : MonoBehaviour
     private int currentIndex = 0;
     private int maxIndex = 0;
     private string currentLine;
+    private bool isReading = false;
     private Coroutine currentTextDelay;
     private bool hasRead = false;
 
     private void Start()
     {
         defaultFont = textMesh.font; 
+    }
+
+    public bool CurrentlyReading()
+    {
+        return isReading;
     }
 
     private IEnumerator TextTimer()
@@ -127,6 +133,7 @@ public class DialogueReader : MonoBehaviour
         {
             StartNormalText();
         }
+        isReading = true;
         currentTextDelay = StartCoroutine(TextDelay());
 
         playerInput.SwitchCurrentActionMap("UI");
@@ -134,7 +141,8 @@ public class DialogueReader : MonoBehaviour
 
     private void StopTextDelay()
     {
-        StopCoroutine(currentTextDelay);
+        if(currentTextDelay != null)
+            StopCoroutine(currentTextDelay);
         currentTextDelay = null;
     }
 
@@ -182,6 +190,7 @@ public class DialogueReader : MonoBehaviour
     {
         textMesh.text = "";
         StartCoroutine(TextTimer());
+        isReading = false;
         if (currentText.IsRunic)
         {
             EndRunicText();
