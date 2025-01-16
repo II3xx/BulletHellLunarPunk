@@ -28,7 +28,7 @@ public class DialogueReader : MonoBehaviour
 
     public bool CurrentlyReading()
     {
-        return currentText == null;
+        return currentText != null;
     }
 
     private IEnumerator TextTimer()
