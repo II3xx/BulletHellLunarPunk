@@ -92,7 +92,7 @@ public class InventoryUI : MonoBehaviour
             return;
         if (dialogueReader.CurrentlyReading())
             return;
-        turnOff = true;
+        turnOff = false;
         animator.SetTrigger("InventoryTrigger");
     }
 
